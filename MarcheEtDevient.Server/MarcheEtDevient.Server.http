@@ -1,0 +1,6 @@
+@MarcheEtDevient.Server_HostAddress = http://localhost:5231
+
+GET {{MarcheEtDevient.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
