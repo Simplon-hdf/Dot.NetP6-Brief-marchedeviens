@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//configuration du lien de connection de la class apidbcontexte avec un connection string qui se situe dans setting.json
 builder.Services.AddDbContext<ApiDBContext>(options =>
 {
     options.UseMySQL(builder.Configuration.GetConnectionString("DataBaseContexteClasse"));
