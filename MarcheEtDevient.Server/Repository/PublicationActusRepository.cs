@@ -12,9 +12,8 @@ public class PublicationActusRepository : IRepository<PublicationActu, string>
     {
         _contexteDeBDD.PublicationActus.Add(model);                                         // ajout une nouvell entrée dans la BDD a partir de celle fournie dans le EndPoint(point de connection de l'api)
         await _contexteDeBDD.SaveChangesAsync();                                            // Sauvegarde des changement dans la BDD
-        string id = model.IdPublication;                                                    // stock l'id du model dans une variable 
-        if (await _contexteDeBDD.PublicationActus.FindAsync(id) == null){return false; }    // verfication de la creation
-        return true;                                                                        // verification ok
+        string id = model.IdPublication;                                                    // stock l'id du model dans une variable    
+        return await _contexteDeBDD.PublicationActus.FindAsync(id) != null;                 // verfication de la creation
     }
 
     public async Task<bool> Delete(string id)
@@ -22,22 +21,19 @@ public class PublicationActusRepository : IRepository<PublicationActu, string>
         var bddPublicationActuSupprimer = await _contexteDeBDD.PublicationActus.FindAsync(id);      // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
         if ( bddPublicationActuSupprimer == null){return false; }                                   // verfication de l'existance de cette id dans la table
         _contexteDeBDD.PublicationActus.Remove(bddPublicationActuSupprimer);                        // Suprime l'entree correspondante
-        await _contexteDeBDD.SaveChangesAsync();                                                    // Sauvegarde des changement dans la BDD
-        if (await _contexteDeBDD.PublicationActus.FindAsync(id) != null) { return false; }          // verfication de la supression
-        return true;                                                                                // verification ok
+        await _contexteDeBDD.SaveChangesAsync();                                                    // Sauvegarde des changement dans la BDD         
+        return await _contexteDeBDD.PublicationActus.FindAsync(id) != null;                         // verfication de la supression
     }
 
     public async Task<IEnumerable<PublicationActu>> GetAll()
     {
-        IEnumerable<PublicationActu> publicationActu = await _contexteDeBDD.PublicationActus.ToListAsync();     // recupere la table dans la BDD et la transforme en IEnumerable 
+        IEnumerable<PublicationActu> publicationActu = await _contexteDeBDD.PublicationActus.ToArrayAsync();     // recupere la table dans la BDD et la transforme en IEnumerable 
         return publicationActu;                                                                                 // retourne le IEnumerable
     }
 
     public async Task<PublicationActu> GetById(string id)
     {
-        PublicationActu publicationActu = await _contexteDeBDD.PublicationActus.FindAsync(id);      // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
-        if (publicationActu == null) { return null; }                                               // si publicationActu est null on retourne null
-        return publicationActu;                                                                     // retourne publicationActu
+        return await _contexteDeBDD.PublicationActus.FindAsync(id);     // retourne l'entrée en BDD par sont id si inexistant revoie un null
     }
 
     public async Task<bool> Update(PublicationActu model, string id)
@@ -48,9 +44,8 @@ public class PublicationActusRepository : IRepository<PublicationActu, string>
         dbPublicationActu.IdVideo = model.IdVideo;                                    // remplace l'id de la video dans la bdd par celle du model
         await _contexteDeBDD.SaveChangesAsync();                                      // Sauvegarde des changement dans la BDD
         var dbVerifAction = await _contexteDeBDD.PublicationActus.FindAsync(id);      // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
-        if (dbVerifAction.IdVideo != model.IdVideo || 
-            dbVerifAction.IdPublication != model.IdPublication ) {return false; }     // verfication de la modification
-        return true;                                                                  // verification ok
+        return dbVerifAction.IdVideo == model.IdVideo ||
+            dbVerifAction.IdPublication == model.IdPublication;                       // verfication de la modification
 
     }
 }
