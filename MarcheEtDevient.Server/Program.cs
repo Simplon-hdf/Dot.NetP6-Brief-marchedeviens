@@ -1,3 +1,8 @@
+using MarcheEtDevient.Server.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using MySql.EntityFrameworkCore.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,10 +12,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//configuration du lien de connection de la class apidbcontexte avec un connection string qui se situe dans setting.json
+builder.Services.AddDbContext<ApiDBContext>(options =>
+{
+    options.UseMySQL(builder.Configuration.GetConnectionString("DataBaseContexteClasse"));
+});
+
 var app = builder.Build();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
