@@ -5,7 +5,7 @@ namespace MarcheEtDevient.Server.Models;
 
 public partial class PublicationActu
 {
-    public string IdPublicationActu { get; set; } = null!;
+    public string IdPublicationActu { get; } = null!;
 
     public DateOnly? DatePublication { get; set; }
 
