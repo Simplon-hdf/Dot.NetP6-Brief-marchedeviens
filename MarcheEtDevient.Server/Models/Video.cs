@@ -5,7 +5,7 @@ namespace MarcheEtDevient.Server.Models;
 
 public partial class Video
 {
-    public string IdVideo { get; set; } = null!;
+    public string IdVideo { get; } = null!;
 
     public string? LienVideo { get; set; }
 
