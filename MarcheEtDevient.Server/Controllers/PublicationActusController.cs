@@ -2,7 +2,6 @@
 using MarcheEtDevient.Server.Models;
 using MarcheEtDevient.Server.Repository;
 using Microsoft.AspNetCore.Mvc;
-using static MarcheEtDevient.Server.Repository.IRepository;
 
 namespace MarcheEtDevient.Server.Controllers
 {
@@ -10,12 +9,12 @@ namespace MarcheEtDevient.Server.Controllers
     [Route("api/[controller]")]
     public class PublicationActusController : ControllerBase
     {
-        private readonly IRepository<PublicationActu, string> _publicationActuRepository;
-        private readonly ApiDBContext apiDBContext;
+        private readonly PublicationActusRepository _publicationActuRepository;
+        private readonly ApiDBContext _context;
         public PublicationActusController(ApiDBContext context)
         {
-            apiDBContext = context;
-            _publicationActuRepository = new PublicationActusRepository(apiDBContext);
+            _context = context;
+            _publicationActuRepository = new PublicationActusRepository(_context);
         }
 
         [HttpGet]
@@ -42,7 +41,7 @@ namespace MarcheEtDevient.Server.Controllers
             var result = await _publicationActuRepository.Add(publicationActu);                                                                    // envoie vers le repository l'objet et stock le boolean de retour
             if (result)                                                                                                             // si le boolean de retour est true
             {
-                return CreatedAtAction(nameof(GetPublicationActu), new { id = publicationActu.IdPublication }, publicationActu);    // revoi vers le endpoint l'object qui vien d'etre crée
+                return CreatedAtAction(nameof(GetPublicationActu), new { id = publicationActu.id_publication }, publicationActu);    // revoi vers le endpoint l'object qui vien d'etre crée
             }
             return BadRequest();                                                                                                    // revoie un bad request (code ~400)
         }
@@ -50,7 +49,7 @@ namespace MarcheEtDevient.Server.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePublicationActu(string id, PublicationActu publicationActu)
         {
-            if (id != publicationActu.IdPublication)                        // verifie si la donnée que lon veux update est bien celle avec cette id
+            if (id != publicationActu.id_publication)                        // verifie si la donnée que lon veux update est bien celle avec cette id
             {
                 return BadRequest();                                        // revoie un bad request (code ~400)
             }

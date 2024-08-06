@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MarcheEtDevient.Server.Models;
 
 public partial class Reservation
 {
-    public string IdUtilisateur { get; set; } = null!;
+    [Key] public string id_utilisateur { get; set; }
 
-    public string IdSejour { get; set; } = null!;
+    public string id_sejour { get; set; } = null!;
 
-    public int? NombrePlacesDemandee { get; set; }
+    public int? nombre_places_demandee { get; set; }
 
-    public DateOnly? DatePaiement { get; set; }
+    public DateTime? date_paiement { get; set; }
 
-    public string? TotalReservation { get; set; }
+    public string? total_reservation { get; set; }
 
-    public ulong? ValidationReservation { get; set; }
+    public ulong? validation_reservation { get; set; }
 
-    public string? NumeroReservation { get; set; }
+    public string? numero_reservation { get; set; }
 
-    public int? MinParticipant { get; set; }
+    public int? min_participant { get; set; }
 
-    public int? MaxParticipant { get; set; }
+    public int? max_participant { get; set; }
 }

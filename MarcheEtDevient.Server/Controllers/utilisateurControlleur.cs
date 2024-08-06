@@ -1,7 +1,7 @@
-﻿using MarcheEtDevient.Server.Models;
+﻿using MarcheEtDevient.Server.Data;
+using MarcheEtDevient.Server.Models;
 using MarcheEtDevient.Server.Repository;
 using Microsoft.AspNetCore.Mvc;
-using static MarcheEtDevient.Server.Repository.IRepository;
 
 namespace MarcheEtDevient.Server.Controllers
 {
@@ -9,11 +9,13 @@ namespace MarcheEtDevient.Server.Controllers
     [Route("api/[controller]")]
     public class UtilisateursController : ControllerBase
     {
-        private readonly IRepository<Utilisateur, string> _repository;
+        private readonly ApiDBContext _context;
+        private readonly UtilisateurRepository _repository;
 
-        public UtilisateursController(IRepository<Utilisateur, string> repository)
+        public UtilisateursController(ApiDBContext context)
         {
-            _repository = repository;
+            _context = context;
+            _repository = new UtilisateurRepository(_context);
         }
 
         [HttpGet]
@@ -37,10 +39,11 @@ namespace MarcheEtDevient.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<Utilisateur>> CreateUtilisateur(Utilisateur utilisateur)
         {
+
             var result = await _repository.Add(utilisateur);                                                            // envoie vers le repository l'objet et stocke le booléen de retour
             if (result)                                                                                                 // si le booléen de retour est true
             {
-                return CreatedAtAction(nameof(GetUtilisateur), new { id = utilisateur.IdUtilisateur }, utilisateur);    // renvoie vers le endpoint l'objet qui vient d'être créé
+                return CreatedAtAction(nameof(GetUtilisateur), new { id = utilisateur.id_utilisateur }, utilisateur);    // renvoie vers le endpoint l'objet qui vient d'être créé
             }
             return BadRequest();                                                                                        // renvoie un BadRequest (code ~400)
         }
@@ -48,7 +51,7 @@ namespace MarcheEtDevient.Server.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUtilisateur(string id, Utilisateur utilisateur)
         {
-            if (id != utilisateur.IdUtilisateur)                            // vérifie si la donnée que l'on veut mettre à jour est bien celle avec cet id
+            if (id != utilisateur.id_utilisateur)                            // vérifie si la donnée que l'on veut mettre à jour est bien celle avec cet id
             {
                 return BadRequest();                                        // renvoie un BadRequest (code ~400)
             }
