@@ -1,19 +1,20 @@
-﻿using MarcheEtDevient.Server.Models;
-using Microsoft.AspNetCore.Http;
+﻿using MarcheEtDevient.Server.Data;
+using MarcheEtDevient.Server.Models;
+using MarcheEtDevient.Server.Repository;
 using Microsoft.AspNetCore.Mvc;
-using static MarcheEtDevient.Server.Repository.IRepository;
-
 namespace MarcheEtDevient.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class ContenuePublieController : Controller
     {
-        private readonly IRepository<ContenuPublie, string> _repository;
-
-        public ContenuePublieController(IRepository<ContenuPublie, string> repository)
+        private readonly ApiDBContext _context;
+        private readonly ContenuPublieRepository _repository;
+        
+        public ContenuePublieController(ApiDBContext context)
         {
-            _repository = repository;
+            _context = context;
+            _repository = new ContenuPublieRepository(_context);
         }
 
         [HttpGet]
@@ -35,12 +36,12 @@ namespace MarcheEtDevient.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ContenuPublie>> CreatePhoto(ContenuPublie contenuPublie)
+        public async Task<ActionResult<ContenuPublie>> CreateContenue(ContenuPublie contenuPublie)
         {
             var result = await _repository.Add(contenuPublie);                                                                    // envoie vers le repository l'objet et stock le boolean de retour
             if (result)                                                                                                             // si le boolean de retour est true
             {
-                return CreatedAtAction(nameof(GetContenu), new { id = contenuPublie.IdPublication }, contenuPublie);    // revoi vers le endpoint l'object qui vien d'etre crée
+                return CreatedAtAction(nameof(GetContenu), new { id = contenuPublie.id_publication }, contenuPublie);    // revoi vers le endpoint l'object qui vien d'etre crée
             }
             return BadRequest();                                                                                                    // revoie un bad request (code ~400)
         }
@@ -48,7 +49,7 @@ namespace MarcheEtDevient.Server.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePublicationActu(string id, ContenuPublie contenuPublie)
         {
-            if (id != contenuPublie.IdPublication)                        // verifie si la donnée que lon veux update est bien celle avec cette id
+            if (id != contenuPublie.id_publication)                        // verifie si la donnée que lon veux update est bien celle avec cette id
             {
                 return BadRequest();                                        // revoie un bad request (code ~400)
             }

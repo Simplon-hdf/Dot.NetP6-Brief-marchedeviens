@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MarcheEtDevient.Server.Models;
 
 public partial class PublicationActu
 {
-    public string IdPublicationActu { get; } = null!;
+    [Key]public string id_publication_actu { get; set; } 
 
-    public DateOnly? DatePublication { get; set; }
+    public DateTime? date_publication { get; set; }
 
-    public string IdPublication { get; set; } = null!;
+    public string id_publication { get; set; } = null!;
 
-    public string IdVideo { get; set; } = null!;
+    public string id_video { get; set; } = null!;
 }
