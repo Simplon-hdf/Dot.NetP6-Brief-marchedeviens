@@ -40,7 +40,7 @@ public class PublicationActusRepository : IRepository<PublicationActu, string>
     {
         var dbPublicationActu = await _contexteDeBDD.PublicationActus.FindAsync(id);  // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
         dbPublicationActu.DatePublication = model.DatePublication;                    // remplace la date de publication dans la bdd par celle du model
-        dbPublicationActu.IdPublicationActu = model.IdPublication;                    // remplace l'id de publication dans la bdd par celle du model
+        dbPublicationActu.IdPublication = model.IdPublication;                    // remplace l'id de publication dans la bdd par celle du model
         dbPublicationActu.IdVideo = model.IdVideo;                                    // remplace l'id de la video dans la bdd par celle du model
         await _contexteDeBDD.SaveChangesAsync();                                      // Sauvegarde des changement dans la BDD
         var dbVerifAction = await _contexteDeBDD.PublicationActus.FindAsync(id);      // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
