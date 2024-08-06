@@ -3,7 +3,7 @@ using System.Text;
 
 namespace MarcheEtDevient.Server.Service.GestionaireSecurite
 {
-    public class loginAuthentification
+    public class MdpHash
     {
         public static string PassHash(string inputPassHash)
         {

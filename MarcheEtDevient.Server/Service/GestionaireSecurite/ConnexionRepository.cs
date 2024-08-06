@@ -15,7 +15,7 @@ namespace MarcheEtDevient.Server.Service.GestionaireSecurite
         {
             Utilisateur? utilisateurDemandeConnexion = _contexteDeBDD.Utilisateurs.Local.Where<Utilisateur>(b => b.MailUtilisateur == mailUtilisateur).FirstOrDefault();
             if (utilisateurDemandeConnexion == null) { return null; }
-            else if (mdpHash.PassHash(motDePasse) != utilisateurDemandeConnexion.MdpUtilisateur)
+            else if (MdpHash.PassHash(motDePasse) != utilisateurDemandeConnexion.MdpUtilisateur)
             {
                 return null;
             }
