@@ -13,8 +13,6 @@ public partial class Reservation
 
     public DateOnly? DatePaiement { get; set; }
 
-    public string? TotalReservation { get; set; }
-
     public ulong? ValidationReservation { get; set; }
 
     public string? NumeroReservation { get; set; }
