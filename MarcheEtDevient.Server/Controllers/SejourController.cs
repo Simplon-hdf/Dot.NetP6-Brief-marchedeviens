@@ -1,6 +1,7 @@
 ﻿using MarcheEtDevient.Server.Data;
 using MarcheEtDevient.Server.Models;
 using MarcheEtDevient.Server.Repository;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MarcheEtDevient.Server.Controllers
 {
@@ -11,10 +12,10 @@ namespace MarcheEtDevient.Server.Controllers
         private readonly ApiDBContext _context;
         private readonly SejourRepository _repository;
 
-        public PublicationActusController(ApiDBContext context)
+        public SejourController(ApiDBContext context)
         {
             _context = context;
-            _publicationActuRepository = new SejourRepository(_context);
+            _repository = new SejourRepository(_context);
         }
 
 
@@ -45,7 +46,7 @@ namespace MarcheEtDevient.Server.Controllers
             var result = await _repository.Add(sejour);             //envoie vers le repo l'objet et stock le boolean de retour
             if (result)                                             //si le boolean de retour est true
             {
-                return CreatedAtAction(nameof(GetSejour), new { id = sejour.IdSejour }, sejour); // renvoi vers le endpoint l'objet qui vient d'être crée
+                return CreatedAtAction(nameof(GetSejour), new { id = sejour.id_sejour }, sejour); // renvoi vers le endpoint l'objet qui vient d'être crée
             }
             return BadRequest();                        // envoi un badresquest (code 400)
         }
@@ -54,7 +55,7 @@ namespace MarcheEtDevient.Server.Controllers
 
         public async Task<ActionResult> UpdateSejour(string id, Sejour sejour)
         {
-            if (id != sejour.IdSejour)              //vérifie si la donnée que l'on veut update est bien celle avec cet id
+            if (id != sejour.id_sejour)              //vérifie si la donnée que l'on veut update est bien celle avec cet id
             {
                 return BadRequest();                //rebvoie un bad request (code 400)
             }

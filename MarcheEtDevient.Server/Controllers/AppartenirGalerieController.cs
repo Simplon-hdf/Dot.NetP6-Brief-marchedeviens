@@ -1,7 +1,8 @@
-﻿using MarcheEtDevient.Server.Models;
+﻿using MarcheEtDevient.Server.Data;
+using MarcheEtDevient.Server.Models;
+using MarcheEtDevient.Server.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using static MarcheEtDevient.Server.Repository.IRepository;
 
 
 namespace MarcheEtDevient.Server.Controllers
@@ -10,11 +11,13 @@ namespace MarcheEtDevient.Server.Controllers
     [ApiController]
     public class AppartenirGalerieController : ControllerBase
     {
-        private readonly IRepository<AppartenirGalerie, string> _repository; // on part du interface qui reprend les parametres model et type 
+        private readonly ApiDBContext _context;
+        private readonly AppartenirGalerieRepository _repository;
 
-        public AppartenirGalerieController(IRepository<AppartenirGalerie, string> repository)
+        public AppartenirGalerieController(ApiDBContext context)
         {
-            _repository = repository;
+            _context = context;
+            _repository = new AppartenirGalerieRepository(_context);
         }
 
         [HttpGet]
@@ -41,7 +44,7 @@ namespace MarcheEtDevient.Server.Controllers
             var result = await _repository.Add(appartenirGalerie);                                                                    // envoie vers le repository l'objet et stock le boolean de retour
             if (result)                                                                                                             // si le boolean de retour est true
             {
-                return CreatedAtAction(nameof(GetAppartenirGalerie), new { id = appartenirGalerie.IdSejour }, appartenirGalerie);    // revoi vers le endpoint l'object qui vien d'etre crée
+                return CreatedAtAction(nameof(GetAppartenirGalerie), new { id = appartenirGalerie.id_sejour }, appartenirGalerie);    // revoi vers le endpoint l'object qui vien d'etre crée
             }
             return BadRequest();                                                                                                    // revoie un bad request (code ~400)
         }
@@ -49,7 +52,7 @@ namespace MarcheEtDevient.Server.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAppartenirGalerie(string id, AppartenirGalerie appartenirGalerie)
         {
-            if (id != appartenirGalerie.IdSejour)                        // verifie si la donnée que lon veux update est bien celle avec cette id
+            if (id != appartenirGalerie.id_sejour)                        // verifie si la donnée que lon veux update est bien celle avec cette id
             {
                 return BadRequest();                                        // revoie un bad request (code ~400)
             }
