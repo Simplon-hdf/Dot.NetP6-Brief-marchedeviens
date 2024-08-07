@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MarcheEtDevient.Server.Models;
 
 public partial class Video
 {
-    public string IdVideo { get; } = null!;
+    [Key]public string id_video { get; set; }
 
-    public string? LienVideo { get; set; }
+    public string? lien_video { get; set; }
 
-    public string? TitreVideo { get; set; }
+    public string? titre_video { get; set; }
 
-    public DateOnly? DateSortie { get; set; }
+    public DateTime? date_sortie { get; set; }
 
-    public string IdSejour { get; set; } = null!;
+    public string id_sejour { get; set; } = null!;
 }
