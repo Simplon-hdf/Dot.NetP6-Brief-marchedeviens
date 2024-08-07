@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using MarcheEtDevient.Server.Data;
 using MarcheEtDevient.Server.Models;
-using static MarcheEtDevient.Server.Repository.IRepository;
 using MarcheEtDevient.Server.Repository;
 
 namespace MarcheEtDevient.Server.Controllers
@@ -10,11 +8,13 @@ namespace MarcheEtDevient.Server.Controllers
     [ApiController]
     public class SejourController : ControllerBase
     {
-        private readonly IRepository<Sejour, string> _repository;
+        private readonly ApiDBContext _context;
+        private readonly SejourRepository _repository;
 
-        public SejourController(IRepository<Sejour, string> repository)
+        public PublicationActusController(ApiDBContext context)
         {
-            _repository = repository;
+            _context = context;
+            _publicationActuRepository = new SejourRepository(_context);
         }
 
 
