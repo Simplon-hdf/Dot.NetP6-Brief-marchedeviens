@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MarcheEtDevient.Server.Models;
 
 public partial class ContenuPublie
 {
-    public string IdPublication { get; set; } = null!;
+    [Key]public string id_publication { get; set; }
 
-    public DateOnly? DateCslv { get; set; }
+    public DateTime? date_cslv { get; set; }
 
-    public string? Theme { get; set; }
+    public string? theme { get; set; }
 
-    public string? Commentaire { get; set; }
+    public string? commentaire { get; set; }
 }

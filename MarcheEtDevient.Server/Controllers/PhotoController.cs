@@ -1,19 +1,20 @@
-﻿using MarcheEtDevient.Server.Models;
-using Microsoft.AspNetCore.Http;
+﻿using MarcheEtDevient.Server.Data;
+using MarcheEtDevient.Server.Models;
+using MarcheEtDevient.Server.Repository;
 using Microsoft.AspNetCore.Mvc;
-using static MarcheEtDevient.Server.Repository.IRepository;
-
 namespace MarcheEtDevient.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class PhotoController : ControllerBase
     {
-        private readonly IRepository<Photo, string> _repository;
+        private readonly ApiDBContext _context;
+        private readonly PhotoRepository _repository;
 
-        public PhotoController(IRepository<Photo, string> repository)
+        public PhotoController(ApiDBContext context)
         {
-            _repository = repository;
+            _context = context;
+            _repository = new PhotoRepository(_context);
         }
 
         [HttpGet]
@@ -40,7 +41,7 @@ namespace MarcheEtDevient.Server.Controllers
             var result = await _repository.Add(photo);                                                                    // envoie vers le repository l'objet et stock le boolean de retour
             if (result)                                                                                                             // si le boolean de retour est true
             {
-                return CreatedAtAction(nameof(GetPhoto), new { id = photo.IdPhoto }, photo);    // revoi vers le endpoint l'object qui vien d'etre crée
+                return CreatedAtAction(nameof(GetPhoto), new { id = photo.id_photo }, photo);    // revoi vers le endpoint l'object qui vien d'etre crée
             }
             return BadRequest();                                                                                                    // revoie un bad request (code ~400)
         }
@@ -48,7 +49,7 @@ namespace MarcheEtDevient.Server.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePublicationActu(string id, Photo photo)
         {
-            if (id != photo.IdPhoto)                        // verifie si la donnée que lon veux update est bien celle avec cette id
+            if (id != photo.id_photo)                        // verifie si la donnée que lon veux update est bien celle avec cette id
             {
                 return BadRequest();                                        // revoie un bad request (code ~400)
             }
