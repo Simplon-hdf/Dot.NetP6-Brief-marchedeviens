@@ -4243,19 +4243,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\renau\\.nuget\\packages\\": {}
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\renau\\Dev-document-tool\\brief\\Dot.NetP6-Brief-marchedeviens\\MarcheEtDevient.Server\\MarcheEtDevient.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Utilisateur\\Desktop\\D6 projet\\Dot.NetP6-Brief-marchedeviens\\MarcheEtDevient.Server\\MarcheEtDevient.Server.csproj",
       "projectName": "MarcheEtDevient.Server",
-      "projectPath": "C:\\Users\\renau\\Dev-document-tool\\brief\\Dot.NetP6-Brief-marchedeviens\\MarcheEtDevient.Server\\MarcheEtDevient.Server.csproj",
-      "packagesPath": "C:\\Users\\renau\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\renau\\Dev-document-tool\\brief\\Dot.NetP6-Brief-marchedeviens\\MarcheEtDevient.Server\\obj\\",
+      "projectPath": "C:\\Users\\Utilisateur\\Desktop\\D6 projet\\Dot.NetP6-Brief-marchedeviens\\MarcheEtDevient.Server\\MarcheEtDevient.Server.csproj",
+      "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Utilisateur\\Desktop\\D6 projet\\Dot.NetP6-Brief-marchedeviens\\MarcheEtDevient.Server\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\renau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
