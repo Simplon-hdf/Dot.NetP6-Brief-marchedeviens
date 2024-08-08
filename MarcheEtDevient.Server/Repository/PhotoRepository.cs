@@ -11,7 +11,7 @@ namespace MarcheEtDevient.Server.Repository;
     {
         _contexteDeBDD.Photo.Add(model);                                         // ajout une nouvell entrée dans la BDD a partir de celle fournie dans le EndPoint(point de connection de l'api)
         await _contexteDeBDD.SaveChangesAsync();                                            // Sauvegarde des changement dans la BDD
-        string id = model.id_photo;                                                    // stock l'id du model dans une variable    
+        int id = model.IdPhoto;                                                    // stock l'id du model dans une variable    
         return await _contexteDeBDD.Photo.FindAsync(id) != null;                 // verfication de la creation
     }
 
@@ -38,11 +38,15 @@ namespace MarcheEtDevient.Server.Repository;
     public async Task<bool> Update(Photo model, string id)
     {
         var dbPhoto = await _contexteDeBDD.Photo.FindAsync(id);  // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
-        dbPhoto.date_photo = model.date_photo;                    // remplace la date de publication dans la bdd par celle du model
-        dbPhoto.photo = model.photo;                    // remplace la photo dans la bdd par celle du model
-        dbPhoto.est_publique = model.est_publique;                                    // remplace la determination publique de la photo dans la bdd par celle du model
+        dbPhoto.DatePhoto = model.DatePhoto;                    // remplace la date de publication dans la bdd par celle du model
+        dbPhoto.EstPubliquePhoto = model.EstPubliquePhoto;                    // remplace la photo dans la bdd par celle du model
+        dbPhoto.DonneePhoto = model.DonneePhoto;                                    // remplace la determination publique de la photo dans la bdd par celle du model
+        dbPhoto.IdSejour = model.IdSejour;
         await _contexteDeBDD.SaveChangesAsync();                                      // Sauvegarde des changement dans la BDD
         var dbVerifAction = await _contexteDeBDD.Photo.FindAsync(id);      // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
-        return dbVerifAction.id_photo == model.id_photo;                       // verfication de la modification
+        return dbVerifAction.DatePhoto == model.DatePhoto &&
+            dbVerifAction.EstPubliquePhoto == model.EstPubliquePhoto &&
+            dbVerifAction.DonneePhoto == model.DonneePhoto &&
+            dbVerifAction.IdSejour == model.IdSejour;                       // verfication de la modification
     }
 }

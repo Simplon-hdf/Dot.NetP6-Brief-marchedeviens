@@ -13,7 +13,7 @@ namespace MarcheEtDevient.Server.Repository
         {
             _contexteDeBDD.Video.Add(model);                           // ajout d'une nouvelle entrée dans la BDD à partir de celle fournie dans le EndPoint (point de connexion de l'API)
             await _contexteDeBDD.SaveChangesAsync();                    // sauvegarde des changements dans la BDD
-            string id = model.id_video;                                  // stock l'id du model dans une variable
+            string id = model.IdVideo;                                  // stock l'id du model dans une variable
             return await _contexteDeBDD.Video.FindAsync(id) != null;   // vérification de la création
         }
 
@@ -40,16 +40,18 @@ namespace MarcheEtDevient.Server.Repository
         public async Task<bool> Update(Video model, string id)
         {
             var dbVideo = await _contexteDeBDD.Video.FindAsync(id);        // recherche de l'id qui est en paramètre dans la BDD et le stock dans une variable
-            dbVideo.date_sortie = model.date_sortie;                          // remplace la date de publication dans la BDD par celle du model
-            dbVideo.lien_video = model.lien_video;                            // remplace l'id de vidéo dans la BDD par celle du model
-            dbVideo.titre_video = model.titre_video;                          // remplace le titre de la vidéo dans la BDD par celui du model
-            dbVideo.id_sejour = model.id_sejour; //                           // remplace l'id du sejour de la vidéo dans la BDD par celui du model
+            dbVideo.LienVideo = model.LienVideo;                            // remplace l'id de vidéo dans la BDD par celle du model
+            dbVideo.TitreVideo = model.TitreVideo;                          // remplace le titre de la vidéo dans la BDD par celui du model
+            dbVideo.DateSortieVideo = model.DateSortieVideo;                          // remplace la date de publication dans la BDD par celle du model
+            dbVideo.DescriptifVideo = model.DescriptifVideo;
+            dbVideo.IdSejour = model.IdSejour; //                           // remplace l'id du sejour de la vidéo dans la BDD par celui du model
             await _contexteDeBDD.SaveChangesAsync();                        // sauvegarde des changements dans la BDD
             var dbVerifAction = await _contexteDeBDD.Video.FindAsync(id);  // recherche de l'id qui est en paramètre dans la BDD et le stock dans une variable
-            return dbVerifAction.date_sortie == model.date_sortie &&
-                   dbVerifAction.lien_video == model.lien_video &&
-                   dbVerifAction.titre_video == model.titre_video &&
-                   dbVerifAction.id_sejour == model.id_sejour;                // vérification de la modification
+            return dbVerifAction.LienVideo == model.LienVideo &&
+                   dbVerifAction.TitreVideo == model.TitreVideo &&
+                   dbVerifAction.DateSortieVideo == model.DateSortieVideo &&   
+                   dbVerifAction.DescriptifVideo == model.DescriptifVideo &&
+                   dbVerifAction.IdSejour == model.IdSejour;                // vérification de la modification
         }
     }
 }

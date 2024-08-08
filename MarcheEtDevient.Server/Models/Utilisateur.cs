@@ -7,7 +7,7 @@ namespace MarcheEtDevient.Server.Models;
 
 public partial class Utilisateur
 {
-    [Column("id_contenu_publie "), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Required]
+    [Column("id_utilisateur"), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Required]
     public int IdUtilisateur { get; set; }
 
     [Column("date_creation_utilisateur"), Required]

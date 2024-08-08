@@ -13,7 +13,7 @@ namespace MarcheEtDevient.Server.Repository
         {
             _contexteDeBDD.Utilisateur.Add(model);                             // ajout d'une nouvelle entrée dans la BDD à partir de celle fournie dans le EndPoint (point de connexion de l'API)
             await _contexteDeBDD.SaveChangesAsync();                            // sauvegarde des changements dans la BDD
-            string id = model.id_utilisateur;                                    // stock l'id du model dans une variable
+            int id = model.IdUtilisateur;                                    // stock l'id du model dans une variable
             return await _contexteDeBDD.Utilisateur.FindAsync(id) != null;     // vérification de la création
         }
 
@@ -44,23 +44,25 @@ namespace MarcheEtDevient.Server.Repository
             {
                 return false;
             }
-            dbUtilisateur.mdp_utilisateur = model.mdp_utilisateur;                        // remplace le mot de passe de l'utilisateur dans la BDD par celui du model
-            dbUtilisateur.nom_utilisateur = model.nom_utilisateur;                        // remplace le nom de l'utilisateur dans la BDD par celui du model
-            dbUtilisateur.mail_utilisateur = model.mail_utilisateur;                      // remplace l'email de l'utilisateur dans la BDD par celui du model
-            dbUtilisateur.prenom_utilisateur = model.prenom_utilisateur;                  // remplace le prénom de l'utilisateur dans la BDD par celui du model
-            dbUtilisateur.tel_utilisateur = model.tel_utilisateur;                        // remplace le téléphone de l'utilisateur dans la BDD par celui du model
-            dbUtilisateur.age_utilisateur = model.age_utilisateur;                        // remplace l'âge de l'utilisateur dans la BDD par celui du model
-            dbUtilisateur.permission_utilisateur = model.permission_utilisateur;          // remplace les permissions de l'utilisateur dans la BDD par celles du model
+            dbUtilisateur.DateCreationUtilisateur = model.DateCreationUtilisateur;      // remplace la date de l'utilisateur dans la BDD par celui du model
+            dbUtilisateur.MailUtilisateur = model.MailUtilisateur;                      // remplace l'email de l'utilisateur dans la BDD par celui du model
+            dbUtilisateur.MdpUtilisateur = model.MdpUtilisateur;                        // remplace le mot de passe de l'utilisateur dans la BDD par celui du model
+            dbUtilisateur.NomUtilisateur = model.NomUtilisateur;                        // remplace le nom de l'utilisateur dans la BDD par celui du model
+            dbUtilisateur.PrenomUtilisateur = model.PrenomUtilisateur;                  // remplace le prénom de l'utilisateur dans la BDD par celui du model
+            dbUtilisateur.TelUtilisateur = model.TelUtilisateur;                        // remplace le téléphone de l'utilisateur dans la BDD par celui du model
+            dbUtilisateur.AgeUtilisateur = model.AgeUtilisateur;                        // remplace l'âge de l'utilisateur dans la BDD par celui du model
+            dbUtilisateur.PermissionUtilisateur = model.PermissionUtilisateur;          // remplace les permissions de l'utilisateur dans la BDD par celles du model
             await _contexteDeBDD.SaveChangesAsync();                                    // sauvegarde des changements dans la BDD
             var dbVerifAction = await _contexteDeBDD.Utilisateur.FindAsync(id);        // recherche de l'id qui est en paramètre dans la BDD et le stock dans une variable
             return dbVerifAction != null &&
-                   dbVerifAction.mdp_utilisateur == model.mdp_utilisateur &&
-                   dbVerifAction.nom_utilisateur == model.nom_utilisateur &&
-                   dbVerifAction.mail_utilisateur == model.mail_utilisateur &&
-                   dbVerifAction.prenom_utilisateur == model.prenom_utilisateur &&
-                   dbVerifAction.tel_utilisateur == model.tel_utilisateur &&
-                   dbVerifAction.age_utilisateur == model.age_utilisateur &&
-                   dbVerifAction.permission_utilisateur == model.permission_utilisateur;  // vérification de la modification
+                dbVerifAction.DateCreationUtilisateur == model.DateCreationUtilisateur &&
+                   dbVerifAction.MailUtilisateur == model.MailUtilisateur &&
+                   dbVerifAction.MdpUtilisateur == model.MdpUtilisateur &&
+                   dbVerifAction.NomUtilisateur == model.NomUtilisateur &&
+                   dbVerifAction.PrenomUtilisateur == model.PrenomUtilisateur &&
+                   dbVerifAction.TelUtilisateur == model.TelUtilisateur &&
+                   dbVerifAction.AgeUtilisateur == model.AgeUtilisateur &&
+                   dbVerifAction.PermissionUtilisateur == model.PermissionUtilisateur;  // vérification de la modification
         }
     }
 }

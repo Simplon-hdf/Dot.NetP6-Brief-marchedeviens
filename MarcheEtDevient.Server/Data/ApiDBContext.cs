@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
-using WebApplication1.Models;
+using MarcheEtDevient.Server.Models;
 
 namespace MarcheEtDevient.Server.Data;
 
@@ -17,17 +16,17 @@ public partial class ApiDBContext : DbContext
     {
     }
 
-    public virtual DbSet<ContenuPublie> ContenuPublies { get; set; }
+    public virtual DbSet<ContenuPublie> ContenuPublie { get; set; }
 
-    public virtual DbSet<Photo> Photos { get; set; }
+    public virtual DbSet<Photo> Photo { get; set; }
 
-    public virtual DbSet<Publication> Publications { get; set; }
+    public virtual DbSet<Publication> Publication { get; set; }
 
-    public virtual DbSet<Reserver> Reservers { get; set; }
+    public virtual DbSet<Reserver> Reserver { get; set; }
 
-    public virtual DbSet<Sejour> Sejours { get; set; }
+    public virtual DbSet<Sejour> Sejour { get; set; }
 
-    public virtual DbSet<Utilisateur> Utilisateurs { get; set; }
+    public virtual DbSet<Utilisateur> Utilisateur { get; set; }
 
-    public virtual DbSet<Video> Videos { get; set; }
+    public virtual DbSet<Video> Video { get; set; }
 }

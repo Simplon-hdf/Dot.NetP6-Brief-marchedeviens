@@ -7,7 +7,7 @@ namespace MarcheEtDevient.Server.Models;
 
 public partial class Video
 {
-    [Column("id_video  "), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Required]
+    [Column("id_video"), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Required]
     public int IdVideo { get; set; }
 
     [Column("lien_video"), MaxLength(75), Required]
