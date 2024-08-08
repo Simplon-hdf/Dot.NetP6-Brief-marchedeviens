@@ -1,26 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace MarcheEtDevient.Server.Models;
+namespace WebApplication1.Models;
 
 public partial class Sejour
 {
-    [Key] public string id_sejour { get; set; }
+    public int IdSejour { get; set; }
 
-    public string? nom_sejour { get; set; }
+    public string NomSejour { get; set; } = null!;
 
-    public string? descriptif { get; set; }
+    public string DescriptifSejour { get; set; } = null!;
 
-    public DateTime? date_debut_sejour { get; set; }
+    public string LieuDepartSejour { get; set; } = null!;
 
-    public DateTime? date_fin_sejour { get; set; }
+    public DateOnly DateDebutSejour { get; set; }
 
-    public string? nom_lieu_sejour { get; set; }
+    public DateOnly DateFinSejour { get; set; }
 
-    public decimal? prix_sejour { get; set; }
+    public string NomLieuSejour { get; set; } = null!;
 
-    public string? type_sejour { get; set; }
+    public decimal PrixSejour { get; set; }
 
-    public int? total_participant { get; set; }
+    public int MinParticipantSejour { get; set; }
+
+    public int MaxParticipantSejour { get; set; }
+
+    public int? TotalParticipantActuelSejour { get; set; }
 }

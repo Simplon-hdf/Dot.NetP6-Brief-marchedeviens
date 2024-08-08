@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace MarcheEtDevient.Server.Models;
+namespace WebApplication1.Models;
 
 public partial class Video
 {
-    [Key]public string id_video { get; set; }
+    public int IdVideo { get; set; }
 
-    public string? lien_video { get; set; }
+    public string LienVideo { get; set; } = null!;
 
-    public string? titre_video { get; set; }
+    public string TitreVideo { get; set; } = null!;
 
-    public DateTime? date_sortie { get; set; }
+    public DateOnly DateSortieVideo { get; set; }
 
-    public string id_sejour { get; set; } = null!;
+    public string? DescriptifVideo { get; set; }
+
+    public int? IdSejour { get; set; }
 }

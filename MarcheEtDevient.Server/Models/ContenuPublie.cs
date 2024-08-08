@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace MarcheEtDevient.Server.Models;
+namespace WebApplication1.Models;
 
 public partial class ContenuPublie
 {
-    [Key]public string id_publication { get; set; }
+    public int IdContenuPublie { get; set; }
 
-    public DateTime? date_cslv { get; set; }
+    public DateOnly DateContenuPublie { get; set; }
 
-    public string? theme { get; set; }
+    public string ThemeContenuPublie { get; set; } = null!;
 
-    public string? commentaire { get; set; }
+    public string CommentaireContenuPublie { get; set; } = null!;
+
+    public int? IdPhoto { get; set; }
 }
