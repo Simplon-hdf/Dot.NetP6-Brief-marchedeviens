@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace MarcheEtDevient.Server.Models;
+namespace WebApplication1.Models;
 
 public partial class Photo
 {
-    [Key] public string id_photo { get; set; }
+    public int IdPhoto { get; set; }
 
-    public DateTime? date_photo { get; set; }
+    public DateOnly? DatePhoto { get; set; }
 
-    public byte[]? photo { get; set; }
+    public bool? EstPubliquePhoto { get; set; }
 
-    public ulong? est_publique { get; set; }
+    public byte[]? DonneePhoto { get; set; }
+
+    public int? IdSejour { get; set; }
 }

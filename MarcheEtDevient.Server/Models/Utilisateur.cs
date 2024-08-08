@@ -1,24 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace MarcheEtDevient.Server.Models;
+namespace WebApplication1.Models;
 
 public partial class Utilisateur
 {
-    [Key] public string id_utilisateur { get; set; }
+    public int IdUtilisateur { get; set; }
 
-    public string? mdp_utilisateur { get; set; }
+    public DateTime DateCreationUtilisateur { get; set; }
 
-    public string? nom_utilisateur { get; set; }
+    public string MailUtilisateur { get; set; } = null!;
 
-    public string? mail_utilisateur { get; set; }
+    public string MdpUtilisateur { get; set; } = null!;
 
-    public string? prenom_utilisateur { get; set; }
+    public string NomUtilisateur { get; set; } = null!;
 
-    public string? tel_utilisateur { get; set; }
+    public string PrenomUtilisateur { get; set; } = null!;
 
-    public string age_utilisateur { get; set; } = null!;
+    public string TelUtilisateur { get; set; } = null!;
 
-    public string? permission_utilisateur { get; set; }
+    public short AgeUtilisateur { get; set; }
+
+    public string PermissionUtilisateur { get; set; } = null!;
+
+    public int? TotalDistanceParcourueUtilisateur { get; set; }
 }
