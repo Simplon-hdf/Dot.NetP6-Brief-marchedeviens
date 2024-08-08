@@ -29,7 +29,7 @@ namespace MarcheEtDevient.Server.Controllers
 
         [HttpGet("{id}")]
 
-        public async Task<ActionResult<Sejour>> GetSejour(string id)
+        public async Task<ActionResult<Sejour>> GetSejour(int id)
         {
             var sejour = await _repository.GetById(id);  //recupere les données depuis le repo
             if (sejour == null)                         //si les données sont null on found vers le endpoint
@@ -46,16 +46,16 @@ namespace MarcheEtDevient.Server.Controllers
             var result = await _repository.Add(sejour);             //envoie vers le repo l'objet et stock le boolean de retour
             if (result)                                             //si le boolean de retour est true
             {
-                return CreatedAtAction(nameof(GetSejour), new { id = sejour.id_sejour }, sejour); // renvoi vers le endpoint l'objet qui vient d'être crée
+                return CreatedAtAction(nameof(GetSejour), new { id = sejour.IdSejour }, sejour); // renvoi vers le endpoint l'objet qui vient d'être crée
             }
             return BadRequest();                        // envoi un badresquest (code 400)
         }
 
         [HttpPut("{id}")]
 
-        public async Task<ActionResult> UpdateSejour(string id, Sejour sejour)
+        public async Task<ActionResult> UpdateSejour(int id, Sejour sejour)
         {
-            if (id != sejour.id_sejour)              //vérifie si la donnée que l'on veut update est bien celle avec cet id
+            if (id != sejour.IdSejour)              //vérifie si la donnée que l'on veut update est bien celle avec cet id
             {
                 return BadRequest();                //rebvoie un bad request (code 400)
             }
@@ -71,7 +71,7 @@ namespace MarcheEtDevient.Server.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSejour(string id)
+        public async Task<IActionResult> DeleteSejour(int id)
         {
             var result = await _repository.Delete(id);      // envoi un requete de deletion vers le repository et stock le retour
             if (result)                                     // si le retour est positive

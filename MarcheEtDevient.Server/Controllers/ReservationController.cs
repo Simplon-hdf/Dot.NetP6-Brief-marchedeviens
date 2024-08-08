@@ -10,23 +10,23 @@ namespace MarcheEtDevient.Server.Controllers
     public class ReservationController : ControllerBase
     {
         private readonly ApiDBContext _context;
-        private readonly ReservationRepository _repository;
+        private readonly ReserverRepository _repository;
 
         public ReservationController(ApiDBContext context)
         {
             _context = context;
-            _repository = new ReservationRepository(_context);
+            _repository = new ReserverRepository(_context);
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Reservation>>> GetAllReservation()
+        public async Task<ActionResult<IEnumerable<Reserver>>> GetAllReservation()
         {
             var reservation = await _repository.GetAll();      // recupere depuis le repository toute les donnée 
             return Ok(reservation);                            // retourne vers le front les donnée recupérée
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Reservation>> GetReservation(string id)
+        public async Task<ActionResult<Reserver>> GetReservation(int id)
         {
             var reservation = await _repository.GetById(id);    // recupere les donnée depuis le repository
             if (reservation == null)                            // si les donner sont null on  found vers le endpoint
@@ -37,25 +37,25 @@ namespace MarcheEtDevient.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Reservation>> CreateReservation(Reservation reservation )
+        public async Task<ActionResult<Reserver>> CreateReservation(Reserver reserver )
         {
-            var result = await _repository.Add(reservation);                                                                    // envoie vers le repository l'objet et stock le boolean de retour
+            var result = await _repository.Add(reserver);                                                                    // envoie vers le repository l'objet et stock le boolean de retour
             if (result)                                                                                                             // si le boolean de retour est true
             {
-                return CreatedAtAction(nameof(GetReservation), new { id = reservation.id_utilisateur }, reservation);    // revoi vers le endpoint l'object qui vien d'etre crée
+                return CreatedAtAction(nameof(GetReservation), new { id = reserver.IdUtilisateur }, reserver);    // revoi vers le endpoint l'object qui vien d'etre crée
             }
             return BadRequest();                                                                                                    // revoie un bad request (code ~400)
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateReservation(string id, Reservation reservation)
+        public async Task<IActionResult> UpdateReservation(int id, Reserver reserver)
         {
-            if (id != reservation.id_utilisateur)                        // verifie si la donnée que lon veux update est bien celle avec cette id
+            if (id != reserver.IdUtilisateur)                        // verifie si la donnée que lon veux update est bien celle avec cette id
             {
                 return BadRequest();                                        // revoie un bad request (code ~400)
             }
 
-            var result = await _repository.Update(reservation, id);     // envoi ves le repository l'objet a update et sont id
+            var result = await _repository.Update(reserver, id);     // envoi ves le repository l'objet a update et sont id
             if (result)
             {
                 return Ok("Modification reussi");                           // revoi un ok (code ~200) 
@@ -64,7 +64,7 @@ namespace MarcheEtDevient.Server.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteReservation(string id)
+        public async Task<IActionResult> DeleteReservation(int id)
         {
             var result = await _repository.Delete(id);      // envoi un requete de deletion vers le repository et stock le retour
             if (result)                                     // si le retour est positive
