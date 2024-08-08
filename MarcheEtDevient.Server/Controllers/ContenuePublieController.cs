@@ -2,6 +2,7 @@
 using MarcheEtDevient.Server.Models;
 using MarcheEtDevient.Server.Repository;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Models;
 namespace MarcheEtDevient.Server.Controllers
 {
     [ApiController]

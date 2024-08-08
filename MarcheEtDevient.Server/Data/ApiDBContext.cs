@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
 using WebApplication1.Models;
 
-namespace WebApplication1.Data;
+namespace MarcheEtDevient.Server.Data;
 
 public partial class ApiDBContext : DbContext
 {
