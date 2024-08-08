@@ -4,7 +4,7 @@ using MarcheEtDevient.Server.Data;
 
 namespace MarcheEtDevient.Server.Repository
 {
-    public class VideoRepository : IRepository<Video, string>
+    public class VideoRepository : IRepository<Video, int>
     {
         private readonly ApiDBContext _contexteDeBDD;                               // initialisation d'une variable de type ApiDBContext
         public VideoRepository(ApiDBContext context) => _contexteDeBDD = context;   // ajout du contexte de program.cs à l'initialisation de ce repository
@@ -13,11 +13,11 @@ namespace MarcheEtDevient.Server.Repository
         {
             _contexteDeBDD.Video.Add(model);                           // ajout d'une nouvelle entrée dans la BDD à partir de celle fournie dans le EndPoint (point de connexion de l'API)
             await _contexteDeBDD.SaveChangesAsync();                    // sauvegarde des changements dans la BDD
-            string id = model.IdVideo;                                  // stock l'id du model dans une variable
+            int id = model.IdVideo;                                  // stock l'id du model dans une variable
             return await _contexteDeBDD.Video.FindAsync(id) != null;   // vérification de la création
         }
 
-        public async Task<bool> Delete(string id)
+        public async Task<bool> Delete(int id)
         {
             var bddVideoSupprimer = await _contexteDeBDD.Video.FindAsync(id);  // recherche de l'id qui est en paramètre dans la BDD et le stock dans une variable
             if (bddVideoSupprimer == null) { return false; }                    // vérification de l'existence de cet id dans la table
@@ -32,12 +32,12 @@ namespace MarcheEtDevient.Server.Repository
             return videos;                                                              // retourne le IEnumerable
         }
 
-        public async Task<Video> GetById(string id)
+        public async Task<Video> GetById(int id)
         {
             return await _contexteDeBDD.Video.FindAsync(id);       // retourne l'entrée en BDD par son id, si inexistant renvoie un null
         }
 
-        public async Task<bool> Update(Video model, string id)
+        public async Task<bool> Update(Video model, int id)
         {
             var dbVideo = await _contexteDeBDD.Video.FindAsync(id);        // recherche de l'id qui est en paramètre dans la BDD et le stock dans une variable
             dbVideo.LienVideo = model.LienVideo;                            // remplace l'id de vidéo dans la BDD par celle du model

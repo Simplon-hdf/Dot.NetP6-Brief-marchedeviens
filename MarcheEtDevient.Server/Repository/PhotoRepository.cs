@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MarcheEtDevient.Server.Data;
 namespace MarcheEtDevient.Server.Repository;
-    public class PhotoRepository : IRepository<Photo, string>
+    public class PhotoRepository : IRepository<Photo, int>
     {
 
     private readonly ApiDBContext _contexteDeBDD;   // intialisation d'une variable de type apiDBContext
@@ -15,7 +15,7 @@ namespace MarcheEtDevient.Server.Repository;
         return await _contexteDeBDD.Photo.FindAsync(id) != null;                 // verfication de la creation
     }
 
-    public async Task<bool> Delete(string id)
+    public async Task<bool> Delete(int id)
     {
         var bddPhotoSupprimer = await _contexteDeBDD.Photo.FindAsync(id);      // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
         if (bddPhotoSupprimer == null) { return false; }                                   // verfication de l'existance de cette id dans la table
@@ -30,12 +30,12 @@ namespace MarcheEtDevient.Server.Repository;
         return photo;                                                                                 // retourne le IEnumerable
     }
 
-    public async Task<Photo> GetById(string id)
+    public async Task<Photo> GetById(int id)
     {
         return await _contexteDeBDD.Photo.FindAsync(id);     // retourne l'entrée en BDD par sont id si inexistant revoie un null
     }
 
-    public async Task<bool> Update(Photo model, string id)
+    public async Task<bool> Update(Photo model, int id)
     {
         var dbPhoto = await _contexteDeBDD.Photo.FindAsync(id);  // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
         dbPhoto.DatePhoto = model.DatePhoto;                    // remplace la date de publication dans la bdd par celle du model

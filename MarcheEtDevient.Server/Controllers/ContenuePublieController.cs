@@ -2,7 +2,6 @@
 using MarcheEtDevient.Server.Models;
 using MarcheEtDevient.Server.Repository;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Models;
 namespace MarcheEtDevient.Server.Controllers
 {
     [ApiController]
@@ -26,7 +25,7 @@ namespace MarcheEtDevient.Server.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ContenuPublie>> GetContenu(string id)
+        public async Task<ActionResult<ContenuPublie>> GetContenu(int id)
         {
             var contenuPublie = await _repository.GetById(id);    // recupere les donnée depuis le repository
             if (contenuPublie == null)                            // si les donner sont null on  found vers le endpoint
@@ -42,15 +41,15 @@ namespace MarcheEtDevient.Server.Controllers
             var result = await _repository.Add(contenuPublie);                                                                    // envoie vers le repository l'objet et stock le boolean de retour
             if (result)                                                                                                             // si le boolean de retour est true
             {
-                return CreatedAtAction(nameof(GetContenu), new { id = contenuPublie.id_publication }, contenuPublie);    // revoi vers le endpoint l'object qui vien d'etre crée
+                return CreatedAtAction(nameof(GetContenu), new { id = contenuPublie.IdContenuPublie }, contenuPublie);    // revoi vers le endpoint l'object qui vien d'etre crée
             }
             return BadRequest();                                                                                                    // revoie un bad request (code ~400)
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePublicationActu(string id, ContenuPublie contenuPublie)
+        public async Task<IActionResult> UpdatePublicationActu(int id, ContenuPublie contenuPublie)
         {
-            if (id != contenuPublie.id_publication)                        // verifie si la donnée que lon veux update est bien celle avec cette id
+            if (id != contenuPublie.IdContenuPublie)                        // verifie si la donnée que lon veux update est bien celle avec cette id
             {
                 return BadRequest();                                        // revoie un bad request (code ~400)
             }
@@ -64,7 +63,7 @@ namespace MarcheEtDevient.Server.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePublicationActu(string id)
+        public async Task<IActionResult> DeletePublicationActu(int id)
         {
             var result = await _repository.Delete(id);      // envoi un requete de deletion vers le repository et stock le retour
             if (result)                                     // si le retour est positive

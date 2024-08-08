@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MarcheEtDevient.Server.Repository;
 
-public class SejourRepository : IRepository <Sejour, string>
+public class SejourRepository : IRepository <Sejour, int>
 {
     private readonly ApiDBContext _contexteDeBDD;   // intialisation d'une variable de type apiDBContext
     public SejourRepository(ApiDBContext context) => _contexteDeBDD = context;   // ajout du contexte de program.cs a l'initialisation de ce repository
@@ -16,7 +16,7 @@ public class SejourRepository : IRepository <Sejour, string>
         return await _contexteDeBDD.Sejour.FindAsync(id) != null;               // verfication de la creation
     }
 
-    public async Task<bool> Delete(string id)
+    public async Task<bool> Delete(int id)
     {
         var bddSejourSupprimer = await _contexteDeBDD.Sejour.FindAsync(id);      // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
         if (bddSejourSupprimer == null) { return false; }                         // verfication de l'existance de cette id dans la table
@@ -30,12 +30,12 @@ public class SejourRepository : IRepository <Sejour, string>
         return sejour;                                                                                 // retourne le IEnumerable
     }
 
-    public async Task<Sejour> GetById(string id)
+    public async Task<Sejour> GetById(int id)
     {
         return await _contexteDeBDD.Sejour.FindAsync(id);     // retourne l'entrée en BDD par sont id si inexistant revoie un null
     }
 
-    public async Task<bool> Update(Sejour model, string id)
+    public async Task<bool> Update(Sejour model, int id)
     {
         var dbSejour = await _contexteDeBDD.Sejour.FindAsync(id);  // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
         dbSejour.NomSejour = model.NomSejour;                    // remplace le nom du  sejour dans la bdd par celle du model

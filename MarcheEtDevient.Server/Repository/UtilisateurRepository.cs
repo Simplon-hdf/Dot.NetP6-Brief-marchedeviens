@@ -4,7 +4,7 @@ using MarcheEtDevient.Server.Data;
 
 namespace MarcheEtDevient.Server.Repository
 {
-    public class UtilisateurRepository : IRepository<Utilisateur, string>
+    public class UtilisateurRepository : IRepository<Utilisateur, int>
     {
         private readonly ApiDBContext _contexteDeBDD;   // initialisation d'une variable de type ApiDBContext
         public UtilisateurRepository(ApiDBContext context) => _contexteDeBDD = context;     // ajout du contexte de program.cs à l'initialisation de ce repository
@@ -17,7 +17,7 @@ namespace MarcheEtDevient.Server.Repository
             return await _contexteDeBDD.Utilisateur.FindAsync(id) != null;     // vérification de la création
         }
 
-        public async Task<bool> Delete(string id)
+        public async Task<bool> Delete(int id)
         {
             var bddUtilisateurSupprimer = await _contexteDeBDD.Utilisateur.FindAsync(id);      // recherche de l'id qui est en paramètre dans la BDD et le stock dans une variable
             if (bddUtilisateurSupprimer == null) { return false; }                              // vérification de l'existence de cet id dans la table
@@ -32,12 +32,12 @@ namespace MarcheEtDevient.Server.Repository
             return utilisateurs;                                                                        // retourne le IEnumerable
         }
 
-        public async Task<Utilisateur> GetById(string id)
+        public async Task<Utilisateur> GetById(int id)
         {
             return await _contexteDeBDD.Utilisateur.FindAsync(id);     // retourne l'entrée en BDD par son id, si inexistant renvoie un null
         }
 
-        public async Task<bool> Update(Utilisateur model, string id)
+        public async Task<bool> Update(Utilisateur model, int id)
         {
             var dbUtilisateur = await _contexteDeBDD.Utilisateur.FindAsync(id);    // recherche de l'id qui est en paramètre dans la BDD et le stock dans une variable
             if (dbUtilisateur == null)

@@ -7,7 +7,7 @@ namespace MarcheEtDevient.Server.Models;
 [Table("contenu_publie")]
 public partial class ContenuPublie
 {
-    [Column("id_contenu_publie "), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Required]
+    [Column("id_contenu_publie"), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Required]
     public int IdContenuPublie { get; set; }
 
     [Column("date_contenu_publie"), Required]

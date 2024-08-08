@@ -7,13 +7,13 @@ namespace MarcheEtDevient.Server.Models;
 
 public partial class Reserver
 {
-    [Column("date_contenu_publie"), Required]
+    [Column("id_utilisateur"), Required]
     public int IdUtilisateur { get; set; }
 
-    [Column("date_contenu_publie"), Required]
+    [Column("id_sejour"), Required]
     public int IdSejour { get; set; }
 
-    [Column("id_utilisateur"), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Required]
+    [Column("id_reserver"), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Required]
     public int IdReserver { get; set; }
 
     [Column("nombre_place_reserver"), Required]

@@ -37,6 +37,6 @@ public partial class Sejour
     [Column("max_participant_sejour"), Required]
     public int MaxParticipantSejour { get; set; }
 
-    [Column("total_participant_actuel_sejours")]
+    [Column("total_participant_actuel_sejour")]
     public int? TotalParticipantActuelSejour { get; set; }
 }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MarcheEtDevient.Server.Repository;
 
-public class ReserverRepository : IRepository<Reserver, string>
+public class ReserverRepository : IRepository<Reserver, int>
 {
     private readonly ApiDBContext _contexteDeBDD;   // intialisation d'une variable de type apiDBContext
     public ReserverRepository(ApiDBContext context) => _contexteDeBDD = context;   // ajout du contexte de program.cs a l'initialisation de ce repository
@@ -12,11 +12,11 @@ public class ReserverRepository : IRepository<Reserver, string>
     {
         _contexteDeBDD.Reserver.Add(model);                                         // ajout une nouvell entrée dans la BDD a partir de celle fournie dans le EndPoint(point de connection de l'api)
         await _contexteDeBDD.SaveChangesAsync();                                            // Sauvegarde des changement dans la BDD
-        string id = model.IdUtilisateur;                                                    // stock l'id du model dans une variable    
+        int id = model.IdUtilisateur;                                                    // stock l'id du model dans une variable    
         return await _contexteDeBDD.Reserver.FindAsync(id) != null;               // verfication de la creation
     }
 
-    public async Task<bool> Delete(string id)
+    public async Task<bool> Delete(int id)
     {
         var bddSejourSupprimer = await _contexteDeBDD.Reserver.FindAsync(id);      // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
         if (bddSejourSupprimer == null) { return false; }                         // verfication de l'existance de cette id dans la table
@@ -29,12 +29,12 @@ public class ReserverRepository : IRepository<Reserver, string>
        return await _contexteDeBDD.Reserver.ToArrayAsync();     // recupere la table dans la BDD et la transforme en IEnumerable                                                                             // retourne le IEnumerable
     }
 
-    public async Task<Reserver> GetById(string id)
+    public async Task<Reserver> GetById(int id)
     {
         return await _contexteDeBDD.Reserver.FindAsync(id);     // retourne l'entrée en BDD par sont id si inexistant revoie un null
     }
 
-    public async Task<bool> Update(Reserver model, string id)
+    public async Task<bool> Update(Reserver model, int id)
     {
         var dbReservation = await _contexteDeBDD.Reserver.FindAsync(id);  // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
         

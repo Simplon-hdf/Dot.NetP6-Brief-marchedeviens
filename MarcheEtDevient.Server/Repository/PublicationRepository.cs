@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using MarcheEtDevient.Server.Data;
 namespace MarcheEtDevient.Server.Repository;
 
-public class PublicationActusRepository : IRepository<Publication, string>
+public class PublicationRepository : IRepository<Publication, int>
 {
     private readonly ApiDBContext _contexteDeBDD;   // intialisation d'une variable de type apiDBContext
-    public PublicationActusRepository(ApiDBContext context) =>  _contexteDeBDD = context;   // ajout du contexte de program.cs a l'initialisation de ce repository
+    public PublicationRepository(ApiDBContext context) =>  _contexteDeBDD = context;   // ajout du contexte de program.cs a l'initialisation de ce repository
     public async Task<bool> Add(Publication model)
     {
         _contexteDeBDD.Publication.Add(model);                                         // ajout une nouvell entrée dans la BDD a partir de celle fournie dans le EndPoint(point de connection de l'api)
@@ -15,7 +15,7 @@ public class PublicationActusRepository : IRepository<Publication, string>
         return await _contexteDeBDD.Publication.FindAsync(id) != null;                 // verfication de la creation
     }
 
-    public async Task<bool> Delete(string id)
+    public async Task<bool> Delete(int id)
     {
         var bddPublicationActuSupprimer = await _contexteDeBDD.Publication.FindAsync(id);      // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
         if ( bddPublicationActuSupprimer == null){return false; }                                   // verfication de l'existance de cette id dans la table
@@ -30,12 +30,12 @@ public class PublicationActusRepository : IRepository<Publication, string>
         return publicationActu;                                                                                 // retourne le IEnumerable
     }
 
-    public async Task<Publication> GetById(string id)
+    public async Task<Publication> GetById(int id)
     {
         return await _contexteDeBDD.Publication.FindAsync(id);     // retourne l'entrée en BDD par sont id si inexistant revoie un null
     }
 
-    public async Task<bool> Update(Publication model, string id)
+    public async Task<bool> Update(Publication model, int id)
     {
         var dbPublicationActu = await _contexteDeBDD.Publication.FindAsync(id);  // recherche de l'id qui est en parrametre dans la BDD et le stock dans une variable
         dbPublicationActu.DatePublication = model.DatePublication;                    // remplace la date de publication dans la bdd par celle du model

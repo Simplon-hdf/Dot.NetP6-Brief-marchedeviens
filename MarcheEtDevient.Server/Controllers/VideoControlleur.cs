@@ -25,7 +25,7 @@ namespace MarcheEtDevient.Server.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Video>> GetVideo(string id)
+        public async Task<ActionResult<Video>> GetVideo(int id)
         {
             var video = await _repository.GetById(id);     // récupère les données depuis le repository
             if (video == null)                                  // si les données sont null on renvoie NotFound vers le endpoint
@@ -41,15 +41,15 @@ namespace MarcheEtDevient.Server.Controllers
             var result = await _repository.Add(video);                                                     // envoie vers le repository l'objet et stocke le booléen de retour
             if (result)                                                                                         // si le booléen de retour est true
             {
-                return CreatedAtAction(nameof(GetVideo), new { id = video.id_video }, video);                    // renvoie vers le endpoint l'objet qui vient d'être créé
+                return CreatedAtAction(nameof(GetVideo), new { id = video.IdVideo }, video);                    // renvoie vers le endpoint l'objet qui vient d'être créé
             }
             return BadRequest();                                                                                // renvoie un BadRequest (code ~400)
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateVideo(string id, Video video)
+        public async Task<IActionResult> UpdateVideo(int id, Video video)
         {
-            if (id != video.id_video)                                        // vérifie si la donnée que l'on veut mettre à jour est bien celle avec cet id
+            if (id != video.IdVideo)                                        // vérifie si la donnée que l'on veut mettre à jour est bien celle avec cet id
             {
                 return BadRequest();                                        // renvoie un BadRequest (code ~400)
             }
@@ -63,7 +63,7 @@ namespace MarcheEtDevient.Server.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteVideo(string id)
+        public async Task<IActionResult> DeleteVideo(int id)
         {
             var result = await _repository.Delete(id);     // envoie une requête de suppression vers le repository et stocke le retour
             if (result)                                         // si le retour est positif

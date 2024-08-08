@@ -7,13 +7,13 @@ namespace MarcheEtDevient.Server.Models;
 
 public partial class Publication
 {
-    [Column("I=id_publication "), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Required]
+    [Column("id_publication"), Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Required]
     public int IdPublication { get; set; }
 
     [Column("date_publication"), Required]
     public DateOnly DatePublication { get; set; }
 
-    [Column("id_contenu_publie "), Required]
+    [Column("id_contenu_publie"), Required]
     public int IdContenuPublie { get; set; }
 
     [Column("id_video"), Required]
