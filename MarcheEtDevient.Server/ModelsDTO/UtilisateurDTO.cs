@@ -11,12 +11,15 @@ namespace MarcheEtDevient.Server.ModelsDTO
         [Required, MaxLength(50)]
         public string Mail { get; set; }
 
-        [MaxLength(50)]
+        [Required, MaxLength(50)]
         public string? Prenom { get; set; }
 
-        [MaxLength(50)]
+        [Required, MaxLength(50)]
         public string? Nom { get; set; }
 
         public int? DistanceParcourue { get; set; }
+
+        [Required, DataType(DataType.Password), MaxLength(35)]
+        public string Mdp { get; set; }
     }
 }
