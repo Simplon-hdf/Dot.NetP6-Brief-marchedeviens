@@ -1,0 +1,44 @@
+.carte_commande_admin{
+    display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(3, 1fr);
+grid-column-gap: 10px;
+grid-row-gap: 10px;
+width: 20vw;
+height: auto;
+}
+.carte_commande_admin button{
+    height: fit-content;
+    width: 80;
+    background-color: lightgray;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.76);
+    margin-top: 5px;
+    border: 1px solid lightgray;
+}
+.carte_commande_admin button:hover{
+    border: 1px solid black;
+}
+.carte_commande_admin h3{
+    grid-area: 1 / 2 / 2 / 4;
+}
+.carte_commande_admin p{
+    grid-area: 2 / 2 / 3 / 4;
+    padding-bottom: 5px;
+}
+.carte_commande_admin button.list{
+    grid-area: 3 / 1 / 4 / 2;
+}
+.carte_commande_admin button.ajout{
+    grid-area: 3 / 2 / 4 / 3;
+}
+.carte_commande_admin button.suprimer{
+    grid-area: 3 / 3 / 4 / 4;
+}
+.carte_commande_admin button.modifier{
+    grid-area: 3 / 4 / 4 / 5;
+}
+.conteuneur_commande_admin{
+    
+}
