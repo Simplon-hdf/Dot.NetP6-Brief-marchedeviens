@@ -16,7 +16,7 @@ public partial class Utilisateur
     [Column("mail_utilisateur"), MaxLength(50), Required]
     public string MailUtilisateur { get; set; } = null!;
 
-    [Column("mdp_utilisateur"), MaxLength(35), Required]
+    [Column("mdp_utilisateur"), MaxLength(35), Required, DataType(DataType.Password)]
     public string MdpUtilisateur { get; set; } = null!;
 
     [Column("nom_utilisateur"), MaxLength(50), Required]
@@ -36,4 +36,8 @@ public partial class Utilisateur
 
     [Column("total_distance_parcourue_utilisateur"), Required]
     public int? TotalDistanceParcourueUtilisateur { get; set; }
+
+    public byte[] mdpHash { get; set; }
+
+    public byte[] mdpSalt { get; set; }
 }
