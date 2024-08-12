@@ -1,0 +1,61 @@
+.main_flex{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: flex-end;
+}
+
+.carte_offre{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    width: 45%;
+    border: 1px solid black;
+    margin-top: 5vh;
+}
+
+/* carte offre droite*/
+.carte_offre.droite{
+    margin-right: 5vw;
+}
+.carte_offre.droite h3{
+    grid-area: 1 / 2 / 2 / 4;
+}
+.carte_offre.droite p{
+    grid-area: 2 / 1 / 4 / 3;
+}
+.carte_offre.droite picture{
+    grid-area: 2 / 3 / 4 / 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carte_offre.droite img{
+    width: 35vw;
+    max-width: 100%;
+}
+
+/* carte offre gauche*/
+.carte_offre.gauche{
+    align-self: flex-start;
+    margin-left: 5vw;
+}
+.carte_offre.gauche h3{
+    grid-area: 1 / 2 / 2 / 4;
+}
+.carte_offre.gauche p{
+    grid-area: 2 / 3 / 4 / 5;
+}
+.carte_offre.gauche picture{
+    grid-area: 2 / 1 / 4 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carte_offre.gauche img{
+    size: auto;
+    width: 35vw;
+    max-width: 100%;
+}
