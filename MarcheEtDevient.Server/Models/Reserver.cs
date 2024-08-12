@@ -19,7 +19,7 @@ public partial class Reserver
     [Column("nombre_place_reserver"), Required]
     public short NombrePlaceReserver { get; set; }
 
-    [Column("validation_reserver")]
+    [Column("validation_reserver"),Required]
     public bool? ValidationReserver { get; set; }
 
     [Column("date_paiement_reserver")]
