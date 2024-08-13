@@ -1,0 +1,107 @@
+*{
+    padding: 0px;
+    margin: 0px;
+
+}
+body{
+    font-family: 'Advent Pro', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+ul {
+margin: 0;
+padding: 0;
+}
+
+li{
+    list-style-type: none; /*pour enlever les puces pour la liste*/
+}
+h2{
+    text-transform: uppercase; /*tous les h2 en majuscule*/
+    text-align: center;
+    padding-top: 30px; /*30 px au dessus des titres y a rien*/
+    font-size: 2em; /*taille du texte*/
+}
+/* pour tous les liens on enleve le soulignement et met en noir */
+a{
+   text-decoration: none; 
+   color:black;
+}
+h3{
+    text-align: center;
+}
+
+
+
+/***************************** NAVBAR************/
+
+header nav {
+    overflow: hidden; /*tout ce qui dépasse est caché*/
+    background-color: rgb(156, 193, 173);
+    position: fixed; /*nav bar fix*/
+    width: 100%; /*occupe 100% de la page*/
+    opacity: 0.9;/*legere opacité en arrière plan <div
+    id="logo"><a href="#"><img src="../logo.png" alt="logo"></a>
+  </div>*/
+
+}
+header ul li{
+    float: right;
+    font-size: 1.2em; 
+}
+header li a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+#logo{
+    max-width: 30px;
+    height: 10px;
+    float: left ;
+}
+
+/***************IMAGE PRINCIPALE************/
+
+#imagePrincipale{
+    padding-top: 60px;
+    background: url(/presentation.jpg) no-repeat fixed 50% 50%;
+    background-size: cover; /*pour que ca couvre tout quelque soit la largeur de la page*/
+    height: 799px;
+}
+h1{
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    color: rgb(49, 65, 51);
+    font-size: 5em;
+    margin-top: 400px;
+    text-shadow: 1px 3px 2px black;
+}
+
+#Histoire{
+    background-color: rgb(95, 115, 104);
+    padding: 10px 0px 100px 0px
+    
+
+}
+
+.illustrationHistoire {
+    width: 300px;
+    height: 200px;
+    padding-left: 60px;
+
+}
+.flex-container{
+    
+    margin: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+    padding: 1px 1px;
+    
+
+}

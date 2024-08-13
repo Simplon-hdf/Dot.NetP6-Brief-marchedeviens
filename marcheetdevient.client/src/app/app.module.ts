@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OffresComponent } from './pages/offres/offres.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { AproposComponent } from './pages/apropos/apropos.component';
+import { GalerieComponent } from './pages/galerie/galerie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OffresComponent,
-    AdminComponent
+    AdminComponent,
+    AproposComponent,
+    GalerieComponent
   ],
   imports: [
     BrowserModule,
