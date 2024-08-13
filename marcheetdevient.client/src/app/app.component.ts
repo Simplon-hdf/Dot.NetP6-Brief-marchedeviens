@@ -25,6 +25,7 @@ export class AppComponent{
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+
 interface WeatherForecast {
   date: string;
   temperatureC: number;

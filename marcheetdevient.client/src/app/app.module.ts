@@ -31,12 +31,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OffresComponent } from './pages/offres/offres.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ContactComponent } from './contact/contact.component';
+import { ActusComponent } from './actus/actus.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OffresComponent,
-    AdminComponent
+    AdminComponent,
+    UserProfileComponent,
+    ContactComponent,
+    ActusComponent
   ],
   imports: [
     BrowserModule,
