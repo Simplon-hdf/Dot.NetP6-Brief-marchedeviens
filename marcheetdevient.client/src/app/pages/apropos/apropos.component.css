@@ -19,7 +19,7 @@ li{
 h2{
     text-transform: uppercase; /*tous les h2 en majuscule*/
     text-align: center;
-    padding-top: 30px; /*30 px au dessus des titres y a rien*/
+    padding-top: 100px; /*30 px au dessus des titres y a rien*/
     font-size: 2em; /*taille du texte*/
 }
 /* pour tous les liens on enleve le soulignement et met en noir */
@@ -36,8 +36,8 @@ h3{
 /***************************** NAVBAR************/
 
 header nav {
-    overflow: hidden; /*tout ce qui dépasse est caché*/
-    background-color: rgb(156, 193, 173);
+    /* /*overflow: hidden; tout ce qui dépasse est caché* */
+    background-color: #859A7B;
     position: fixed; /*nav bar fix*/
     width: 100%; /*occupe 100% de la page*/
     opacity: 0.9;/*legere opacité en arrière plan <div
@@ -57,8 +57,8 @@ header li a {
 }
 
 #logo{
-    max-width: 30px;
-    height: 10px;
+    max-width: 110px;
+    height: 37px;
     float: left ;
 }
 
@@ -68,8 +68,8 @@ header li a {
     padding-top: 60px;
     background: url(/presentation.jpg) no-repeat fixed 50% 50%;
     background-size: cover; /*pour que ca couvre tout quelque soit la largeur de la page*/
-    height: 799px;
-}
+    height: 799px;}
+
 h1{
     font-family: 'Dancing Script', cursive;
     text-align: center;
@@ -80,7 +80,7 @@ h1{
 }
 
 #Histoire{
-    background-color: rgb(95, 115, 104);
+    background: color #faf7f0;
     padding: 10px 0px 100px 0px
     
 
@@ -89,9 +89,12 @@ h1{
 .illustrationHistoire {
     width: 300px;
     height: 200px;
-    padding-left: 60px;
-
+    padding-left: 100px;
+   
+    
 }
+
+
 .flex-container{
     
     margin: 5%;
@@ -101,7 +104,17 @@ h1{
     justify-content: space-around;
     align-items: center;
     align-content: stretch;
-    padding: 1px 1px;
+    margin-left: 50px;
+    
+   
     
 
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

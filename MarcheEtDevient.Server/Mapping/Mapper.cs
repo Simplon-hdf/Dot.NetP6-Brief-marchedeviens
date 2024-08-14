@@ -1,11 +1,10 @@
-﻿using Riok.Mapperly.Abstractions;
-using MarcheEtDevient.Server.ModelsDTO;
-using System.Runtime.CompilerServices;
+﻿using MarcheEtDevient.Server.ModelsDTO;
 using MarcheEtDevient.Server.Models;
+using Riok.Mapperly.Abstractions;
 
 namespace MarcheEtDevient.Server.Mapping
 {
-    [Mapper(EnumMappingStrategy = EnumMappingStrategy.ByName)]
+    [Mapper(EnumMappingStrategy=EnumMappingStrategy.ByName)]
     public static partial class Mapper
     {
         public static partial UtilisateurDTO MapToDto(this Utilisateur utilisateur);
