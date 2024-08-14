@@ -2,6 +2,17 @@ using MarcheEtDevient.Server.Data;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularOrigins",
+    builder =>
+    {
+        builder.WithOrigins("https://localhost:4200")
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -17,13 +28,14 @@ var app = builder.Build();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowAngularOrigins");
 
 app.UseHttpsRedirection();
 

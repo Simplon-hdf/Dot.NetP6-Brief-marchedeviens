@@ -1,6 +1,5 @@
 ﻿using Riok.Mapperly.Abstractions;
 using MarcheEtDevient.Server.ModelsDTO;
-using System.Runtime.CompilerServices;
 using MarcheEtDevient.Server.Models;
 
 namespace MarcheEtDevient.Server.Mapping
