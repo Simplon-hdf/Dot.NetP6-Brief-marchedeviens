@@ -1,0 +1,20 @@
+<section class="carte_commande">
+    <h3>list</h3>
+    <div *ngFor="let photo of listPhoto">
+        <!-- Affichez les détails de la photo ici -->
+        <p>ID: {{photo.id}}</p>
+        <p>Date: {{photo.date}}</p>
+        <p>Est publique: {{photo.estPublique}}</p>
+        <p>ID Séjour: {{photo.idSejour}}</p>
+        <!-- N'affichez pas photo.donnee directement, car c'est un BinaryType -->
+      </div>
+</section>
+<section class="carte_commande">
+    <h3>ajour</h3>
+</section>
+<section class="carte_commande">
+    <h3>suprimez</h3>
+</section>
+<section class="carte_commande">
+    <h3>metre a jour</h3>
+</section>

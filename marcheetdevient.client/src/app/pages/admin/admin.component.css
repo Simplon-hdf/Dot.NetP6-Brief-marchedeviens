@@ -1,0 +1,30 @@
+.carte_commande_admin{
+    display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(3, 1fr);
+grid-column-gap: 10px;
+grid-row-gap: 10px;
+width: 20vw;
+height: auto;
+}
+button{
+    height: fit-content;
+    width: 80;
+    background-color: lightgray;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.76);
+    margin-top: 5px;
+    border: 1px solid lightgray;
+}
+
+.boiteAffichage{
+    width: 100vw;
+    height: auto;
+    min-height: 80vh;
+    background-color: aliceblue;
+}
+.admin_page_container{
+    background-color: aliceblue;
+    width: 100vw;
+}
