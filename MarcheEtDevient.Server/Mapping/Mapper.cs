@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿using MarcheEtDevient.Server.ModelsDTO;
+=======
+﻿using Riok.Mapperly.Abstractions;
+using MarcheEtDevient.Server.ModelsDTO;
+>>>>>>> 6b28513e1dc508b3ddc556c93e2f478d16a0ab3e
 using MarcheEtDevient.Server.Models;
 using Riok.Mapperly.Abstractions;
 
