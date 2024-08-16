@@ -23,7 +23,7 @@ export class ApiHandlerPhotoService {
 
   ajoutPhoto(image: Photo): boolean{
     try {
-        let responceFromPost: object = this.httpClient.post(`${this.endPointUrl}`,{
+        this.httpClient.post(`${this.endPointUrl}`,{
         "idPhoto": null,
         "datePhoto": image.datePhoto,
         "estPubliquePhoto": image.estPubliquePhoto,
