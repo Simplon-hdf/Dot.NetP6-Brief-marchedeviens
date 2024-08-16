@@ -1,0 +1,24 @@
+﻿<header>
+    <nav> 
+       <div id="logo">
+        <a href="http://localhost:4200/marcheDeviens">
+        <img src="https://marchedeviens.com/wp-content/uploads/2023/04/MARCHEDEVIENS_BLANC.png" alt="logo"></a>
+      </div>
+        <ul>
+          <li><a href="#">Menu</a></li> 
+          <li><a href="#">Connexion</a></li>
+          <div>
+            <button (click)="allerPage('admin')">page admin</button>
+            <button (click)="allerPage('apropos')">APropos</button>
+            <button (click)="allerPage('galerie')">Galerie</button>
+            <button (click)="allerPage('detail_offre')">Détail de l'offre</button>
+            <button (click)="allerPage('reservation')">Page reservation</button>
+            <button (click)="allerPage('offres')">Page offres</button> 
+            <button (click)="allerPage('contact')">Page contact</button>
+            <button (click)="allerPage('actu')">Page actu</button>
+            <button (click)="allerPage('marcheDeviens')">Accueil</button>
+        </div>
+        </ul>
+    </nav>
+  </header>
+<router-outlet></router-outlet>

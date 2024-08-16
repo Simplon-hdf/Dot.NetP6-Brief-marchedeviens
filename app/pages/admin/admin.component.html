@@ -1,0 +1,20 @@
+<div class="admin_page_container">    
+    <section class="conteneur_commande_admin">
+        <button (click)="selectionCommande('photo')">Photo</button><button>Video</button>
+    </section>
+    <section class="boiteAffichage">
+        <app-photocommande-box *ngIf="this.commandeSelected == 'photo'"></app-photocommande-box>
+    </section>
+</div>
+<footer>
+    <div id="copyrightEtIcons">
+        <div id="copyright">
+            <br><span>© Marche&Deviens-Tous droits réservés. </span>
+        </div>
+        <div class="icons" id="icons">
+            <a href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
+            <a href="http://www.facebook.fr"><i class="fa fa-facebook"></i></a>
+
+        </div>
+    </div>
+</footer>
