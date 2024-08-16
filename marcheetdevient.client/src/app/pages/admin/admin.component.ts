@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-admin',
-  standalone:true,
+  standalone: true,
   templateUrl: './admin.component.html',
   imports:[PhotocommandeBoxComponent,CommonModule],
-  styleUrl: './admin.component.css'
+  styleUrl: './admin.component.css',
 })
 export class AdminComponent{
   public commandeSelected: string = "";

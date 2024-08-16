@@ -16,16 +16,15 @@ import { ActusComponent } from './pages/actus/actus.component';
     ContactComponent,
     ActusComponent,
     AproposComponent,
-    GalerieComponent
-  ],
+    GalerieComponent,
+    ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule, 
     AdminComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
  
