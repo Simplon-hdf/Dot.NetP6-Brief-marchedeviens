@@ -1,20 +1,94 @@
-<section class="carte_commande">
-    <h3>list</h3>
-    <div *ngFor="let photo of listPhoto">
-        <!-- Affichez les détails de la photo ici -->
-        <p>ID: {{photo.id}}</p>
-        <p>Date: {{photo.date}}</p>
-        <p>Est publique: {{photo.estPublique}}</p>
-        <p>ID Séjour: {{photo.idSejour}}</p>
-        <!-- N'affichez pas photo.donnee directement, car c'est un BinaryType -->
-      </div>
-</section>
-<section class="carte_commande">
-    <h3>ajour</h3>
-</section>
-<section class="carte_commande">
-    <h3>suprimez</h3>
-</section>
-<section class="carte_commande">
-    <h3>metre a jour</h3>
+<section class="grid_parrent">
+    <section class="carte_commande_list flex_colum">
+        <h3>list</h3>
+        <div *ngFor="let photo of listPhoto">
+            <!-- Affichez les détails de la photo ici -->
+            <p>ID: {{photo.idPhoto}}</p>
+            <p>Date: {{photo.datePhoto}}</p>
+            <p>Est publique: {{photo.estPubliquePhoto}}</p>
+            <p>ID Séjour: {{photo.idSejour}}</p>
+            <!-- N'affichez pas photo.donnee directement, car c'est un BinaryType -->
+        </div>
+    </section>
+
+    <section class="carte_commande_ajout flex_colum">
+        <h3>ajout</h3>
+        <form action="" method="post">
+
+            <section class="flex_row">
+                <p>lien de la photo</p>
+                <input type="text" name="lien_de_la_photo" id="lien_de_la_photo" [(ngModel)]="postLienPhoto" />
+            </section>
+
+            <section class="flex_row">
+                <p>date de prise de la photo</p>
+                <input type="datetime" name="lien_de_la_photo" id="date_photo" [(ngModel)]="postDatePhoto" />
+            </section>
+
+            <section class="flex_row">
+                <p>la photo est elle publique</p>
+                <input type="checkbox" name="photo_est_publique" id="photo_publique" [(ngModel)]="postEstPublique" />
+            </section>
+
+            <section class="flex_row">
+                <p>lier a un sejour</p>
+                <input list="id_sejour" name="lier_a_sejour" id="lier_a_sejour" [(ngModel)]="postIdSejour" />
+
+                <datalist id="id_sejour">
+                </datalist>
+            </section>
+            <button (click)="ajoutPhoto()">Ajouter</button>
+        </form>
+    </section>
+
+    <section class="carte_commande_supprimer flex_colum">
+        <h3>supprimer</h3>
+        <p>Photo a supprimer</p>
+
+        <form action="" method="post">
+            <section class="flex_row">
+                <input list="list_photo" name="suprimer_list_photo" id="suprimer_list_photo"/>
+                <datalist id="list_photo" *ngFor="let photo of listPhoto">
+                    <option value="{{photo.idPhoto}}">
+                </datalist>
+            </section>
+            <button>Confirmer Suprimer</button>
+        </form>
+    </section>
+
+    <section class="carte_commande_maj flex_colum">
+        <h3>metre a jour</h3>
+        <form action="" method="post">
+            <section class="flex_row">
+                <p>photo a metre a jour</p>
+                <input list="list_photo" />
+                <datalist id="list_photo">
+
+                </datalist>
+            </section>
+            <section class="flex_row">
+                <p>lien de la photo</p>
+                <input type="text" name="lien_de_la_photo" id="lien_de_la_photo"/>
+            </section>
+
+            <section class="flex_row">
+                <p>date de prise de la photo</p>
+                <input type="datetime" name="date_photo" id="date_photo">
+            </section>
+
+            <section class="flex_row">
+                <p>la photo est elle publique</p>
+                <input type="checkbox" name="photo_publique" id="photo_publique" />
+            </section>
+
+            <section class="flex_row">
+                <p>lier a un sejour</p>
+                <input list="id_sejour" name="maj_sejour_list" id="maj_sejour_list"/>
+
+                <datalist id="id_sejour">
+                </datalist>
+            </section>
+            <button>Maj de la photo</button>
+        </form>
+    </section>
 </section>

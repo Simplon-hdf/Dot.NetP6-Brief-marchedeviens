@@ -1,0 +1,33 @@
+.flex_row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.flex_row p{
+    min-width: 15vw;
+}
+.flex_colum{
+    display: flex;
+    flex-direction: column;
+}
+.grid_parrent{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+.carte_commande_list{
+    grid-area: 1 / 1 / 2 / 2;
+}
+.carte_commande_ajout{
+    grid-area: 1 / 2 / 2 / 3;
+}
+.carte_commande_supprimer{
+    grid-area: 2 / 1 / 3 / 2;
+}
+.carte_commande_maj{
+    grid-area: 2 / 2 / 3 / 3;
+}
+
