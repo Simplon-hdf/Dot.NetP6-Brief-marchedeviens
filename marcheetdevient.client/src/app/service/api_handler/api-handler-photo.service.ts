@@ -21,20 +21,21 @@ export class ApiHandlerPhotoService {
     return this.httpClient.get<Photo>(`${this.endPointUrl}/${id}`);
   } 
 
-  ajoutPhoto(image: Photo): boolean{
-    try {
-        this.httpClient.post(`${this.endPointUrl}`,{
-        "idPhoto": null,
-        "datePhoto": image.datePhoto,
-        "estPubliquePhoto": image.estPubliquePhoto,
-        "donneePhoto": image.donneePhoto,
-        "idSejour": image.idSejour
-      })
-      return true;
-    } catch (error) {
-      return false;
-    }
-
+  
+  async ajoutPhoto(image: Photo) {
+    this.httpClient.post(`${this.endPointUrl}`, {
+      "datePhoto":  image.datePhoto,
+      "estPubliquePhoto": image.estPubliquePhoto,
+      "donneePhoto": image.donneePhoto,
+      "idSejour": image.idSejour
+    }).subscribe((res: any) => {
+      if (res.result) {
+        alert("Photo ajouter a l'appli")
+      } else {
+        alert(res.message)
+      }
+    })
+    //debugger;
   }
 
   suprimerPhoto(id: number): boolean{
