@@ -3,7 +3,6 @@ import { ApiHandlerPhotoService } from '../../../../service/api_handler/api-hand
 import { Photo } from '../../../../interface/photo';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
-
 @Component({
   selector: 'app-photocommande-box',
   standalone:true,
@@ -25,6 +24,19 @@ export class PhotocommandeBoxComponent implements OnInit {
   ngOnInit() {
     this.apiHandlerPhoto.recupererPhotoList().subscribe((data) => {this.listPhoto = data;console.log(data)});
     
+    this.apiHandlerPhoto.getData().subscribe({
+      next: (response) => {
+        console.log('Status Code:', response.status);
+        console.log('Headers:', response.headers);
+        console.log('Body:', response.body);
+      },
+      error: (error) => {
+        console.error('Error:', error);
+      },
+      complete: () => {
+        console.log('Request complete');
+      }
+    });
   }
 
   ajoutPhoto(){
@@ -42,10 +54,5 @@ export class PhotocommandeBoxComponent implements OnInit {
       alert("Photo non ajouter")
     }
     ;
-    
-    
-
   }
-  
-  
 }

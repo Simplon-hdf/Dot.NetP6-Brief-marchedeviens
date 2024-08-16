@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Photo } from '../../interface/photo';
@@ -29,9 +29,7 @@ export class ApiHandlerPhotoService {
         "estPubliquePhoto": image.estPubliquePhoto,
         "donneePhoto": image.donneePhoto,
         "idSejour": image.idSejour
-      }).pipe(map((Object) => {return{message:Object.message}}))
-
-      console.log(responceFromPost);
+      })
       return true;
     } catch (error) {
       return false;
@@ -60,5 +58,8 @@ export class ApiHandlerPhotoService {
     } catch (error) {
       
     }
+  }
+  getData(): Observable<HttpResponse<any>> {
+    return this.httpClient.get<any>(this.endPointUrl, { observe: 'response' });
   }
 }
