@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: none;
+    font-size: 12;
+}
+
+
+
+.header {
+    background-color: green;
+    display: block;
+    border: 5%;
+    height: 10%;
+    width: 100%;
+    padding: 5rem;
+}
+
+.form { 
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.message_box {
+    margin: 2rem;
+    padding: 2rem;
+    border: 2rem;
+}
