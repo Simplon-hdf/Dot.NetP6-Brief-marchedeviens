@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
-import { Component } from '@angular/core';
-
 
 interface WeatherForecast {
   date: string;
@@ -18,10 +16,8 @@ interface WeatherForecast {
   styleUrl: './app.component.css'
 })
 export class AppComponent{
-
   constructor(private router:Router) {}
   allerPage(nomPage:string):void{
     this.router.navigate([`${nomPage}`]);
   }
 }
-b278f52 (feat:page offre mokup)
