@@ -8,6 +8,8 @@ import { GalerieComponent } from './pages/galerie/galerie.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ActusComponent } from './pages/actus/actus.component';
+import { ApiHandlerPhotoService } from './service/api_handler/api-handler-photo.service';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,8 @@ import { ActusComponent } from './pages/actus/actus.component';
     AppRoutingModule, 
     AdminComponent,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ApiHandlerPhotoService,provideHttpClient()],
+  bootstrap: [AppComponent ,]
 })
 export class AppModule { }
  
