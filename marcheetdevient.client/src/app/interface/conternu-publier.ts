@@ -3,5 +3,5 @@ export interface ConternuPublier {
     date: Date;
     theme: string;
     commentaire: string;
-    idPhoto: number|null;
+    idPhoto: number | null;
 }

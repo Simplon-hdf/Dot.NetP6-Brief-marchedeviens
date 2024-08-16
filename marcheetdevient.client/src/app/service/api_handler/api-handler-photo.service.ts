@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Photo } from '../../interface/photo';
 
 
@@ -23,28 +23,43 @@ export class ApiHandlerPhotoService {
 
   ajoutPhoto(image: Photo): boolean{
     try {
-      let date: string[] = image.date.toDateString().split(',');
-      date = date[1].split('/');
-      this.httpClient.post(`${this.endPointUrl}`,{
+        let responceFromPost: object = this.httpClient.post(`${this.endPointUrl}`,{
         "idPhoto": null,
-        "datePhoto": {
-          "year": date[3],
-          "month": date[1],
-          "day": date[0],
-          "dayOfWeek": 0,
-          "dayOfYear": 0,
-          "dayNumber": 0
-        },
-        "estPubliquePhoto": image.estPublique,
-        "donneePhoto": image.donnee,
+        "datePhoto": image.datePhoto,
+        "estPubliquePhoto": image.estPubliquePhoto,
+        "donneePhoto": image.donneePhoto,
+        "idSejour": image.idSejour
+      })
+      return true;
+    } catch (error) {
+      return false;
+    }
+
+  }
+
+  suprimerPhoto(id: number): boolean{
+    try {
+      this.httpClient.delete(`${this.endPointUrl}/${id}`)
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  majPhoto(id: number,image: Photo){
+    try {
+      this.httpClient.put(`${this.endPointUrl}/${id}`,{
+        "idPhoto": null,
+        "datePhoto":image.datePhoto,
+        "estPubliquePhoto": image.estPubliquePhoto,
+        "donneePhoto": image.donneePhoto,
         "idSejour": image.idSejour
       })
     } catch (error) {
-      return false
+      
     }
-    finally{
-      return true
-    }
-
+  }
+  getData(): Observable<HttpResponse<any>> {
+    return this.httpClient.get<any>(this.endPointUrl, { observe: 'response' });
   }
 }

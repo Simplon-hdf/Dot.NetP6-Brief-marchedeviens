@@ -1,7 +1,7 @@
 export interface Photo {
-    id: number;
-    date: Date;
-    estPublique: boolean;
-    donnee: BinaryType;
+    idPhoto: number | null;
+    datePhoto: Date;
+    donneePhoto: string;
+    estPubliquePhoto: boolean;
     idSejour: number;
 }

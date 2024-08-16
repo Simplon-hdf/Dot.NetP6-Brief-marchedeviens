@@ -17,7 +17,7 @@ public partial class Photo
     public bool? EstPubliquePhoto { get; set; }
 
     [Column("donnee_photo"), Required]
-    public byte[]? DonneePhoto { get; set; }
+    public string? DonneePhoto { get; set; }
 
     [Column("id_sejour"), Required]
     public int? IdSejour { get; set; }
