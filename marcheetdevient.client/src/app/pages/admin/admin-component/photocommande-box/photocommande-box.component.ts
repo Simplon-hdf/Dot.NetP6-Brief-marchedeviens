@@ -39,7 +39,7 @@ export class PhotocommandeBoxComponent implements OnInit {
     });
   }
 
-  ajoutPhoto(){
+  async ajoutPhoto(){
     let photoAjout: Photo = {
       idPhoto: null,
       datePhoto: this.postDatePhoto,
@@ -47,12 +47,7 @@ export class PhotocommandeBoxComponent implements OnInit {
       estPubliquePhoto: this.postEstPublique,
       idSejour:this.postIdSejour,
     }
-    if(this.apiHandlerPhoto.ajoutPhoto(photoAjout)){
-      alert("Photo ajouter")
-    }
-    else{
-      alert("Photo non ajouter")
-    }
-    ;
+    this.apiHandlerPhoto.ajoutPhoto(photoAjout);
+    alert(`reussite`)
   }
 }

@@ -12,7 +12,7 @@
     </section>
 
     <section class="carte_commande_ajout flex_colum">
-        <h3>ajout</h3>
+        <h3>ajout {{postDatePhoto}}</h3>
         <form action="" method="post">
 
             <section class="flex_row">
@@ -22,7 +22,7 @@
 
             <section class="flex_row">
                 <p>date de prise de la photo</p>
-                <input type="datetime" name="lien_de_la_photo" id="date_photo" [(ngModel)]="postDatePhoto" />
+                <input type="date" name="lien_de_la_photo" id="date_photo" [(ngModel)]="postDatePhoto" />
             </section>
 
             <section class="flex_row">
