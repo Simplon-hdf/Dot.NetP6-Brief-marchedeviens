@@ -1,4 +1,3 @@
-
 import { HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture } from '@angular/core/testing';
 
@@ -21,4 +20,3 @@ describe('AppComponent', () => {
       imports: []
     }).compileComponents();
   });
-});

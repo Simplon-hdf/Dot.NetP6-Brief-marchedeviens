@@ -15,9 +15,83 @@
     padding: 5rem;
 }
 
-.form { 
-    display: flex;
-    justify-content: flex-end;
+/* .form {
+    align-self: center;
+    display: inline-flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+input[type=text] {
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+} */
+
+input[type=text], textarea, input[type=email] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #FAF7F0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-right: 0px;
+    margin-left: 0px;
+    resize: vertical;
+  }
+  label{margin-right: 0px;
+    margin-left: 0px;
+    width: 100%;}
+  
+  input[type=submit] {
+    background-color: #333333;
+    color: #f4f4f4;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 150px;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #442E08;
+  }
+  
+  .container {
+    /* Ajouter box-sizing */
+    box-sizing : border-box;
+    border-radius:5px;
+    background-color:#FAF7F0;
+    padding:20px;
+    width: 100%;
+    /* redéfinition 400 + 2*20 */
+    max-width: 440px;
+    margin:0 auto;
+  }
+
+.Envoyer {
+    align-items: center;
+    width: 120px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    height: 30px;
+    length: 1500px;
 }
 
 .message_box {
@@ -26,7 +100,7 @@
     border: 2rem;
 }
 
-.main{
+.main {
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -34,7 +108,7 @@
     background-color: #FAF7F0;
 }
 
-.article{
+.article {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -46,12 +120,11 @@
     background-color: #859A7B
 }
 
-body{
+body {
     font-family: 'Advent Pro', sans-serif;
     padding: 0;
     margin: 0;
     background: #FAF7F0;
-    opacity: 0.9;
 }
 
 ul {
@@ -60,24 +133,24 @@ ul {
     list-style-type: none;
 }
 
-li{
+li {
     list-style-type: none;
 }
 
-h2{
-    text-transform: uppercase; 
+h2 {
+    text-transform: uppercase;
     text-align: center;
     padding-top: 30px;
     font-size: 2em;
-    color:#D4B886;
+    color: #D4B886;
 }
 
-a{
-   text-decoration: none; 
-   color:#847F71;
+a {
+    text-decoration: none;
+    color: #847F71;
 }
 
-#imagePrincipale{
+#imagePrincipale {
     padding-top: 60px;
     background: url(https://marchedeviens.com/wp-content/uploads/2023/04/DSC8839-scaled.jpg) no-repeat fixed 50% 50%;
     background-size: cover;
@@ -93,53 +166,54 @@ header nav {
     position: sticky;
     width: 100%;
 }
-  
+
 header ul li {
     float: right;
-    font-size: 1.2em; 
+    font-size: 1.2em;
 }
+
 header li a {
     text-decoration: none;
     display: block;
     text-align: center;
     padding: 10px 10px;
-    color:#442E08; 
+    color: #442E08;
 }
 
-#logo{
+#logo {
     max-width: 110px;
     height: 37px;
-    float: left ;
+    float: left;
 }
 
-h3{
+h3 {
     margin-top: 3vh;
     text-align: center;
     font-size: 200%;
-    color:#D59B37;
+    color: #D59B37;
 }
 
-h4{
+h4 {
     text-align: center;
     font-size: 100%;
-    color:#D4B886;
+    color: #D4B886;
 }
 
-h5{
+h5 {
     text-shadow: black;
     text-align: left;
     font-size: 175%;
-    color:#D4B886;
+    color: #D4B886;
 }
 
-h6{
+h6 {
     text-align: right;
     font-size: 150%;
-    color:#D4B886;
+    color: #D4B886;
 }
 
 .flex-container {
-    margin : 4%;
+    margin: 4%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -154,7 +228,7 @@ h6{
 }
 
 .flex-container2 {
-    margin : 4%;
+    margin: 4%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -177,25 +251,31 @@ h6{
     }
 }
 
-.Lorem{
-    color:#442E08;
-}
-
-p{
+.Lorem {
     color: #442E08;
 }
 
-video{
+p {
+    color: #442E08;
+}
+
+video {
     display: block;
     margin-left: 0;
 }
+
 .video-container {
-    max-width: 100%; /* Set a pixel value instead if no parent container*/
-    margin: 0 auto; /* Center the container */
+    max-width: 100%;
+    /* Set a pixel value instead if no parent container*/
+    margin: 0 auto;
+    /* Center the container */
 }
+
 .video-container video {
-    width: 100%; /* Fill the available width */
-    height: auto; /* Adjust height automatically */
+    width: 100%;
+    /* Fill the available width */
+    height: auto;
+    /* Adjust height automatically */
 }
 
 img {
@@ -233,7 +313,7 @@ img {
     margin: 0 0.2em 1em;
 }
 
-h1{
+h1 {
     font-family: 'Dancing Script', cursive;
     text-align: center;
     color: #0a5751;
@@ -242,11 +322,12 @@ h1{
     text-shadow: 1px 3px 2px black;
 }
 
-.menu label:hover,.menu label:focus {
+.menu label:hover,
+.menu label:focus {
     background: #442E08;
 }
 
-.slide-input{
+.slide-input {
     opacity: 0;
 }
 
@@ -263,14 +344,14 @@ h1{
     align-items: center;
 }
 
-[id^="slide"]:checked + .slide-img {
+[id^="slide"]:checked+.slide-img {
     left: 0;
     z-index: 100;
     transition: left 0.65s ease-out;
 }
 
-#icons{
-    color : azure;
+#icons {
+    color: azure;
 }
 
 button {
@@ -285,29 +366,29 @@ button:hover {
     background-color: #461F00;
 }
 
-.buttonQSN{
+.buttonQSN {
     display: block;
-    margin:auto;
+    margin: auto;
 }
 
-.buttonOffres{
+.buttonOffres {
     display: block;
-    margin:auto;
+    margin: auto;
 }
 
-.buttonElevage{
+.buttonElevage {
     display: block;
-    margin:auto;
+    margin: auto;
 }
 
-footer{
+footer {
     background-color: #9cc1ad;
     width: 100%;
     opacity: 0.9;
     text-align: center;
 }
 
-.icons{
+.icons {
     margin-right: 0.8%;
     text-align: right;
 }
@@ -318,67 +399,67 @@ footer{
     width: 93.8%;
     background: #859A7B;
     text-align: center;
-  }
-  
-  /* Month list */
-  .month ul {
+}
+
+/* Month list */
+.month ul {
     margin: 0;
     padding: 0;
-  }
-  
-  .month ul li {
+}
+
+.month ul li {
     color: white;
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
-  }
-  
-  /* Previous button inside month header */
-  .month .prev {
+}
+
+/* Previous button inside month header */
+.month .prev {
     float: left;
     padding-top: 10px;
-  }
-  
-  /* Next button */
-  .month .next {
+}
+
+/* Next button */
+.month .next {
     float: right;
     padding-top: 10px;
-  }
-  
-  /* Weekdays (Mon-Sun) */
-  .weekdays {
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
     margin: 0;
     padding: 10px 0;
-    background-color:#ddd;
-  }
-  
-  .weekdays li {
+    background-color: #ddd;
+}
+
+.weekdays li {
     display: inline-block;
     width: 13.6%;
     color: #666;
     text-align: center;
-  }
-  
-  /* Days (1-31) */
-  .days {
+}
+
+/* Days (1-31) */
+.days {
     padding: 10px 0;
     background: #eee;
     margin: 0;
-  }
-  
-  .days li {
+}
+
+.days li {
     list-style-type: none;
     display: inline-block;
     width: 13.6%;
     text-align: center;
     margin-bottom: 5px;
-    font-size:12px;
+    font-size: 12px;
     color: #777;
-  }
-  
-  /* Highlight the "current" day */
-  .days li .active {
+}
+
+/* Highlight the "current" day */
+.days li .active {
     padding: 5px;
     background: #859A7B;
     color: white !important
-  }
+}

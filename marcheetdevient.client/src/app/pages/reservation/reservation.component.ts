@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class ReservationComponent {
 
+  constructor(private router: Router) {}
+
+  allerContact(): void {
+    this.router.navigate(['contact']);
+  }
+
+  allerDetails(): void {
+    this.router.navigate(['annonce']);
+  }
 }

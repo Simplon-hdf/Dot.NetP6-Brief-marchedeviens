@@ -8,7 +8,6 @@ body{
     padding: 0;
     margin: 0;
     background: #FAF7F0;
-    opacity: 0.9;
 }
 
 ul {
@@ -46,7 +45,7 @@ a{
 
 header nav {
     overflow: hidden;
-    background-color: #859A7B;
+    background-color: #859a7b;
     position: sticky;
     width: 100%;
 }
@@ -139,7 +138,11 @@ h6{
 }
 
 footer{
+    background-color: #859a7b;
     color: #442E08;
+    width: 100%;
+    opacity: 0.9;
+    text-align: center;
 }
 
 p{
@@ -261,85 +264,15 @@ button:hover {
     margin:auto;
 }
 
-footer{
-    background-color: #9cc1ad;
-    width: 100%;
-    opacity: 0.9;
-    text-align: center;
-}
-
 .icons{
     margin-right: 0.8%;
     text-align: right;
 }
 
-/* Month header */
-.month {
-    padding: 70px 25px;
-    width: 93.8%;
-    background: #859A7B;
+.carte_offre_droite{
     text-align: center;
-  }
-  
-  /* Month list */
-  .month ul {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .month ul li {
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-  }
-  
-  /* Previous button inside month header */
-  .month .prev {
-    float: left;
-    padding-top: 10px;
-  }
-  
-  /* Next button */
-  .month .next {
-    float: right;
-    padding-top: 10px;
-  }
-  
-  /* Weekdays (Mon-Sun) */
-  .weekdays {
-    margin: 0;
-    padding: 10px 0;
-    background-color:#ddd;
-  }
-  
-  .weekdays li {
-    display: inline-block;
-    width: 13.6%;
-    color: #666;
+}
+
+.carte_offre_gauche{
     text-align: center;
-  }
-  
-  /* Days (1-31) */
-  .days {
-    padding: 10px 0;
-    background: #eee;
-    margin: 0;
-  }
-  
-  .days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 13.6%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:12px;
-    color: #777;
-  }
-  
-  /* Highlight the "current" day */
-  .days li .active {
-    padding: 5px;
-    background: #859A7B;
-    color: white !important
-  }
+}

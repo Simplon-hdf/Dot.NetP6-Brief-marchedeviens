@@ -8,7 +8,6 @@ body{
     padding: 0;
     margin: 0;
     background: #FAF7F0;
-    opacity: 0.9;
 }
 
 ul {
@@ -38,7 +37,7 @@ a{
     padding-top: 60px;
     background: url(https://marchedeviens.com/wp-content/uploads/2023/04/DSC8839-scaled.jpg) no-repeat fixed 50% 50%;
     background-size: cover;
-    height: 699px;
+    height: 550px;
     offset: 75%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -196,9 +195,10 @@ img {
 
 h1{
     font-family: 'Dancing Script', cursive;
+    src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
     text-align: center;
     color: #0a5751;
-    font-size: 8em;
+    font-size: 6.5em;
     margin-top: 125px;
     text-shadow: 1px 3px 2px black;
 }
