@@ -1,6 +1,5 @@
-
 import { HttpTestingController } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture } from '@angular/core/testing';
 
 import { TestBed } from '@angular/core/testing';
 
@@ -21,5 +20,3 @@ describe('AppComponent', () => {
       imports: []
     }).compileComponents();
   });
- b278f52 (feat:page offre mokup)
-});

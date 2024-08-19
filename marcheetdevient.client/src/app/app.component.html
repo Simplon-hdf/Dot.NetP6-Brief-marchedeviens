@@ -1,7 +1,22 @@
-<div>
-    <button (click)="allerPage('offres')">page offres</button>
-    <button (click)="allerPage('apropos')">APropos</button>
-    <button (click)="allerPage('offres')">page offres</button> 
-    <button (click)="allerPage('admin')">page admin</button>
-</div>
+<header>
+    <nav>
+        <div id="logo">
+            <a href="accueil">
+                <img src="https://marchedeviens.com/wp-content/uploads/2023/04/MARCHEDEVIENS_BLANC.png" alt="logo"></a>
+        </div>
+        <ul>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Connexion</a></li>
+            <div>
+                <div>
+                    <button (click)="allerPage('admin')">Admin</button>
+                    <button (click)="allerPage('apropos')">À Propos</button>
+                    <button (click)="allerPage('galerie')">Galerie</button>
+                    <button (click)="allerPage('contact')">Contact</button>
+                    <button (click)="allerPage('actus')">Actus</button>
+                    <button (click)="allerPage('annonce')">Annonce</button>
+                    <button (click)="allerPage('reservation')">Reservation</button>
+                    <button (click)="allerPage('offres')">Offres</button>
+                    <button (click)="allerPage('accueil')">Accueil</button>
+                </div>
 <router-outlet></router-outlet>

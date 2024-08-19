@@ -1,19 +1,66 @@
-    <header class = "header">
-        <img src = "MARCHEDEVIENS_BLANC.png">
-    </header>
+<!DOCTYPE html>
+<html lang="en">
 
-    <form class="form">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <br>
+    <!-- <form class="form">
         <label for="mail">Email</label>
-        <input type = "text" id = "mail">
+        <input type="text" id="mail">
         <br>
         <label for="mail">Objet:</label>
-        <input type = "text" id = "subject">
+        <input type="text" id="subject">
         <br>
         <br>
         <label for="mail">Entrez votre message ici:</label>
+        <input type="text" id="message" class="message_box">
         <br>
-        <input type = "text" id = "message" class = "message_box">
         <br>
+        <button class="Envoyer"> Envoyer</button>
         <br>
-        <input type = "submit" value = "Submit" >
-    </form>
+    </form> -->
+
+    <div class="container">
+        <h2>Formulaire de contact</h2>
+        <form action="/action_page.php">
+            <label for="fname">Nom & prénom</label>
+            <input type="text" id="fname" name="firstname" placeholder="Votre nom et prénom">
+
+            <label for="sujet">Sujet</label>
+            <input type="text" id="sujet" name="sujet" placeholder="L'objet de votre message">
+
+            <label for="emailAddress">Email</label>
+            <input id="emailAddress" type="email" name="email" placeholder="Votre email">
+
+            <label for="estPro">Je suis un professionel/association</label>
+            <br>
+            <input id="estPro" type="checkbox" name="isPro" />
+            <br>
+            <label for="subject">Message</label>
+            <textarea id="subject" name="subject" placeholder="Votre message" style="height:200px"></textarea>
+
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
+
+</body>
+<footer>
+    <div id="copyrightEtIcons">
+        <div id="copyright">
+            <br><span>© Marche&Deviens-Tous droits réservés. </span>
+        </div>
+        <div class="icons" id="icons">
+            <a href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
+            <a href="http://www.facebook.fr"><i class="fa fa-facebook"></i></a>
+
+        </div>
+    </div>
+</footer>
+
+</html>
