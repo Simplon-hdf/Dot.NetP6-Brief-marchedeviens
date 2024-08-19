@@ -8,7 +8,6 @@ body{
     padding: 0;
     margin: 0;
     background: #FAF7F0;
-    opacity: 0.9;
 }
 
 ul {
@@ -44,24 +43,6 @@ a{
     background-repeat: no-repeat;
 }
 
-header nav {
-    overflow: hidden;
-    background-color: #859A7B;
-    position: sticky;
-    width: 100%;
-}
-  
-header ul li {
-    float: right;
-    font-size: 1.2em; 
-}
-header li a {
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    padding: 10px 10px;
-    color:#442E08; 
-}
 
 #logo{
     max-width: 110px;
@@ -93,6 +74,20 @@ h6{
     text-align: right;
     font-size: 150%;
     color:#D4B886;
+}
+
+.flexCentre{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: stretch;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+input{
+    height : 35px;
+    margin-right: 5px;
 }
 
 .flex-container {
@@ -136,10 +131,6 @@ h6{
 
 .Lorem{
     color:#442E08;
-}
-
-footer{
-    color: #442E08;
 }
 
 p{
@@ -199,7 +190,7 @@ h1{
     text-align: center;
     color: #0a5751;
     font-size: 8em;
-    margin-top: 125px;
+    margin-top: 75px;
     text-shadow: 1px 3px 2px black;
 }
 
@@ -264,7 +255,6 @@ button:hover {
 footer{
     background-color: #9cc1ad;
     width: 100%;
-    opacity: 0.9;
     text-align: center;
 }
 
