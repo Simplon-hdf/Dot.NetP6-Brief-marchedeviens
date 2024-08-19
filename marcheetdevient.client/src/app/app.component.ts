@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 
 interface WeatherForecast {
@@ -15,18 +15,8 @@ interface WeatherForecast {
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-
-export class AppComponent implements OnInit{
+export class AppComponent{
   constructor(private router:Router) {}
-
-  ngOnInit() {
-    this.router.events.subscribe((event) => {
-        if (!(event instanceof NavigationEnd)) {
-            return;
-        }
-        window.scrollTo(0, 0)
-    });
-  }
   allerPage(nomPage:string):void{
     this.router.navigate([`${nomPage}`]);
   }
