@@ -40,7 +40,12 @@ button{
     height: 30px;
 }
 
-
+footer{
+    background-color: #9cc1ad;
+    width: 100%;
+    opacity: 0.9;
+    text-align: center;
+}
 
 /***************************** NAVBAR************/
 
