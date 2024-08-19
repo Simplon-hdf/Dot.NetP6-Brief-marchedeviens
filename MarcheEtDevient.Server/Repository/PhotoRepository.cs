@@ -21,7 +21,7 @@ namespace MarcheEtDevient.Server.Repository;
         if (bddPhotoSupprimer == null) { return false; }                                   // verfication de l'existance de cette id dans la table
         _contexteDeBDD.Photo.Remove(bddPhotoSupprimer);                        // Suprime l'entree correspondante
         await _contexteDeBDD.SaveChangesAsync();                                                    // Sauvegarde des changement dans la BDD         
-        return await _contexteDeBDD.Photo.FindAsync(id) != null;                         // verfication de la supression
+        return await _contexteDeBDD.Photo.FindAsync(id) == null;                         // verfication de la supression
     }
 
     public async Task<IEnumerable<Photo>> GetAll()

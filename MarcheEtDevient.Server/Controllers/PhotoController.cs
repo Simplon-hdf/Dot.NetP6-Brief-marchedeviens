@@ -68,7 +68,7 @@ namespace MarcheEtDevient.Server.Controllers
             var result = await _repository.Delete(id);      // envoi un requete de deletion vers le repository et stock le retour
             if (result)                                     // si le retour est positive
             {
-                return Ok("Supression reussi");             // revoi un ok (code ~200) 
+                return Ok("ressource supprimer");             // revoi un ok (code ~200) 
             }
             return NotFound();                              // revoie un not found (code 404)
         }
