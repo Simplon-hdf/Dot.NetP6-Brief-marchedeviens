@@ -9,6 +9,10 @@ import { ActusComponent } from './pages/actus/actus.component';
 import { AnnonceComponent } from './pages/annonce/annonce.component';
 import { MarcheEtDeviensComponent } from './pages/marche-et-deviens/marche-et-deviens.component';
 import { ReservationComponent } from './pages/reservation/reservation.component';
+import { ActusComponent } from './pages/actus/actus.component';
+import { AnnonceComponent } from './pages/annonce/annonce.component';
+import { MarcheEtDeviensComponent } from './pages/marche-et-deviens/marche-et-deviens.component';
+import { ReservationComponent } from './pages/reservation/reservation.component';
 
 const routes: Routes = [
   {path: 'offres',component: OffresComponent},
