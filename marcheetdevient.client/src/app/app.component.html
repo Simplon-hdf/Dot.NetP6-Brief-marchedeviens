@@ -3,37 +3,57 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Marche et Deviens</title>
 </head>
 
-<body>
-    <!-- Header Section -->
-    <header class="main-header">
-        <div class="logo">
-            <img src="https://marchedeviens.com/wp-content/uploads/2023/04/MARCHEDEVIENS_BLANC.png"
-                alt="Marche et Deviens">
-        </div>
-        <button id="login-btn" class="login-btn">
-            <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Se connecter">
-        </button>
-    </header>
+<!-- Header Section -->
+<header class="main-header">
+    <div class="logo">
+        <img src="https://marchedeviens.com/wp-content/uploads/2023/04/MARCHEDEVIENS_BLANC.png" alt="Marche et Deviens">
+    </div>
+    <button id="login-btn" class="login-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Se connecter">
+    </button>
+</header>
 
-    <!-- Pop-up de connexion -->
+<body>
+    <!-- Overlay pour l'arrière-plan ombragé -->
+    <div id="popup-overlay" class="popup-overlay"></div>
+
+    <!-- Pop-up de connexion/inscription -->
     <div id="login-popup" class="login-popup">
         <div class="popup-content">
-            <span class="close-popup" onclick="closePopup()">&times;</span>
-            <h2>Connexion</h2>
-            <form id="login-form">
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" required>
+            <span class="close-popup">&times;</span>
+            <h2 id="popup-title">Connexion</h2>
 
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password" required>
+            <!-- Navigation entre Connexion et Inscription -->
+            <div class="tab-switch">
+                <button id="login-tab" class="tab active">Se connecter</button>
+                <button id="signup-tab" class="tab">Créer un compte</button>
+            </div>
 
-                <button type="submit" class="btn btn-primary">Se connecter</button>
+            <!-- Formulaire de connexion -->
+            <form id="login-form" class="form active">
+                <label for="email-login">Email:</label>
+                <input type="email" id="email-login" name="email-login" required />
+                <label for="password-login">Mot de passe:</label>
+                <input type="password" id="password-login" name="password-login" required />
+                <button type="submit">Se connecter</button>
             </form>
-            <p>Pas encore de compte ? <a href="#" id="signup-link">Créer un compte</a></p>
+
+            <!-- Formulaire d'inscription -->
+            <form id="signup-form" class="form">
+                <label for="name-signup">Nom:</label>
+                <input type="text" id="name-signup" name="name-signup" required />
+                <label for="name-signup">Prénom:</label>
+                <input type="text" id="name-signup" name="name-signup" required />
+                <label for="email-signup">Email:</label>
+                <input type="email" id="email-signup" name="email-signup" required />
+                <label for="password-signup">Mot de passe:</label>
+                <input type="password" id="password-signup" name="password-signup" required />
+                <button type="submit">Créer un compte</button>
+            </form>
         </div>
     </div>
 
@@ -146,12 +166,11 @@
             <a href="mailto:ribeiro.dimitri@gmail.com" class="btn-secondary">Nous écrire</a>
         </div>
     </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Marche et Deviens.</p>
-        </div>
-    </footer>
 </body>
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Marche et Deviens.</p>
+    </div>
+</footer>
 
 </html>
