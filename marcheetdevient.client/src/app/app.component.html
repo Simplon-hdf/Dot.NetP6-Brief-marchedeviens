@@ -1,22 +1,157 @@
-<header>
-    <nav>
-        <div id="logo">
-            <a href="accueil">
-                <img src="https://marchedeviens.com/wp-content/uploads/2023/04/MARCHEDEVIENS_BLANC.png" alt="logo"></a>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marche et Deviens</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="https://marchedeviens.com/wp-content/uploads/2023/04/MARCHEDEVIENS_BLANC.png"
+                alt="Marche et Deviens">
         </div>
-        <ul>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Connexion</a></li>
-            <div>
-                <div>
-                    <button (click)="allerPage('admin')">Admin</button>
-                    <button (click)="allerPage('apropos')">À Propos</button>
-                    <button (click)="allerPage('galerie')">Galerie</button>
-                    <button (click)="allerPage('contact')">Contact</button>
-                    <button (click)="allerPage('actus')">Actus</button>
-                    <button (click)="allerPage('annonce')">Annonce</button>
-                    <button (click)="allerPage('reservation')">Reservation</button>
-                    <button (click)="allerPage('offres')">Offres</button>
-                    <button (click)="allerPage('accueil')">Accueil</button>
+        <button id="login-btn" class="login-btn">
+            <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Se connecter">
+        </button>
+    </header>
+
+    <!-- Pop-up de connexion -->
+    <div id="login-popup" class="login-popup">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <h2>Connexion</h2>
+            <form id="login-form">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+            </form>
+            <p>Pas encore de compte ? <a href="#" id="signup-link">Créer un compte</a></p>
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <section id="home" class="info-section">
+        <div class="info-content">
+            <h1>Marche et Deviens</h1>
+            <p>Vivez une retraite en forêt pour un retour à l'essentiel et une profonde introspection.</p>
+            <a href="#retreats" class="btn-primary">Découvrir nos séjours</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>À propos de nous</h2>
+            <p>Marche et Deviens propose des retraites immersives en forêt. Nos séjours sont conçus pour vous offrir un
+                espace de calme, de réflexion, et une reconnexion profonde avec la nature.</p>
+        </div>
+        <br>
+        <a class="btn-third">En savoir plus</a>
+    </section>
+
+    <!-- Section des offres des retraites-->
+    <section id="retreats">
+        <div class="container">
+            <h2>Nos Offres de Séjour en Forêt</h2>
+            <div class="retreat-offers">
+                <div class="offer-card">
+                    <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando-1.jpg"
+                        alt="Séjour en Forêt de Chênes">
+                    <div class="offer-details">
+                        <h3>Séjour en Forêt de Chênes</h3>
+                        <p>4 personnes minimum</p>
+                        <p class="price">300€ par personne</p>
+                    </div>
                 </div>
-<router-outlet></router-outlet>
+                <br>
+                <div class="offer-card">
+                    <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando.jpg"
+                        alt="Séjour en Forêt de Pins">
+                    <div class="offer-details">
+                        <h3>Séjour en Forêt de Pins</h3>
+                        <p>6 personnes minimum</p>
+                        <p class="price">350€ par personne</p>
+                    </div>
+                </div>
+                <br>
+                <div class="offer-card">
+                    <img src="https://marchedeviens.com/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-03-a-17.38.53-1536x1152.jpg"
+                        alt="Séjour en Forêt de Bouleaux">
+                    <div class="offer-details">
+                        <h3>Séjour en Laponie</h3>
+                        <p>5 personnes minimum</p>
+                        <p class="price">320€ par personne</p>
+                    </div>
+                </div>
+                <br>
+                <a class="btn-third">Découvrir d'autres séjours</a>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <div class="testimonial-carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <p>"Un séjour incroyable qui m'a permis de me reconnecter à la nature."</p>
+                <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span> <!-- Star not filled -->
+                </div>
+                <h4>- Alice</h4>
+            </div>
+            <div class="carousel-item">
+                <p>"Une expérience unique qui m'a profondément marqué."</p>
+                <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+                <h4>- Bob</h4>
+            </div>
+            <div class="carousel-item">
+                <p>"Le cadre parfait pour une introspection et un retour à l'essentiel."</p>
+                <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                    <span class="star">&#9734;</span>
+                </div>
+                <h4>- Chloé</h4>
+            </div>
+        </div>
+        <!-- Boutons de navigation -->
+        <button class="carousel-control prev" id="prev-btn">❮</button>
+        <button class="carousel-control next" id="next-btn">❯</button>
+    </div>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <p>Pour toute question ou pour réserver un séjour, n'hésitez pas à nous contacter.</p>
+            <a href="mailto:ribeiro.dimitri@gmail.com" class="btn-secondary">Nous écrire</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Marche et Deviens.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

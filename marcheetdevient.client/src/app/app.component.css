@@ -1,271 +1,505 @@
-﻿*{
-    padding: 0px;
-    margin: 0px;
-}
-
-body{
-    font-family: 'Advent Pro', sans-serif;
-    padding: 0;
-    margin: 0;
-    background: #FAF7F0;
-    opacity: 0.9;
-}
-
-ul {
+﻿/* Reset CSS */
+* {
     margin: 0;
     padding: 0;
-    list-style-type: none;
+    box-sizing: border-box;
 }
 
-li{
-    list-style-type: none;
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #442E08;
+    background-color: #FAF7F0;
 }
 
-h2{
-    text-transform: uppercase; 
-    text-align: center;
-    padding-top: 30px;
-    font-size: 2em;
-    color:#D4B886;
-}
-
-a{
-   text-decoration: none; 
-   color:#847F71;
-}
-
-#imagePrincipale{
-    padding-top: 60px;
-    background: url(https://marchedeviens.com/wp-content/uploads/2023/04/DSC8839-scaled.jpg) no-repeat fixed 50% 50%;
-    background-size: cover;
-    height: 699px;
-    offset: 75%;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-header nav {
-    overflow: hidden;
-    background-color: #859A7B;
-    position: sticky;
+/* Header Section */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-}
-  
-header ul li {
-    float: right;
-    font-size: 1.2em; 
-}
-header li a {
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    padding: 10px 10px;
-    color:#442E08; 
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    /* Adds a blur effect to the background */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Adds shadow for depth */
+    z-index: 1000;
+    /* Ensures header stays on top */
 }
 
-#logo{
+.main-header .logo img {
+    height: 40px;
+}
+
+header .login-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+header .login-btn img {
+    width: 40px;
+    height: 40px;
+}
+
+.main-header .login-btn a:hover {
+    background-color: #859A7B;
+}
+
+.logo {
     max-width: 110px;
     height: 37px;
-    float: left ;
+    float: left;
 }
 
-h3{
-    margin-top: 3vh;
+/* Info Section */
+.info-section {
+    background-image: url(https://marchedeviens.com/wp-content/uploads/2023/04/DSC8839-scaled.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #FAF7F0;
+    height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    font-size: 200%;
-    color:#D59B37;
+    padding: 0 20px;
+    margin-top: 0;
+    /* Remove any default margin */
+    position: relative;
+    /* Establishes stacking context */
+    z-index: 0;
+    /* Ensures info section is below the header */
 }
 
-h4{
+.info-section .info-content {
+    max-width: 600px;
+    background-color: rgba(69, 46, 8, 0.5);
+    /* Semi-transparent overlay */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.info-section h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+    color: #E6D8B5;
+}
+
+.info-section p {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #E6D8B5;
+}
+
+.btn-primary {
+    background-color: #D59B37;
+    color: #FAF7F0;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 22px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #442E08;
+}
+
+/* About Section */
+#about {
+    padding: 80px 20px;
     text-align: center;
-    font-size: 100%;
-    color:#D4B886;
+    background-color: #E6D8B5;
 }
 
-h5{
-    text-shadow: black;
+#about .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #442E08;
+}
+
+#about p {
+    font-size: 18px;
+    color: #442E08;
+    margin-bottom: 20px;
+}
+
+/* Retreats Section with Offers */
+#retreats {
+    background-color: #FAF7F0;
+    padding: 80px 20px;
+}
+
+#retreats .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#retreats h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #442E08;
+}
+
+.retreat-offers {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.offer-card {
+    background-color: #E6D8B5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 300px;
+    transition: transform 0.3s;
     text-align: left;
-    font-size: 175%;
-    color:#D4B886;
 }
 
-h6{
-    text-align: right;
-    font-size: 150%;
-    color:#D4B886;
+.offer-card:hover {
+    transform: scale(1.05);
 }
 
-.flex-container {
-    margin : 4%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: stretch;
+.offer-card img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+.offer-details {
+    padding: 20px;
+}
+
+.offer-details h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #442E08;
+}
+
+.offer-details p {
+    font-size: 16px;
+    color: #442E08;
+    margin-bottom: 5px;
+}
+
+.offer-details .price {
+    font-weight: bold;
+    color: #D59B37;
+    font-size: 18px;
+}
+
+/* Contact Section */
+#contact {
+    padding: 80px 20px;
+    text-align: center;
     background-color: #859A7B;
-    margin-top: 0vh;
-    margin-bottom: 3vh;
-    padding-top: 2.5vh;
-    padding-bottom: .5vh;
+    color: #FAF7F0;
 }
 
-.flex-container2 {
-    margin : 4%;
+#contact .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn-secondary {
+    background-color: #D59B37;
+    color: #FAF7F0;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 22px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #442E08;
+}
+
+.btn-third {
+    background-color: #D59B37;
+    /* Couleur de fond */
+    color: #FAF7F0;
+    /* Couleur du texte */
+    padding: 12px 24px;
+    /* Espacement intérieur */
+    text-decoration: none;
+    /* Pas de soulignement */
+    border-radius: 5px;
+    /* Coins arrondis */
+    font-size: 22px;
+    /* Taille de la police */
+    border: none;
+    /* Pas de bordure */
+    transition: background-color 0.3s;
+    /* Transition douce pour le changement de couleur */
+    display: inline-block;
+    /* Permet l'utilisation de margin auto */
+    text-align: center;
+    /* Aligne le texte au centre */
+}
+
+.btn-third:hover {
+    background-color: #442E08;
+    /* Couleur de fond au survol */
+}
+
+/* Style pour le carrousel */
+.testimonial-carousel {
+    position: relative;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #FAF7F0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-inner {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: stretch;
-    margin-top: 0vh;
-    margin-bottom: 3vh;
-    padding-top: 2.5vh;
-    padding-bottom: .5vh;
+    overflow: hidden;
+    position: relative;
+    height: 180px; /* Augmenté pour tenir compte des étoiles */
 }
 
+.carousel-item {
+    flex: 0 0 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #442E08;
+    font-size: 18px;
+}
 
-@media (max-width: 800px) {
-    .flex-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: stretch;
+.carousel-item.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-item h4 {
+    margin-top: 10px;
+    font-weight: normal;
+    color: #D59B37;
+}
+
+/* Style des étoiles */
+.rating {
+    margin-top: 10px;
+    color: #D59B37;
+}
+
+.rating .star {
+    font-size: 24px;
+    margin: 0 2px;
+}
+
+.rating .star:not(:first-child) {
+    margin-left: 4px;
+}
+
+/* Boutons de navigation */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #D59B37;
+    z-index: 10;
+}
+
+.carousel-control:hover {
+    color: #B58330;
+}
+
+.carousel-control.prev {
+    left: -40px;
+}
+
+.carousel-control.next {
+    right: -40px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .carousel-control.prev {
+        left: -20px;
+    }
+
+    .carousel-control.next {
+        right: -20px;
+    }
+
+    .testimonial-carousel {
+        padding: 15px;
     }
 }
 
-.Lorem{
-    color:#442E08;
-}
-
-footer{
-    color: #442E08;
-    background-color: #859a7b;
-    width: 100%;
+/* Footer */
+footer {
+    background-color: #442E08;
+    color: #FAF7F0;
     text-align: center;
+    padding: 20px 0;
 }
 
-p{
-    color: #442E08;
+footer p {
+    font-size: 14px;
 }
 
-video{
-    display: block;
-    margin-left: 0;
-}
-.video-container {
-    max-width: 100%; /* Set a pixel value instead if no parent container*/
-    margin: 0 auto; /* Center the container */
-}
-.video-container video {
-    width: 100%; /* Fill the available width */
-    height: auto; /* Adjust height automatically */
+#avis {
+    width: 150px;
 }
 
-img {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+/* Responsiveness */
+@media (max-width: 768px) {
+    .retreat-offers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .offer-card {
+        width: 80%;
+    }
+
+    .info-section h1 {
+        font-size: 36px;
+    }
+
+    .info-section p {
+        font-size: 16px;
+    }
 }
 
-.slider-container {
-    max-width: 800px;
-    position: relative;
-    margin: auto;
-    height: 350px;
-    overflow: hidden;
+@media (max-width: 480px) {
+    .info-section h1 {
+        font-size: 28px;
+    }
+
+    .info-section p {
+        font-size: 14px;
+    }
 }
 
-.menu {
-    position: absolute;
+/* Pop-up de connexion */
+.login-popup {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    z-index: 200; /* Plus élevé que le header */
     left: 0;
-    z-index: 11;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-}
-
-.menu label {
-    cursor: pointer;
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: #ccc;
-    border-radius: 45px;
-    margin: 0 0.2em 1em;
-}
-
-h1{
-    font-family: 'Dancing Script', cursive;
-    src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
-    text-align: center;
-    color: #0a5751;
-    font-size: 8em;
-    margin-top: 125px;
-    text-shadow: 1px 3px 2px black;
-}
-
-.menu label:hover,.menu label:focus {
-    background: #442E08;
-}
-
-.slide-input{
-    opacity: 0;
-}
-
-.slide-img {
-    width: 100%;
-    height: 300px;
-    position: absolute;
     top: 0;
-    left: 100%;
-    z-index: 10;
-    transition: left 0s 0.75s;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond sombre semi-transparent */
+}
+
+.popup-content {
+    background-color: #FAF7F0;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    color: #442E08;
+}
+
+.popup-content label {
     display: block;
-    justify-content: center;
-    align-items: center;
+    margin: 10px 0 5px;
+    color: #442E08;
 }
 
-[id^="slide"]:checked + .slide-img {
-    left: 0;
-    z-index: 100;
-    transition: left 0.65s ease-out;
-}
-
-#icons{
-    color : azure;
-}
-
-button {
-    background-color: #333333;
-    color: #f4f4f4;
+.popup-content input[type="email"],
+.popup-content input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.popup-content .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #D59B37;
     border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-button:hover {
-    background-color: #461F00;
+.popup-content .btn:hover {
+    background-color: #B58330;
 }
 
-.buttonQSN{
-    display: block;
-    margin:auto;
+.popup-content p {
+    margin-top: 20px;
+    color: #442E08;
 }
 
-.buttonOffres{
-    display: block;
-    margin:auto;
+.popup-content a {
+    color: #859A7B;
+    text-decoration: none;
 }
 
-.buttonElevage{
-    display: block;
-    margin:auto;
+.popup-content a:hover {
+    text-decoration: underline;
 }
 
-.icons{
-    margin-right: 0.8%;
-    text-align: right;
+/* Bouton pour fermer la pop-up */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-popup:hover {
+    color: #D59B37;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 90%;
+    }
 }
