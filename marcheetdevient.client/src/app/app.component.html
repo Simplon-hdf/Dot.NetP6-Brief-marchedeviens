@@ -6,17 +6,16 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Marche et Deviens</title>
 </head>
-
 <!-- Header Section -->
 <header class="main-header">
     <div class="logo">
         <img src="https://marchedeviens.com/wp-content/uploads/2023/04/MARCHEDEVIENS_BLANC.png" alt="Marche et Deviens">
     </div>
+    <button [routerLink]="['/admin']" class="btn-primary">Admin</button>
     <button id="login-btn" class="login-btn">
         <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Se connecter">
     </button>
 </header>
-
 <body>
     <!-- Overlay pour l'arrière-plan ombragé -->
     <div id="popup-overlay" class="popup-overlay"></div>
@@ -47,7 +46,7 @@
                 <label for="name-signup">Nom:</label>
                 <input type="text" id="name-signup" name="name-signup" required />
                 <label for="name-signup">Prénom:</label>
-                <input type="text" id="name-signup" name="name-signup" required />
+                <input type="text" id="firstname-signup" name="firstname-signup" required />
                 <label for="email-signup">Email:</label>
                 <input type="email" id="email-signup" name="email-signup" required />
                 <label for="password-signup">Mot de passe:</label>
@@ -65,12 +64,14 @@
             <a href="#retreats" class="btn-primary">Découvrir nos séjours</a>
         </div>
     </section>
-
+    <router-outlet></router-outlet>
     <section id="about">
         <div class="container">
             <h2>À propos de nous</h2>
-            <p>Marche et Deviens propose des retraites immersives en forêt. Nos séjours sont conçus pour vous offrir un
-                espace de calme, de réflexion, et une reconnexion profonde avec la nature.</p>
+            <p>
+                Marche et Deviens propose des retraites immersives en forêt. Nos séjours sont conçus pour vous offrir un
+                espace de calme, de réflexion, et une reconnexion profonde avec la nature.
+            </p>
         </div>
         <br>
         <a class="btn-third">En savoir plus</a>
@@ -83,7 +84,7 @@
             <div class="retreat-offers">
                 <div class="offer-card">
                     <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando-1.jpg"
-                        alt="Séjour en Forêt de Chênes">
+                         alt="Séjour en Forêt de Chênes">
                     <div class="offer-details">
                         <h3>Séjour en Forêt de Chênes</h3>
                         <p>4 personnes minimum</p>
@@ -93,7 +94,7 @@
                 <br>
                 <div class="offer-card">
                     <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando.jpg"
-                        alt="Séjour en Forêt de Pins">
+                         alt="Séjour en Forêt de Pins">
                     <div class="offer-details">
                         <h3>Séjour en Forêt de Pins</h3>
                         <p>6 personnes minimum</p>
@@ -103,7 +104,7 @@
                 <br>
                 <div class="offer-card">
                     <img src="https://marchedeviens.com/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-03-a-17.38.53-1536x1152.jpg"
-                        alt="Séjour en Forêt de Bouleaux">
+                         alt="Séjour en Forêt de Bouleaux">
                     <div class="offer-details">
                         <h3>Séjour en Laponie</h3>
                         <p>5 personnes minimum</p>
@@ -172,5 +173,4 @@
         <p>&copy; 2024 Marche et Deviens.</p>
     </div>
 </footer>
-
 </html>
