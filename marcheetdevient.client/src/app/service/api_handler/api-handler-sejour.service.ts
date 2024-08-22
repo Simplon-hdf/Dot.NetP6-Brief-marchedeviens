@@ -8,36 +8,36 @@ import { Sejour } from '../../interface/sejour'; //Import de l'interface des Sej
     providedIn: 'root',
 })
 export class ApiHandlerSejourService {
-    private endPointUrl: string = "https://localhost:7260/api/Sejour"               //On va attribuer la route d'accès aux sejours via l'API
+    private endPointUrl: string = "https://localhost:7260/api/Sejour"               //On va attribuer la route d'accï¿½s aux sejours via l'API
 
     httpClient = inject(HttpClient);
 
-    recupererSejourList(): Observable<Sejour[]> {                                   //Fonction qui permet de récuperer la liste des sejours         
-        let listfetched = this.httpClient.get<Sejour[]>(`${this.endPointUrl}`);     //On place dans un liste les éléments "Séjours" trouvé dans le endpoint
+    recupererSejourList(): Observable<Sejour[]> {                                   //Fonction qui permet de rï¿½cuperer la liste des sejours         
+        let listfetched = this.httpClient.get<Sejour[]>(`${this.endPointUrl}`);     //On place dans un liste les ï¿½lï¿½ments "Sï¿½jours" trouvï¿½ dans le endpoint
         return listfetched;                                                         //On retourne la liste
     }
 
     recupererSejourParId(id: number): Observable<Sejour> {                          //Fonction qui permet de rechercher les sejours en fonction de leurs identifiants
-        return this.httpClient.get<Sejour>(`${this.endPointUrl}/${id}`);            //Retourne l'element sejour ayant pour Id celui rentré
+        return this.httpClient.get<Sejour>(`${this.endPointUrl}/${id}`);            //Retourne l'element sejour ayant pour Id celui rentrï¿½
     }
 
 
     async ajoutSejour(sejour: Sejour) {                                              //Fonction d'ajout d'un sejour
-        this.httpClient.post(`${this.endPointUrl}`, {                               //On initialise l'ajour à la BDD
-            "nom_sejour": sejour.nomSejour,                                         //On ajoute le nom au sejour
-            "descriptif_sejour": sejour.descriptif,                                 //On ajoute un descriptif au sejour
-            "lieu_depart_sejour": sejour.lieuDepart,                                //On ajoute un lieu de départ au sejour
-            "date_debut_sejour": sejour.dateDebut,                                  //On ajoute une date de début au sejour
-            "date_fin_sejour": sejour.dateFin,                                      //On ajoute une date de fin au sejour
-            "nom_lieu_sejour": sejour.nomDuLieu,                                    //On ajoute un lieu au sejour
-            "prix_sejour": sejour.prix,                                             //On ajoute un prix au sejour
-            "min_participant_sejour": sejour.minParticipant,                        //On ajoute le nombre de participant min au sejour
-            "max_participant_sejour": sejour.maxParticipant                         //On ajoute le nombre de participant max au sejour
+        this.httpClient.post(`${this.endPointUrl}`, {                               //On initialise l'ajour ï¿½ la BDD
+            "nomSejour": sejour.nomSejour,                                         //On ajoute le nom au sejour
+            "descriptifSejour": sejour.descriptifSejour,                                 //On ajoute un descriptif au sejour
+            "lieuDepartSejour": sejour.lieuDepartSejour,                                //On ajoute un lieu de dï¿½part au sejour
+            "dateDebutSejour": sejour.dateDebutSejour.getDate,                                  //On ajoute une date de dï¿½but au sejour
+            "dateFinSejour": sejour.dateFinSejour.getDate,                                      //On ajoute une date de fin au sejour
+            "nomLieuSejour": sejour.nomLieuSejour,                                    //On ajoute un lieu au sejour
+            "prixSejour": sejour.prixSejour,                                             //On ajoute un prix au sejour
+            "minParticipantSejour": sejour.minParticipantSejour,                        //On ajoute le nombre de participant min au sejour
+            "maxParticipantSejour": sejour.maxParticipantSejour,                         //On ajoute le nombre de participant max au sejour
         }).subscribe((res: any) => {
             if (res.result) {
                 alert("Sejour ajouter a l'appli")                                   //Message qui valide l'ajout du sejour dans la BDD 
             } else {
-                alert(res.message)                                                  //Message d'erreur si l'ajout n'as pas pû être éffectué
+                alert(res.message)                                                  //Message d'erreur si l'ajout n'as pas pï¿½ ï¿½tre ï¿½ffectuï¿½
             }
         })
         //debugger;
@@ -46,9 +46,9 @@ export class ApiHandlerSejourService {
     supprimerSejour(id: number): boolean {                                          //Fonction pour la suppression d'un sejour en fonction de son ID
         try {
             this.httpClient.delete(`${this.endPointUrl}/${id}`)                     //On supprime le sejour en fonction de l'id
-            return true;                                                            //Suppression réussi
+            return true;                                                            //Suppression rï¿½ussi
         } catch (error) {                                                           
-            return false;                                                           //Suppression échoué
+            return false;                                                           //Suppression ï¿½chouï¿½
         }
     }
 
@@ -56,21 +56,21 @@ export class ApiHandlerSejourService {
         try {
             this.httpClient.put(`${this.endPointUrl}/${id}`, {                      //On recherche le sejour en fonction de son ID
                 "idPhoto": null,
-                "nom_sejour": sejour.nomSejour,                                     //On modifie le nom au sejour
-                "descriptif_sejour": sejour.descriptif,                             //On modifie un descriptif au sejour
-                "lieu_depart_sejour": sejour.lieuDepart,                            //On modifie un lieu de départ au sejour
-                "date_debut_sejour": sejour.dateDebut,                              //On modifie une date de début au sejour
-                "date_fin_sejour": sejour.dateFin,                                  //On modifie une date de fin au sejour
-                "nom_lieu_sejour": sejour.nomDuLieu,                                //On modifie un lieu au sejour
-                "prix_sejour": sejour.prix,                                         //On modifie un prix au sejour
-                "min_participant_sejour": sejour.minParticipant,                    //On modifie le nombre de participant min au sejour
-                "max_participant_sejour": sejour.maxParticipant                     //On modifie le nombre de participant max au sejour
+                "nomSejour": sejour.nomSejour,                                     //On modifie le nom au sejour
+                "descriptifSejour": sejour.descriptifSejour,                             //On modifie un descriptif au sejour
+                "lieuDepartSejour": sejour.lieuDepartSejour,                            //On modifie un lieu de dï¿½part au sejour
+                "dateDebutSejour": sejour.dateDebutSejour,                              //On modifie une date de dï¿½but au sejour
+                "dateFinSejour": sejour.dateFinSejour,                                  //On modifie une date de fin au sejour
+                "nomLieuSejour": sejour.nomLieuSejour,                                //On modifie un lieu au sejour
+                "prixSejour": sejour.prixSejour,                                         //On modifie un prix au sejour
+                "minParticipantSejour": sejour.minParticipantSejour,                    //On modifie le nombre de participant min au sejour
+                "maxParticipantSejour": sejour.maxParticipantSejour,                     //On modifie le nombre de participant max au sejour
             })
-        } catch (error) {                                                           //Message d'erreur si modification échoué
+        } catch (error) {                                                           //Message d'erreur si modification ï¿½chouï¿½
 
         }
     }
-    getData(): Observable<HttpResponse<any>> {                                      //Fonction de récupération des données suite à la requête
-        return this.httpClient.get<any>(this.endPointUrl, { observe: 'response' }); //Retourne la réponse de la requête
+    getData(): Observable<HttpResponse<any>> {                                      //Fonction de rï¿½cupï¿½ration des donnï¿½es suite ï¿½ la requï¿½te
+        return this.httpClient.get<any>(this.endPointUrl, { observe: 'response' }); //Retourne la rï¿½ponse de la requï¿½te
     }
 }

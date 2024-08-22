@@ -47,17 +47,17 @@ export class SejourcommandeBoxComponent implements OnInit {
 
     async ajoutSejour() {
         let sejourAjout: Sejour = {
-            id: null,
+            idSejour: null,
             nomSejour: this.postNomSejour,
-            descriptif: this.postDescriptif,
-            lieuDepart: this.postLieuDepart,
-            dateDebut: this.postDateDebut,
-            dateFin: this.postDateFin,
-            nomDuLieu: this.postNomLieu,
-            prix: this.postPrix,
-            minParticipant: this.postNumPartMin,
-            maxParticipant: this.postNumPartMax,
-            actualParticipant : null,
+            descriptifSejour: this.postDescriptif,
+            lieuDepartSejour: this.postLieuDepart,
+            dateDebutSejour: this.postDateDebut,
+            dateFinSejour: this.postDateFin,
+            nomLieuSejour: this.postNomLieu,
+            prixSejour: this.postPrix,
+            minParticipantSejour: this.postNumPartMin,
+            maxParticipantSejour: this.postNumPartMax,
+            totalParticipantActuelSejour : null,
         }
         this.apiHandlerSejour.ajoutSejour(sejourAjout);
         alert(`reussite`)
