@@ -11,7 +11,7 @@ public partial class Photo
     public int IdPhoto { get; set; }
 
     [Column("date_photo"), Required]
-    public DateTime? DatePhoto { get; set; }
+    public DateOnly? DatePhoto { get; set; }
 
     [Column("est_publique_photo"), Required]
     public bool? EstPubliquePhoto { get; set; }
