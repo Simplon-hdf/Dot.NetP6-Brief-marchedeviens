@@ -26,6 +26,6 @@ namespace MarcheEtDevient.Server.ModelsDTO
         public int Age { get; set; }
 
         [Required, MinLength(9), MaxLength(10)]
-        public int Age { get; set; }
+        public int Telephone { get; set; }
     }
 }
