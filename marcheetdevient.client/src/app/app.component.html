@@ -36,27 +36,34 @@
             <!-- Formulaire de connexion -->
             <form id="login-form" class="form active">
                 <label for="email-login">Email:</label>
-                <input type="email" id="email-login" name="email-login" required />
+                <input type="email" id="email-login" name="email-login" required [(ngModel)]="loginMail"/>
                 <label for="password-login">Mot de passe:</label>
-                <input type="password" id="password-login" name="password-login" required />
-                <button type="submit">Se connecter</button>
+                <input type="password" id="password-login" name="password-login" required [(ngModel)]="loginMDP"/>
+                <button type="submit" (click)="envoieFormConnection()">Se connecter</button>
             </form>
 
             <!-- Formulaire d'inscription -->
             <form id="signup-form" class="form">
-                <!--Email--> <label for="email-signup">Email:</label> <input type="email" id="email-signup"
-                    name="email-signup" required />
-                <!--Nom--> <label for="name-signup">Nom:</label> <input type="text" id="name-signup" name="name-signup"
-                    required />
-                <!--Prénom--> <label for="firstname-signup">Prénom:</label> <input type="text" id="firstname-signup"
-                    name="firstname-signup" required />
-                <!--Age--> <label for="age-signup">Age:</label> <input type="text" id="age-signup" name="age-signup"
-                    required />
-                <!--Telephone--> <label for="telephone-signup">Telephone:</label> <input type="text"
-                    id="telephone-signup" name="telephone-signup" required />
-                <!--Mdp--> <label for="password-signup">Mot de passe:</label> <input type="password"
-                    id="password-signup" name="password-signup" required />
-                <!--Boutton--> <button type="submit">Créer un compte</button>
+
+                <!--Email--> <label for="email-signup">Email:</label> 
+                <input type="email" id="email-signup" name="email-signup" required [(ngModel)]="registerMail" />
+
+                <!--Nom--> <label for="name-signup">Nom:</label> 
+                <input type="text" id="name-signup" name="name-signup" required [(ngModel)]="registerNom"/>
+
+                <!--Prénom--> <label for="firstname-signup">Prénom:</label>
+                <input type="text" id="firstname-signup" name="firstname-signup" required [(ngModel)]="registerPrenom"/>
+
+                <!--Age--> <label for="age-signup">Age:</label>
+                <input type="text" id="age-signup" name="age-signup" required [(ngModel)]="registerAge"/>
+
+                <!--Telephone--> <label for="telephone-signup">Telephone:</label>
+                <input type="text" id="telephone-signup" name="telephone-signup" required [(ngModel)]="registerTelephone"/>
+
+                <!--Mdp--> <label for="password-signup">Mot de passe:</label>
+                <input type="password" id="password-signup" name="password-signup" required [(ngModel)]="registerMDP"/>
+
+                <!--Boutton--> <button type="submit" (click)="envoieFormInscription()">Créer un compte</button>
             </form>
         </div>
     </div>

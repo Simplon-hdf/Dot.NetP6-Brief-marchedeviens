@@ -21,7 +21,7 @@ export class ApiHandlerSejourService {
         return this.httpClient.get<Sejour>(`${this.endPointUrl}/${id}`);            //Retourne l'element sejour ayant pour Id celui rentr�
     }
 
-
+    
     async ajoutSejour(sejour: Sejour) {                                              //Fonction d'ajout d'un sejour
         this.httpClient.post(`${this.endPointUrl}`, {                               //On initialise l'ajour � la BDD
             "nomSejour": sejour.nomSejour,                                         //On ajoute le nom au sejour

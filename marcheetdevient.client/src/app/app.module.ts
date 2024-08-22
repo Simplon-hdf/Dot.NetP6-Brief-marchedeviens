@@ -10,6 +10,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ActusComponent } from './pages/actus/actus.component';
 import { ApiHandlerPhotoService } from './service/api_handler/api-handler-photo.service';
 import { provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { provideHttpClient } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule, 
     AdminComponent,
+    FormsModule
   ],
   providers: [ApiHandlerPhotoService,provideHttpClient()],
   bootstrap: [AppComponent ,]
