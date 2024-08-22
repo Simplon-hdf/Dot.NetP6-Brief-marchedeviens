@@ -1,13 +1,13 @@
 export interface Sejour {
-    id: number | null;
+    idSejour: number | null;
     nomSejour: string;
-    descriptif: string;
-    lieuDepart: string;
-    dateDebut: Date;
-    dateFin: Date;
-    nomDuLieu: string;
-    prix: number;
-    minParticipant:number;
-    maxParticipant:number;
-    actualParticipant: number | null;
+    descriptifSejour: string;
+    lieuDepartSejour: string;
+    dateDebutSejour: Date;
+    dateFinSejour: Date;
+    nomLieuSejour: string;
+    prixSejour: number;
+    minParticipantSejour:number;
+    maxParticipantSejour:number;
+    totalParticipantActuelSejour: number | null;
 }

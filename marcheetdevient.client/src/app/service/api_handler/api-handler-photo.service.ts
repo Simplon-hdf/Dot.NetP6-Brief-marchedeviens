@@ -1,6 +1,6 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map , of } from 'rxjs';
 import { Photo } from '../../interface/photo';
 
 
@@ -32,33 +32,38 @@ export class ApiHandlerPhotoService {
       if (res.result) {
         alert("Photo ajouter a l'appli")
       } else {
-        alert(res.message)
+        alert(res.mess + "test")
       }
     })
     //debugger;
   }
 
-  suprimerPhoto(id: number): boolean{
-    try {
-      this.httpClient.delete(`${this.endPointUrl}/${id}`)
-      return true;
-    } catch (error) {
-      return false;
-    }
+  async supprimerPhoto(id: number) {
+    await this.httpClient.delete(`${this.endPointUrl}/${id}`)
+        .subscribe((res: any) => {
+          if(res == null){
+            alert("supression reussie")
+          }
+          else{
+            alert("supression non resolu")
+          }
+        });
+        
   }
 
   majPhoto(id: number,image: Photo){
-    try {
       this.httpClient.put(`${this.endPointUrl}/${id}`,{
-        "idPhoto": null,
         "datePhoto":image.datePhoto,
         "estPubliquePhoto": image.estPubliquePhoto,
         "donneePhoto": image.donneePhoto,
         "idSejour": image.idSejour
+      }).subscribe((res: any) => {
+        if (res.result) {
+          alert("Photo modifier dans l'appli")
+        } else {
+          alert(res.message)
+        }
       })
-    } catch (error) {
-      
-    }
   }
   getData(): Observable<HttpResponse<any>> {
     return this.httpClient.get<any>(this.endPointUrl, { observe: 'response' });

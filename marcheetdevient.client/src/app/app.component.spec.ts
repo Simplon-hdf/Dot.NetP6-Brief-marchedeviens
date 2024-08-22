@@ -11,7 +11,7 @@ describe('AppComponent', () => {
       declarations: [AppComponent],
       imports: []
     }).compileComponents();
-  });
+  })});
 
 
   beforeEach(async () => {

@@ -4,13 +4,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAngularOrigins",
-    builder =>
-    {
-        builder.WithOrigins("https://127.0.0.1:4200")
-               .AllowAnyHeader()
-               .AllowAnyMethod();
-    });
+    options.AddPolicy("AllowLocalHost",
+builder =>
+{
+    builder.WithOrigins("https://127.0.0.1:4200", "https://localhost:4200")
+           .AllowAnyHeader()
+           .AllowAnyMethod();
+});
 });
 
 // Add services to the container.
@@ -25,7 +25,7 @@ builder.Services.AddDbContext<ApiDBContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("DataBaseContexteClasse"));
 });
 var app = builder.Build();
-
+app.UseCors("AllowLocalHost");
 app.UseDefaultFiles();
 app.UseStaticFiles();
 // Configure the HTTP request pipeline.
@@ -35,7 +35,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowAngularOrigins");
 
 app.UseHttpsRedirection();
 

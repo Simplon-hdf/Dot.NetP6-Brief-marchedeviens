@@ -3,17 +3,17 @@
         <h3>list</h3>
         <div *ngFor="let sejour of listSejour">
             <!-- Affichez les d�tails du sejour ici -->
-            <p>ID: {{sejour.id}}</p>
+            <p>ID: {{sejour.idSejour}}</p>
             <p>Nom du sejour: {{sejour.nomSejour}}</p>
-            <p>Description: {{sejour.descriptif}}</p>
-            <p>Lieu de depart: {{sejour.lieuDepart}}</p>
-            <p>Date du debut: {{sejour.dateDebut}}</p>
-            <p>Date de fin: {{sejour.dateFin}}</p>
-            <p>Nom du lieu: {{sejour.nomDuLieu}}</p>
-            <p>Prix: {{sejour.prix}}</p>
-            <p>Nombre de participant min: {{sejour.minParticipant}}</p>
-            <p>Nombre de participant max: {{sejour.maxParticipant}}</p>
-            <p>Nombre de participant actuel: {{sejour.actualParticipant}}</p>
+            <p>Description: {{sejour.descriptifSejour}}</p>
+            <p>Lieu de depart: {{sejour.lieuDepartSejour}}</p>
+            <p>Date du debut: {{sejour.dateDebutSejour}}</p>
+            <p>Date de fin: {{sejour.dateFinSejour}}</p>
+            <p>Nom du lieu: {{sejour.nomLieuSejour}}</p>
+            <p>Prix: {{sejour.prixSejour}}</p>
+            <p>Nombre de participant min: {{sejour.minParticipantSejour}}</p>
+            <p>Nombre de participant max: {{sejour.maxParticipantSejour}}</p>
+            <p>Nombre de participant actuel: {{sejour.totalParticipantActuelSejour}}</p>
         </div>
     </section>
 
@@ -42,11 +42,11 @@
 
             <section class="flex_row">
                 <p>Date de fin du sejour</p>
-                <input type="date" name="date_fin" id="date_fin" [(ngModel)]="postDateDebut" />
+                <input type="date" name="date_fin" id="date_fin" [(ngModel)]="postDateFin" />
             </section>
 
             <section class="flex_row">
-                <p>Lieu de la randonn�e</p>
+                <p>Lieu de la randonnee</p>
                 <input type="text" name="lieu_rando" id="lieu_rando" [(ngModel)]="postNomLieu" />
             </section>
 
@@ -77,7 +77,7 @@
             <section class="flex_row">
                 <input list="list_sejour" name="suprimer_list_sejour" id="suprimer_list_sejour" />
                 <datalist id="list_sejour" *ngFor="let sejour of listSejour">
-                    <option value="{{sejour.id}}">
+                    <option value="{{sejour.idSejour}}">
                 </datalist>
             </section>
             <button>Confirmer Suprimer</button>

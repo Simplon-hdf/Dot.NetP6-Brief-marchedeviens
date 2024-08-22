@@ -1,7 +1,7 @@
 <section class="grid_parrent">
     <section class="carte_commande_list flex_colum">
         <h3>list</h3>
-        <div *ngFor="let photo of listPhoto">
+        <div *ngFor="let photo of listPhoto | async">
             <!-- Affichez les détails de la photo ici -->
             <p>ID: {{photo.idPhoto}}</p>
             <p>Date: {{photo.datePhoto}}</p>
@@ -12,7 +12,7 @@
     </section>
 
     <section class="carte_commande_ajout flex_colum">
-        <h3>ajout {{postDatePhoto}}</h3>
+        <h3>ajout</h3>
         <form action="" method="post">
 
             <section class="flex_row">
@@ -44,47 +44,54 @@
     <section class="carte_commande_supprimer flex_colum">
         <h3>supprimer</h3>
         <p>Photo a supprimer</p>
-
-        <form action="" method="post">
+    
+        <form (ngSubmit)="supprimerPhotoCommande()">
             <section class="flex_row">
-                <input list="list_photo" name="suprimer_list_photo" id="suprimer_list_photo"/>
-                <datalist id="list_photo" *ngFor="let photo of listPhoto">
-                    <option value="{{photo.idPhoto}}">
-                </datalist>
+                <select name="suprimer_list_photo" id="suprimer_list_photo" 
+                        [(ngModel)]="supprimerIdPhoto">
+                    <option value="">Sélectionnez une photo</option>
+                    <option *ngFor="let photo of listPhoto | async" [value]="photo.idPhoto">
+                        {{photo.idPhoto}}
+                    </option>
+                </select>
             </section>
-            <button>Confirmer Suprimer</button>
+            <button type="submit">Confirmer Supprimer</button>
         </form>
     </section>
 
     <section class="carte_commande_maj flex_colum">
         <h3>metre a jour</h3>
+
         <form action="" method="post">
             <section class="flex_row">
                 <p>photo a metre a jour</p>
-                <input list="list_photo" />
-                <datalist id="list_photo">
-
-                </datalist>
+                <select name="suprimer_list_photo" id="suprimer_list_photo" 
+                        [(ngModel)]="modifIdPhoto">
+                    <option value="">Sélectionnez une photo</option>
+                    <option *ngFor="let photo of listPhoto | async" [value]="photo.idPhoto">
+                        {{photo.idPhoto}}
+                    </option>
+                </select>
             </section>
+
             <section class="flex_row">
                 <p>lien de la photo</p>
-                <input type="text" name="lien_de_la_photo" id="lien_de_la_photo"/>
+                <input type="text" name="maj_lien_de_la_photo" id="maj_lien_de_la_photo_modif" [(ngModel)]="modifLienPhoto"/>
             </section>
 
             <section class="flex_row">
                 <p>date de prise de la photo</p>
-                <input type="datetime" name="date_photo" id="date_photo">
+                <input type="date" name="maj_date_photo" id="maj_date_photo" [(ngModel)]="modifDatePhoto">
             </section>
 
             <section class="flex_row">
                 <p>la photo est elle publique</p>
-                <input type="checkbox" name="photo_publique" id="photo_publique" />
+                <input type="checkbox" name="maj_photo_publique" id="maj_photo_publique" [(ngModel)]="modifEstPublique"/>
             </section>
 
             <section class="flex_row">
                 <p>lier a un sejour</p>
-                <input list="id_sejour" name="maj_sejour_list" id="maj_sejour_list"/>
-
+                <input list="id_sejour" name="maj_sejour_list" id="maj_sejour_list" [(ngModel)]="modifSejourLier"/>
                 <datalist id="id_sejour">
                 </datalist>
             </section>
