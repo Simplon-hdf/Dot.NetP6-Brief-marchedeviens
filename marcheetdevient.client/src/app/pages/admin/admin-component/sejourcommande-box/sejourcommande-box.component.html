@@ -1,0 +1,144 @@
+<section class="grid_parrent">
+    <section class="carte_commande_list flex_colum">
+        <h3>list</h3>
+        <div *ngFor="let sejour of listSejour">
+            <!-- Affichez les d�tails du sejour ici -->
+            <p>ID: {{sejour.id}}</p>
+            <p>Nom du sejour: {{sejour.nomSejour}}</p>
+            <p>Description: {{sejour.descriptif}}</p>
+            <p>Lieu de depart: {{sejour.lieuDepart}}</p>
+            <p>Date du debut: {{sejour.dateDebut}}</p>
+            <p>Date de fin: {{sejour.dateFin}}</p>
+            <p>Nom du lieu: {{sejour.nomDuLieu}}</p>
+            <p>Prix: {{sejour.prix}}</p>
+            <p>Nombre de participant min: {{sejour.minParticipant}}</p>
+            <p>Nombre de participant max: {{sejour.maxParticipant}}</p>
+            <p>Nombre de participant actuel: {{sejour.actualParticipant}}</p>
+        </div>
+    </section>
+
+    <section class="carte_commande_ajout flex_colum">
+        <form action="" method="post">
+
+            <section class="flex_row">
+                <p>Nom du sejour</p>
+                <input type="text" name="nom_du_sejour" id="nom_du_sejour" [(ngModel)]="postNomSejour" />
+            </section>
+
+            <section class="flex_row">
+                <p>Description du sejour</p>
+                <input type="text" name="description_sejour" id="description_sejour" [(ngModel)]="postDescriptif" />
+            </section>
+
+            <section class="flex_row">
+                <p>Lieu de depart du sejour</p>
+                <input type="text" name="lieu_depart" id="lieu_depart" [(ngModel)]="postLieuDepart" />
+            </section>
+
+            <section class="flex_row">
+                <p>Date de debut du sejour</p>
+                <input type="date" name="date_debut" id="date_debut" [(ngModel)]="postDateDebut" />
+            </section>
+
+            <section class="flex_row">
+                <p>Date de fin du sejour</p>
+                <input type="date" name="date_fin" id="date_fin" [(ngModel)]="postDateDebut" />
+            </section>
+
+            <section class="flex_row">
+                <p>Lieu de la randonn�e</p>
+                <input type="text" name="lieu_rando" id="lieu_rando" [(ngModel)]="postNomLieu" />
+            </section>
+
+            <section class="flex_row">
+                <p>Prix du sejour</p>
+                <input type="text" name="prix_sejour" id="prix_sejour" [(ngModel)]="postPrix" />
+            </section>
+
+            <section class="flex_row">
+                <p>Nombre minimum de participant</p>
+                <input type="text" name="min_participant" id="min_participant" [(ngModel)]="postNumPartMin" />
+            </section>
+
+            <section class="flex_row">
+                <p>Nombre maximum de participant</p>
+                <input type="text" name="max_participant" id="max_participant" [(ngModel)]="postNumPartMax" />
+            </section>
+
+            <button (click)="ajoutSejour()">Ajouter</button>
+        </form>
+    </section>
+
+    <section class="carte_commande_supprimer flex_colum">
+        <h3>supprimer</h3>
+        <p>Sejour a supprimer</p>
+
+        <form action="" method="post">
+            <section class="flex_row">
+                <input list="list_sejour" name="suprimer_list_sejour" id="suprimer_list_sejour" />
+                <datalist id="list_sejour" *ngFor="let sejour of listSejour">
+                    <option value="{{sejour.id}}">
+                </datalist>
+            </section>
+            <button>Confirmer Suprimer</button>
+        </form>
+    </section>
+
+    <section class="carte_commande_maj flex_colum">
+        <h3>metre a jour</h3>
+        <form action="" method="post">
+            <section class="flex_row">
+                <p>sejour a metre a jour</p>
+                <input list="list_sejour" />
+                <datalist id="list_sejour">
+                </datalist>
+            </section>
+            <section class="flex_row">
+                <p>Nom du sejour</p>
+                <input type="text" name="nom_du_sejour" id="nom_du_sejour"/>
+            </section>
+
+            <section class="flex_row">
+                <p>Description du sejour</p>
+                <input type="text" name="description_sejour" id="description_sejour"/>
+            </section>
+
+            <section class="flex_row">
+                <p>Lieu de depart du sejour</p>
+                <input type="text" name="lieu_depart" id="lieu_depart" />
+            </section>
+
+            <section class="flex_row">
+                <p>Date de debut du sejour</p>
+                <input type="date" name="date_debut" id="date_debut"/>
+            </section>
+
+            <section class="flex_row">
+                <p>Date de fin du sejour</p>
+                <input type="date" name="date_fin" id="date_fin"/>
+            </section>
+
+            <section class="flex_row">
+                <p>Lieu de la randonn�e</p>
+                <input type="text" name="lieu_rando" id="lieu_rando"/>
+            </section>
+
+            <section class="flex_row">
+                <p>Prix du sejour</p>
+                <input type="text" name="prix_sejour" id="prix_sejour"/>
+            </section>
+
+            <section class="flex_row">
+                <p>Nombre minimum de participant</p>
+                <input type="text" name="min_participant" id="min_participant"/>
+            </section>
+
+            <section class="flex_row">
+                <p>Nombre maximum de participant</p>
+                <input type="text" name="max_participant" id="max_participant"/>
+            </section>
+
+            <button>Maj du sejour</button>
+        </form>
+    </section>
+</section>
