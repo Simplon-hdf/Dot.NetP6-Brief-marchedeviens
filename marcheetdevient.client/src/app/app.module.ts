@@ -11,6 +11,7 @@ import { ActusComponent } from './pages/actus/actus.component';
 import { ApiHandlerPhotoService } from './service/api_handler/api-handler-photo.service';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReverseObservablePipe } from './pipe/reverse-observable.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     ActusComponent,
     AproposComponent,
     GalerieComponent,
+    ReverseObservablePipe,
     ],
   imports: [
     BrowserModule,
@@ -27,8 +29,8 @@ import { FormsModule } from '@angular/forms';
     AdminComponent,
     FormsModule
   ],
-  providers: [ApiHandlerPhotoService,provideHttpClient()],
-  bootstrap: [AppComponent ,]
+  providers: [ApiHandlerPhotoService,provideHttpClient(),ReverseObservablePipe],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
  
