@@ -2,16 +2,19 @@ using MarcheEtDevient.Server.Data;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
+// Ajoutez les services CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowLocalHost",
-builder =>
-{
-    builder.WithOrigins("https://127.0.0.1:4200", "https://localhost:4200")
-           .AllowAnyHeader()
-           .AllowAnyMethod();
+    options.AddPolicy("AllowAll",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
 });
-});
+
+
 
 // Add services to the container.
 
@@ -25,7 +28,7 @@ builder.Services.AddDbContext<ApiDBContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("DataBaseContexteClasse"));
 });
 var app = builder.Build();
-app.UseCors("AllowLocalHost");
+app.UseCors("AllowAll");
 app.UseDefaultFiles();
 app.UseStaticFiles();
 // Configure the HTTP request pipeline.
