@@ -27,8 +27,8 @@ export class ApiHandlerSejourService {
             "nomSejour": sejour.nomSejour,                                         //On ajoute le nom au sejour
             "descriptifSejour": sejour.descriptifSejour,                                 //On ajoute un descriptif au sejour
             "lieuDepartSejour": sejour.lieuDepartSejour,                                //On ajoute un lieu de d�part au sejour
-            "dateDebutSejour": sejour.dateDebutSejour.getDate,                                  //On ajoute une date de d�but au sejour
-            "dateFinSejour": sejour.dateFinSejour.getDate,                                      //On ajoute une date de fin au sejour
+            "dateDebutSejour": sejour.dateDebutSejour,                                  //On ajoute une date de d�but au sejour
+            "dateFinSejour": sejour.dateFinSejour,                                      //On ajoute une date de fin au sejour
             "nomLieuSejour": sejour.nomLieuSejour,                                    //On ajoute un lieu au sejour
             "prixSejour": sejour.prixSejour,                                             //On ajoute un prix au sejour
             "minParticipantSejour": sejour.minParticipantSejour,                        //On ajoute le nombre de participant min au sejour
