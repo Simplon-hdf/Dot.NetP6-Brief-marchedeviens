@@ -6,7 +6,7 @@ namespace MarcheEtDevient.Server.ModelsDTO
     public class UtilisateurDTO
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required, MaxLength(50)]
         public string Mail { get; set; }
@@ -23,9 +23,9 @@ namespace MarcheEtDevient.Server.ModelsDTO
         public string Mdp { get; set; }
 
         [Required, MaxLength(2)]
-        public int Age { get; set; }
+        public Int16 Age { get; set; }
 
         [Required, MinLength(9), MaxLength(10)]
-        public int Telephone { get; set; }
+        public string Telephone { get; set; }
     }
 }

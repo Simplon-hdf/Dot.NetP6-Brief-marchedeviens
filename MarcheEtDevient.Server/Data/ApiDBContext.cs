@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using MarcheEtDevient.Server.Models;
+using MarcheEtDevient.Server.ModelsDTO;
 
 namespace MarcheEtDevient.Server.Data;
 
