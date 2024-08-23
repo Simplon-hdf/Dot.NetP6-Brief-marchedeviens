@@ -14,4 +14,12 @@ export class OffresComponent {
   ngOnInit() {
     this.apiHandlerSejour.recupererSejourList().subscribe((data) => { this.listSejour = of(data); console.log(data) });
   }
+  public pourcentageDeBarreRemplie(max: number, personneInscrite: number| null):number{
+    if(personneInscrite == null){
+      return 100;
+    }
+    else{
+      return 100 - (personneInscrite / max) * 100;
+    }
+  }
 }

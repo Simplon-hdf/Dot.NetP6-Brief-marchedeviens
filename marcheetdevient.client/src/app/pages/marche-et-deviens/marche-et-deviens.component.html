@@ -1,60 +1,9 @@
- <!-- Overlay pour l'arrière-plan ombragé -->
- <div id="popup-overlay" class="popup-overlay"></div>
-
- <!-- Pop-up de connexion/inscription -->
- <div id="login-popup" class="login-popup">
-     <div class="popup-content">
-            <span class="close-popup">&times;</span>
-            <h2 id="popup-title">Connexion</h2>
-
-            <!-- Navigation entre Connexion et Inscription -->
-            <div class="tab-switch">
-                <button id="login-tab" class="tab active">Se connecter</button>
-                <button id="signup-tab" class="tab">Créer un compte</button>
-            </div>
-
-            <!-- Formulaire de connexion -->
-            <form id="login-form" class="form active">
-                <label for="email-login">Email:</label>
-                <input type="email" id="email-login" name="email-login" required [(ngModel)]="loginMail"/>
-                <label for="password-login">Mot de passe:</label>
-                <input type="password" id="password-login" name="password-login" required [(ngModel)]="loginMDP"/>
-                <button type="submit" (click)="envoieFormConnection()">Se connecter</button>
-            </form>
-
-            <!-- Formulaire d'inscription -->
-            <form id="signup-form" class="form">
-
-                <!--Email--> <label for="email-signup">Email:</label> 
-                <input type="email" id="email-signup" name="email-signup" required [(ngModel)]="registerMail" />
-
-                <!--Nom--> <label for="name-signup">Nom:</label> 
-                <input type="text" id="name-signup" name="name-signup" required [(ngModel)]="registerNom"/>
-
-                <!--Prénom--> <label for="firstname-signup">Prénom:</label>
-                <input type="text" id="firstname-signup" name="firstname-signup" required [(ngModel)]="registerPrenom"/>
-
-                <!--Age--> <label for="age-signup">Age:</label>
-                <input type="text" id="age-signup" name="age-signup" required [(ngModel)]="registerAge"/>
-
-                <!--Telephone--> <label for="telephone-signup">Telephone:</label>
-                <input type="text" id="telephone-signup" name="telephone-signup" required [(ngModel)]="registerTelephone"/>
-
-                <!--Mdp--> <label for="password-signup">Mot de passe:</label>
-                <input type="password" id="password-signup" name="password-signup" required [(ngModel)]="registerMDP"/>
-
-                <!--Boutton--> <button type="submit" (click)="envoieFormInscription()">Créer un compte</button>
-            </form>
-        </div>
-    </div>
-
-
  <!-- Info Section -->
  <section id="home" class="info-section">
      <div class="info-content">
          <h1>Marche et Deviens</h1>
          <p>Vivez une retraite en forêt pour un retour à l'essentiel et une profonde introspection.</p>
-         <a href="#retreats" class="btn-primary">Découvrir nos séjours</a>
+         <a class="btn-primary" (click)="allerOffres()">Découvrir nos séjours</a>
      </div>
  </section>
 
@@ -70,10 +19,14 @@
                     alt="photo representative du sejour">
                 <div class="offer-details">
                     <h3>{{sejour.nomSejour}}</h3>
-                    <p>randonée du {{sejour.dateDebutSejour}} aux {{sejour.dateFinSejour}}</p>
-                    <p>{{sejour.minParticipantSejour}} / {{sejour.maxParticipantSejour}} personne sont inscrite sur le sejour
-                    </p>
-                    <p class="price">{{sejour.prixSejour}}</p>
+                    <div class="progress_bar">
+                        <div class="progress_bar_fill_mask"
+                            [ngStyle]="{'width.%': pourcentageDeBarreRemplie(sejour.maxParticipantSejour, sejour.totalParticipantActuelSejour)}">
+                        </div>
+                        <p class="text_dans_la_progress_bar">{{sejour.totalParticipantActuelSejour}}({{sejour.minParticipantSejour}}
+                            min.) / {{sejour.maxParticipantSejour}} personne</p>
+                    </div>
+                    <p class="price">{{sejour.prixSejour}} €</p>
                 </div>
             </div>
             
