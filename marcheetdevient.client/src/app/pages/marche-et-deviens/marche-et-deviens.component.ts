@@ -36,45 +36,19 @@ export class MarcheEtDeviensComponent {
   apiHandlerSejour = inject(ApiHandlerSejourService)
   public listSejour: Observable<Sejour[]> = of([]);
   
-  
+  public pourcentageDeBarreRemplie(max: number, personneInscrite: number| null):number{
+    if(personneInscrite == null){
+      return 100;
+    }
+    else{
+      return 100 - (personneInscrite / max) * 100;
+    }
+  }
   
   ngOnInit() {
     this.apiHandlerSejour.recupererSejourList().subscribe((data) => { this.listSejour = of(data); console.log(data) });
     
   }
 
-  apiHandlerConnection = inject(ApiHandlerConnectionService);
-  //variable de formulaire de login / register
-  registerId: string = "";
-  registerMail: string = "";
-  registerPrenom: string = "";
-  registerNom: string = "";
-  registerMDP: string = "";
-  registerAge: number = 0;
-  registerTelephone: number = 0;
-
-  loginMail: string = "";
-  loginMDP: string = "";
-
-  envoieFormInscription() {
-    let inscription: Register = {
-      nom: this.registerNom,
-      prenom: this.registerPrenom,
-      email: this.registerMail,
-      motDePasse: this.registerMDP,
-      telephone: this.registerTelephone,
-      age: this.registerAge,
-    };
-    this.apiHandlerConnection.inscriptionRequete(inscription);
-  }
-
-  envoieFormConnection() {
-    let connection: Login = {
-      email: this.loginMail.replace('@', "%40"),
-      motDePasse: this.loginMDP,
-    };
-    this.apiHandlerConnection.connectionRequete(connection)
-
-  }
-
+  
 }
