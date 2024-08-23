@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Register } from './interface/register';
-import { ApiHandlerConnectionService } from './service/api_handler/api-handler-connection.service';
-import { Login } from './interface/login';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -13,43 +11,14 @@ import { Login } from './interface/login';
 
 export class AppComponent {
   constructor(private router: Router) { }
-  apiHandlerConnection = inject(ApiHandlerConnectionService);
+  ngOnInit() {
+    this.allerPage("accueil");
+  }
 
   allerPage(nomPage: string): void {
     this.router.navigate([`${nomPage}`]);
   }
-  //variable de formulaire de login / register
-    registerId: string = ""  ;
-    registerMail: string = "" ;
-    registerPrenom: string = "" ;
-    registerNom: string = "" ;
-    registerMDP: string = "" ;
-    registerAge: number = 0;
-    registerTelephone: number = 0;
 
-    loginMail: string = "" ;
-    loginMDP: string = "" ;
-
-    envoieFormInscription(){
-        let inscription : Register ={
-            nom: this.registerNom,
-            prenom: this.registerPrenom,
-            email: this.registerMail,
-            motDePasse: this.registerMDP,
-            telephone: this.registerTelephone,
-            age: this.registerAge,
-        };
-        this.apiHandlerConnection.inscriptionRequete(inscription);
-    }
-
-    envoieFormConnection(){
-        let connection : Login={
-            email: this.loginMail.replace('@',"%40"),
-            motDePasse: this.loginMDP,
-        };
-        this.apiHandlerConnection.connectionRequete(connection)
-        
-    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReverseObservablePipe } from 'app/pipe/reverse-observable.pipe';
 import { MarcheEtDeviensComponent } from './marche-et-deviens.component';
 
 describe('MarcheEtDeviensComponent', () => {

@@ -1,52 +1,13 @@
-<!-- Header Section -->
-<header class="main-header">
-    <div class="logo" >
-        <img href='#' src="https://marchedeviens.com/wp-content/uploads/2023/04/MARCHEDEVIENS_BLANC.png"  alt="Marche et Deviens">
-    </div>
-    <button id="login-btn" class="login-btn">
-        <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Se connecter">
-    </button>
-</header>
-
-<body>
-<main class="main_flex">
- <!-- Section des offres des retraites-->
- <section id="retreats">
-    <div class="container">
-        <div class="retreat-offers">
-            <div class="offer-card">
-                <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando-1.jpg"
-                    alt="Séjour en Forêt de Chênes">
-                <div class="offer-details">
-                    <h3>Séjour en Forêt de Chênes</h3>
-                    <p>4 personnes minimum</p>
-                    <p class="price">300€ par personne</p>
-                </div>
-            </div>
-            <br>
-            <div class="offer-card">
-                <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando.jpg"
-                    alt="Séjour en Forêt de Pins">
-                <div class="offer-details">
-                    <h3>Séjour en Forêt de Pins</h3>
-                    <p>6 personnes minimum</p>
-                    <p class="price">350€ par personne</p>
-                </div>
-            </div>
-            <br>
-            <div class="offer-card">
-                <img src="https://marchedeviens.com/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-03-a-17.38.53-1536x1152.jpg"
-                    alt="Séjour en Forêt de Bouleaux">
-                <div class="offer-details">
-                    <h3>Séjour en Laponie</h3>
-                    <p>5 personnes minimum</p>
-                    <p class="price">320€ par personne</p>
-                </div>
-            </div>
+<main class="main_grid">
+    <!-- Section des offres des retraites-->
+    <div class="offer-card" *ngFor="let sejour of listSejour | async">
+        <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando-1.jpg"
+            alt="photo representative du sejour">
+        <div class="offer-details">
+            <h3>{{sejour.nomSejour}}</h3>
+            <p>{{sejour.minParticipantSejour}} / {{sejour.maxParticipantSejour}} personne sont inscrite sur le sejour
+            </p>
+            <p class="price">{{sejour.prixSejour}}</p>
         </div>
     </div>
-</section>
 </main>
-</body>
-
-

@@ -1,97 +1,146 @@
-<body>
-    <header>
-        <div id="imagePrincipale">
-            <h1>Marche & Deviens</h1>
-        </div>
-    </header>
-    
-    <h3>Qui sommes nous ?</h3>
-    <div class="flex-container">
-        <!--<div style="flex-basis: 550px"><video width="400" height="250" ...>
-                <source src="http://marchedeviens.com/wp-content/uploads/2023/03/Marche-et-Deviens-VF.mp4" />
-            </video></div>-->
-        <div style="flex-basis: 450px" class="Lorem">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula sollicitudin sodales.
-            Cras magna tellus, lobortis sit amet scelerisque ac, tincidunt sed urna. Pellentesque aliquet congue semper.
+ <!-- Overlay pour l'arrière-plan ombragé -->
+ <div id="popup-overlay" class="popup-overlay"></div>
+
+ <!-- Pop-up de connexion/inscription -->
+ <div id="login-popup" class="login-popup">
+     <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h2 id="popup-title">Connexion</h2>
+
+            <!-- Navigation entre Connexion et Inscription -->
+            <div class="tab-switch">
+                <button id="login-tab" class="tab active">Se connecter</button>
+                <button id="signup-tab" class="tab">Créer un compte</button>
+            </div>
+
+            <!-- Formulaire de connexion -->
+            <form id="login-form" class="form active">
+                <label for="email-login">Email:</label>
+                <input type="email" id="email-login" name="email-login" required [(ngModel)]="loginMail"/>
+                <label for="password-login">Mot de passe:</label>
+                <input type="password" id="password-login" name="password-login" required [(ngModel)]="loginMDP"/>
+                <button type="submit" (click)="envoieFormConnection()">Se connecter</button>
+            </form>
+
+            <!-- Formulaire d'inscription -->
+            <form id="signup-form" class="form">
+
+                <!--Email--> <label for="email-signup">Email:</label> 
+                <input type="email" id="email-signup" name="email-signup" required [(ngModel)]="registerMail" />
+
+                <!--Nom--> <label for="name-signup">Nom:</label> 
+                <input type="text" id="name-signup" name="name-signup" required [(ngModel)]="registerNom"/>
+
+                <!--Prénom--> <label for="firstname-signup">Prénom:</label>
+                <input type="text" id="firstname-signup" name="firstname-signup" required [(ngModel)]="registerPrenom"/>
+
+                <!--Age--> <label for="age-signup">Age:</label>
+                <input type="text" id="age-signup" name="age-signup" required [(ngModel)]="registerAge"/>
+
+                <!--Telephone--> <label for="telephone-signup">Telephone:</label>
+                <input type="text" id="telephone-signup" name="telephone-signup" required [(ngModel)]="registerTelephone"/>
+
+                <!--Mdp--> <label for="password-signup">Mot de passe:</label>
+                <input type="password" id="password-signup" name="password-signup" required [(ngModel)]="registerMDP"/>
+
+                <!--Boutton--> <button type="submit" (click)="envoieFormInscription()">Créer un compte</button>
+            </form>
         </div>
     </div>
-    <br><button class="buttonOffres" type="button" (click)="allerAPropos()">En savoir plus</button>
 
-    <h3>Nos offres</h3><br>
-    <div class="flex-container">
-        <div style="flex-basis: 450px" class="Lorem">
-            <br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula sollicitudin sodales.
-            Cras magna tellus, lobortis sit amet scelerisque ac, tincidunt sed urna.
-            Pellentesque aliquet congue semper.
-        </div>
-        <div style="flex-basis: 550px">
-            <div class="slider-container">
-                <div class="menu">
-                    <label for="slide-dot-4"></label>
-                    <label for="slide-dot-5"></label>
-                    <label for="slide-dot-6"></label>
+
+ <!-- Info Section -->
+ <section id="home" class="info-section">
+     <div class="info-content">
+         <h1>Marche et Deviens</h1>
+         <p>Vivez une retraite en forêt pour un retour à l'essentiel et une profonde introspection.</p>
+         <a href="#retreats" class="btn-primary">Découvrir nos séjours</a>
+     </div>
+ </section>
+
+
+ <!-- Section des offres des retraites-->
+ <section id="retreats">
+     <div class="container">
+         <h2>Nos Offres de Séjour en Forêt</h2>
+         <div class="retreat-offers">
+
+            <div class="offer-card" *ngFor="let sejour of inverserListSejour() | async | slice:0:3">
+                <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando-1.jpg"
+                    alt="photo representative du sejour">
+                <div class="offer-details">
+                    <h3>{{sejour.nomSejour}}</h3>
+                    <p>randonée du {{sejour.dateDebutSejour}} aux {{sejour.dateFinSejour}}</p>
+                    <p>{{sejour.minParticipantSejour}} / {{sejour.maxParticipantSejour}} personne sont inscrite sur le sejour
+                    </p>
+                    <p class="price">{{sejour.prixSejour}}</p>
                 </div>
-                <input class="slide-input" id="slide-dot-4" type="radio" name="slides" checked>
-                <img class="slide-img" src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando.jpg">
-
-                <input class="slide-input" id="slide-dot-5" type="radio" name="slides">
-                <img class="slide-img" src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando-1.jpg">
-
-                <input class="slide-input" id="slide-dot-6" type="radio" name="slides">
-                <img class="slide-img"
-                    src="https://marchedeviens.com/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-03-a-17.38.53-1536x1152.jpg">
             </div>
-        </div>
-    </div>
-    <button class="buttonOffres" type="button" (click)="allerOffres()">En savoir plus</button><br>
+            
+            <a class="btn-third" (click)="allerOffres()">Découvrir d'autres séjours</a>
+         </div>
+     </div>
+ </section>
 
-    <h3>Notre élevage</h3><br>
-    <div class="flex-container">
-        <div style="flex-basis: 550px">
-            <img src="https://marchedeviens.com/wp-content/uploads/2023/04/DSC8867-1-1024x683.jpg" alt="Alamuts"><br>
-        </div>
-        <div style="flex-basis: 450px" class="Lorem"><br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula sollicitudin sodales.
-            Cras magna tellus, lobortis sit amet scelerisque ac, tincidunt sed urna.
-            Pellentesque aliquet congue semper.
-        </div>
-    </div>
-    <button class="buttonOffres" type="button" (click)="allerAPropos()">En savoir plus</button><br>
+ <section id="about">
+     <div class="container">
+         <h2>À propos de nous</h2>
+         <p>
+             Marche et Deviens propose des retraites immersives en forêt. Nos séjours sont conçus pour vous offrir un
+             espace de calme, de réflexion, et une reconnexion profonde avec la nature.
+         </p>
+     </div>
+     <br>
+     <a class="btn-third">En savoir plus</a>
+ </section>
 
-    <div class="flex-container">
-        <div style="flex-basis: 450px" class="Lorem">
-            Ils nous recommandent !
-        </div><br>
-        <div style="flex-basis: 730px">
-            <div class="slider-container">
-                <div class="menu">
-                    <label for="slide-dot-1"></label>
-                    <label for="slide-dot-2"></label>
-                    <label for="slide-dot-3"></label>
-                </div>
-                <input class="slide-input" id="slide-dot-1" type="radio" name="slides" checked>
-                <img class="slide-img" src="C:\Users\Utilisateur\Desktop\Page Web Marche et Deviens\Pictures\Avis1.jpg">
+ <br>
 
-                <input class="slide-input" id="slide-dot-2" type="radio" name="slides">
-                <img class="slide-img" src="C:\Users\Utilisateur\Desktop\Page Web Marche et Deviens\Pictures\Avis2.jpg">
+ <div class="testimonial-carousel">
+     <div class="carousel-inner">
+         <div class="carousel-item active">
+             <p>"Un séjour incroyable qui m'a permis de me reconnecter à la nature."</p>
+             <div class="rating">
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9734;</span> <!-- Star not filled -->
+             </div>
+             <h4>- Alice</h4>
+         </div>
+         <div class="carousel-item">
+             <p>"Une expérience unique qui m'a profondément marqué."</p>
+             <div class="rating">
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+             </div>
+             <h4>- Bob</h4>
+         </div>
+         <div class="carousel-item">
+             <p>"Le cadre parfait pour une introspection et un retour à l'essentiel."</p>
+             <div class="rating">
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9734;</span>
+                 <span class="star">&#9734;</span>
+             </div>
+             <h4>- Chloé</h4>
+         </div>
+     </div>
+     <!-- Boutons de navigation -->
+     <button class="carousel-control prev" id="prev-btn">❮</button>
+     <button class="carousel-control next" id="next-btn">❯</button>
+ </div>
 
-                <input class="slide-input" id="slide-dot-3" type="radio" name="slides">
-                <img class="slide-img" src="C:\Users\Utilisateur\Desktop\Page Web Marche et Deviens\Pictures\Avis3.jpg">
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div id="copyrightEtIcons">
-            <div id="copyright">
-                <br><span>© Marche&Deviens-Tous droits réservés. </span>
-            </div>
-            <div class="icons" id="icons">
-                <a href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
-                <a href="http://www.facebook.fr"><i class="fa fa-facebook"></i></a>
-
-            </div>
-        </div>
-    </footer>
-</body>
+ <section id="contact">
+     <div class="container">
+         <h2>Contactez-nous</h2>
+         <p>Pour toute question ou pour réserver un séjour, n'hésitez pas à nous contacter.</p>
+         <a href="mailto:ribeiro.dimitri@gmail.com" class="btn-secondary">Nous écrire</a>
+     </div>
+ </section>
