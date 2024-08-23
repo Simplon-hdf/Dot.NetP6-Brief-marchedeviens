@@ -17,9 +17,15 @@ namespace MarcheEtDevient.Server.ModelsDTO
         [Required, MaxLength(50)]
         public string? Nom { get; set; }
 
-        public int? DistanceParcourue { get; set; }
+        // public int? DistanceParcourue { get; set; }
 
         [Required, DataType(DataType.Password), MaxLength(35)]
         public string Mdp { get; set; }
+
+        [Required, MaxLength(2)]
+        public int Age { get; set; }
+
+        [Required, MinLength(9), MaxLength(10)]
+        public int Telephone { get; set; }
     }
 }

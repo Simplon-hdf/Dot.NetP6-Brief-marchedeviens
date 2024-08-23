@@ -11,7 +11,7 @@ public partial class Publication
     public int IdPublication { get; set; }
 
     [Column("date_publication"), Required]
-    public DateOnly DatePublication { get; set; }
+    public string DatePublication { get; set; }
 
     [Column("id_contenu_publie"), Required]
     public int IdContenuPublie { get; set; }

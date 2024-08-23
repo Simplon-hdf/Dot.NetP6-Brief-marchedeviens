@@ -11,7 +11,7 @@ public partial class ContenuPublie
     public int IdContenuPublie { get; set; }
 
     [Column("date_contenu_publie"), Required]
-    public DateOnly DateContenuPublie { get; set; }
+    public string DateContenuPublie { get; set; }
 
     [Column("theme_contenu_publie"), MaxLength(2000) , Required]
     public string ThemeContenuPublie { get; set; } = null!;
