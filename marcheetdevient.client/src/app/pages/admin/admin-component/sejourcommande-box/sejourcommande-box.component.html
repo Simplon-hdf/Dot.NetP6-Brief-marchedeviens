@@ -1,6 +1,6 @@
 <section class="grid_parrent">
     <section class="carte_commande_list flex_colum">
-        <h3>list</h3>
+        <h3>liste des séjours</h3>
         <div *ngFor="let sejour of listSejour">
             <!-- Affichez les d�tails du sejour ici -->
             <p>ID: {{sejour.idSejour}}</p>
@@ -19,6 +19,7 @@
 
     <section class="carte_commande_ajout flex_colum">
         <form action="" method="post">
+            <h3>Ajouter</h3>
 
             <section class="flex_row">
                 <p>Nom du sejour</p>

@@ -1,6 +1,6 @@
 <section class="grid_parrent">
     <section class="carte_commande_list flex_colum">
-        <h3>list</h3>
+        <h3>liste de photos</h3>
         <div *ngFor="let photo of listPhoto | async">
             <!-- Affichez les détails de la photo ici -->
             <p>ID: {{photo.idPhoto}}</p>
@@ -12,7 +12,7 @@
     </section>
 
     <section class="carte_commande_ajout flex_colum">
-        <h3>ajout</h3>
+        <h3>ajouter</h3>
         <form action="" method="post">
 
             <section class="flex_row">
@@ -26,7 +26,7 @@
             </section>
 
             <section class="flex_row">
-                <p>la photo est elle publique</p>
+                <p>la photo est-elle publique?</p>
                 <input type="checkbox" name="photo_est_publique" id="photo_publique" [(ngModel)]="postEstPublique" />
             </section>
 
@@ -85,7 +85,7 @@
             </section>
 
             <section class="flex_row">
-                <p>la photo est elle publique</p>
+                <p>la photo est-elle publique ?</p>
                 <input type="checkbox" name="maj_photo_publique" id="maj_photo_publique" [(ngModel)]="modifEstPublique"/>
             </section>
 
