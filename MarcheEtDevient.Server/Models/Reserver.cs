@@ -23,5 +23,5 @@ public partial class Reserver
     public bool? ValidationReserver { get; set; }
 
     [Column("date_paiement_reserver")]
-    public DateTime? DatePaiementReserver { get; set; }
+    public string? DatePaiementReserver { get; set; }
 }
