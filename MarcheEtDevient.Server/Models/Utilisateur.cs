@@ -29,15 +29,11 @@ public partial class Utilisateur
     public string TelUtilisateur { get; set; } = null!;
 
     [Column("age_utilisateur"), Required]
-    public short AgeUtilisateur { get; set; }
+    public Int16 AgeUtilisateur { get; set; }
 
     [Column("permission_utilisateur"), MaxLength(50), Required]
     public string PermissionUtilisateur { get; set; } = null!;
 
     [Column("total_distance_parcourue_utilisateur"), Required]
     public int? TotalDistanceParcourueUtilisateur { get; set; }
-
-    public byte[] mdpHash { get; set; }
-
-    public byte[] mdpSalt { get; set; }
 }
