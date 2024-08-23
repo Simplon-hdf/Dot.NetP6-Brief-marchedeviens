@@ -20,10 +20,10 @@ public partial class Sejour
     public string LieuDepartSejour { get; set; } = null!;
 
     [Column("date_debut_sejour"), Required]
-    public DateOnly DateDebutSejour { get; set; }
+    public string DateDebutSejour { get; set; }
 
     [Column("date_fin_sejour"), Required]
-    public DateOnly DateFinSejour { get; set; }
+    public string DateFinSejour { get; set; }
 
     [Column("nom_lieu_sejour"), MaxLength(50), Required]
     public string NomLieuSejour { get; set; } = null!;

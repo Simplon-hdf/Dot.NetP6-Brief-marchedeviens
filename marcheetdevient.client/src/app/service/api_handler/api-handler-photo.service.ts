@@ -23,6 +23,7 @@ export class ApiHandlerPhotoService {
 
   
   async ajoutPhoto(image: Photo) {
+     
     this.httpClient.post(`${this.endPointUrl}`, {
       "datePhoto":  image.datePhoto,
       "estPubliquePhoto": image.estPubliquePhoto,
@@ -53,7 +54,7 @@ export class ApiHandlerPhotoService {
 
   majPhoto(id: number,image: Photo){
       this.httpClient.put(`${this.endPointUrl}/${id}`,{
-        "datePhoto":image.datePhoto,
+        "datePhoto": image.datePhoto,
         "estPubliquePhoto": image.estPubliquePhoto,
         "donneePhoto": image.donneePhoto,
         "idSejour": image.idSejour

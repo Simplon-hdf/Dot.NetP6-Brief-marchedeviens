@@ -17,7 +17,7 @@ public partial class Video
     public string TitreVideo { get; set; } = null!;
 
     [Column("date_sortie_video"), Required]
-    public DateOnly DateSortieVideo { get; set; }
+    public string DateSortieVideo { get; set; }
 
     [Column("descriptif_video"), MaxLength(50)]
     public string? DescriptifVideo { get; set; }

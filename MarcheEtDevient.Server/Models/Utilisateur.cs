@@ -11,7 +11,7 @@ public partial class Utilisateur
     public int IdUtilisateur { get; set; }
 
     [Column("date_creation_utilisateur"), Required]
-    public DateOnly DateCreationUtilisateur { get; set; }
+    public string DateCreationUtilisateur { get; set; }
 
     [Column("mail_utilisateur"), MaxLength(50), Required]
     public string MailUtilisateur { get; set; } = null!;
