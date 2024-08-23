@@ -9,7 +9,7 @@
     display: grid;
     grid-template-columns: repeat(3 , 1fr);
     grid-template-rows: repeat( 1fr);
-    grid-column-gap: 5vw;
+    grid-column-gap: 2vw;
     grid-row-gap: 5vh;
     justify-content: center;
 }
@@ -18,8 +18,7 @@
     background-color: #E6D8B5;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    width: 300px;
+    width: 33vh;
     transition: transform 0.3s;
     text-align: left;
 }
@@ -55,4 +54,21 @@
     font-weight: bold;
     color: #D59B37;
     font-size: 18px;
+    margin-top: 4vh;
+}
+
+/*progress bar*/
+.progress_bar{
+    width: 100%;
+    height: 5%;
+    background-image: linear-gradient(90deg, rgba(133,179,113,1) 57%, rgba(188,214,1,1) 100%);
+    
+}
+.progress_bar_fill_mask{
+    background-color: gainsboro;
+    height: 100%;
+    position: relative;
+}
+.text_dans_la_progress_bar{
+    position: absolute;
 }

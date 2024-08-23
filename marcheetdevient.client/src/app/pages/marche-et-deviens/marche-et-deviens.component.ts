@@ -15,7 +15,7 @@ import { ReverseObservablePipe } from 'app/pipe/reverse-observable.pipe';
   templateUrl: './marche-et-deviens.component.html',
   styleUrl: './marche-et-deviens.component.css',
   standalone: true,
-  imports: [CommonModule, FormsModule ],
+  imports: [CommonModule, FormsModule],
 })
 export class MarcheEtDeviensComponent {
   constructor(private router: Router , private reverseObservale : ReverseObservablePipe) {}

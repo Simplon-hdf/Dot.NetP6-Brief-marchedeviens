@@ -54,7 +54,7 @@
      <div class="info-content">
          <h1>Marche et Deviens</h1>
          <p>Vivez une retraite en forêt pour un retour à l'essentiel et une profonde introspection.</p>
-         <a href="#retreats" class="btn-primary">Découvrir nos séjours</a>
+         <a class="btn-primary" (click)="allerOffres()">Découvrir nos séjours</a>
      </div>
  </section>
 
@@ -73,7 +73,7 @@
                     <p>randonée du {{sejour.dateDebutSejour}} aux {{sejour.dateFinSejour}}</p>
                     <p>{{sejour.minParticipantSejour}} / {{sejour.maxParticipantSejour}} personne sont inscrite sur le sejour
                     </p>
-                    <p class="price">{{sejour.prixSejour}}</p>
+                    <p class="price">{{sejour.prixSejour}} €</p>
                 </div>
             </div>
             

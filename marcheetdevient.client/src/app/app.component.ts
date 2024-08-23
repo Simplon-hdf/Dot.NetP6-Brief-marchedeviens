@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnInit } from '@angular/core';
+import { ApiHandlerConnectionService } from './service/api_handler/api-handler-connection.service';
+import { Register } from './interface/register';
+import { Login } from './interface/login';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +22,38 @@ export class AppComponent {
     this.router.navigate([`${nomPage}`]);
   }
 
+  apiHandlerConnection = inject(ApiHandlerConnectionService);
+  //variable de formulaire de login / register
+  registerId: string = "";
+  registerMail: string = "";
+  registerPrenom: string = "";
+  registerNom: string = "";
+  registerMDP: string = "";
+  registerAge: number = 0;
+  registerTelephone: number = 0;
+
+  loginMail: string = "";
+  loginMDP: string = "";
+
+  envoieFormInscription() {
+    let inscription: Register = {
+      nom: this.registerNom,
+      prenom: this.registerPrenom,
+      email: this.registerMail,
+      motDePasse: this.registerMDP,
+      telephone: this.registerTelephone,
+      age: this.registerAge,
+    };
+    this.apiHandlerConnection.inscriptionRequete(inscription);
+  }
+
+  envoieFormConnection() {
+    let connection: Login = {
+      email: this.loginMail.replace('@', "%40"),
+      motDePasse: this.loginMDP,
+    };
+    this.apiHandlerConnection.connectionRequete(connection)
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
