@@ -14,7 +14,8 @@ async connectionRequete(utilisateur : Login){
     "mailUtilisateur": utilisateur.email,
     "motDePasse": utilisateur.motDePasse,
   }).subscribe((res: any) => {
-    if (res.result) {
+    console.log(res)
+    if (res.idUtilisateur != 0 || res.idUtilisateur != null) {
       alert("connection Reussi")
     } else {
       alert(res.mess)

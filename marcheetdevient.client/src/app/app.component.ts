@@ -49,7 +49,7 @@ export class AppComponent {
 
   envoieFormConnection() {
     let connection: Login = {
-      email: this.loginMail.replace('@', "%40"),
+      email: this.loginMail,
       motDePasse: this.loginMDP,
     };
     this.apiHandlerConnection.connectionRequete(connection)
