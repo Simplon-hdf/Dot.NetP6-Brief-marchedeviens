@@ -103,6 +103,7 @@ header .login-btn img {
     font-size: 22px;
     border: none;
     transition: background-color 0.3s;
+    margin-right: 5px;
 }
 
 .btn-primary:hover {
