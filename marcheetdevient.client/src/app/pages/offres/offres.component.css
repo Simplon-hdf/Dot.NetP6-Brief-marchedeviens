@@ -1,0 +1,113 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main_grid{
+    padding-top: 7vh;
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    grid-template-rows: repeat( 1fr);
+    grid-column-gap: 2vw;
+    grid-row-gap: 5vh;
+    justify-content: center;
+}
+.offer-card {
+    justify-self: center;
+    background-color: #E6D8B5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 33vh;
+    transition: transform 0.3s;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.offer-card:hover {
+    transform: scale(1.05);
+}
+
+.offer-card img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+.offer-details {
+    padding: 20px;
+}
+
+.offer-details h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #442E08;
+}
+
+.offer-details p {
+    font-size: 16px;
+    color: #442E08;
+    margin-bottom: 5px;
+}
+
+.offer-details .price {
+    font-weight: bold;
+    color: #D59B37;
+    font-size: 18px;
+    margin-top: 4vh;
+}
+
+/*progress bar*/
+.progress_bar{
+    width: 100%;
+    height: 2.5vh;
+    background-image: linear-gradient(90deg, rgba(133,179,113,1) 57%, rgba(188,214,1,1) 100%);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    
+}
+.progress_bar_fill_mask{
+    background-color: gainsboro;
+    height: 100%;
+    max-height: 2.5vh;
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: end;
+}
+.text_dans_la_progress_bar{
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.btn-third {
+    background-color: #D59B37;
+    /* Couleur de fond */
+    color: #FAF7F0;
+    /* Couleur du texte */
+    padding: 12px 24px;
+    /* Espacement interieur */
+    text-decoration: none;
+    /* Pas de soulignement */
+    border-radius: 5px;
+    /* Coins arrondis */
+    font-size: 22px;
+    /* Taille de la police */
+    border: none;
+    /* Pas de bordure */
+    transition: background-color 0.3s;
+    /* Transition douce pour le changement de couleur */
+    display: inline-block;
+    /* Permet l'utilisation de margin auto */
+    text-align: center;
+    /* Aligne le texte au centre */
+}
+
+h1 {
+    margin-top: 70px;
+    font-size: 56px;
+    margin-bottom: 20px;
+    color: #E6D8B5;
+    text-align: center;
+}

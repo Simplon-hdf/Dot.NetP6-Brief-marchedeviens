@@ -1,24 +1,80 @@
-﻿<h1 id="tableLabel">Weather forecast</h1>
+<!DOCTYPE html>
+<html lang="fr">
 
-<p>This component demonstrates fetching data from the server.</p>
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Marche et Deviens</title>
+</head>
+<!-- Header Section -->
+<header class="main-header">
+    <div class="logo" (click)='allerPage("accueil")'>
+        <img src="https://marchedeviens.com/wp-content/uploads/2023/04/MARCHEDEVIENS_BLANC.png" alt="Marche et Deviens" />
+    </div>
+    <button (click)='allerPage("admin")' class="btn-primary">Admin</button>
+    <button id="login-btn" class="login-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Se connecter">
+    </button>
+</header>
+<!-- Overlay pour l'arrière-plan ombragé -->
+<div id="popup-overlay" class="popup-overlay"></div>
 
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+<!-- Pop-up de connexion/inscription -->
+<div id="login-popup" class="login-popup">
+    <div class="popup-content">
+           <span class="close-popup">&times;</span>
+           <h2 id="popup-title">Connexion</h2>
 
-<table *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
+           <!-- Navigation entre Connexion et Inscription -->
+           <div class="tab-switch">
+               <button id="login-tab" class="tab active">Se connecter</button>
+               <button id="signup-tab" class="tab">Créer un compte</button>
+           </div>
+
+           <!-- Formulaire de connexion -->
+           <form id="login-form" class="form active">
+               <label for="email-login">Email:</label>
+               <input type="email" id="email-login" name="email-login" required [(ngModel)]="loginMail"/>
+               <label for="password-login">Mot de passe:</label>
+               <input type="password" id="password-login" name="password-login" required [(ngModel)]="loginMDP"/>
+
+               <button type="submit" (click)="envoieFormConnection()">Se connecter</button>
+           </form>
+
+           <!-- Formulaire d'inscription -->
+           <form id="signup-form" class="form">
+
+               <!--Email--> <label for="email-signup">Email:</label> 
+               <input type="email" id="email-signup" name="email-signup" required [(ngModel)]="registerMail" />
+
+               <!--Nom--> <label for="name-signup">Nom:</label> 
+               <input type="text" id="name-signup" name="name-signup" required [(ngModel)]="registerNom"/>
+
+               <!--Prénom--> <label for="firstname-signup">Prénom:</label>
+               <input type="text" id="firstname-signup" name="firstname-signup" required [(ngModel)]="registerPrenom"/>
+
+               <!--Age--> <label for="age-signup">Age:</label>
+               <input type="text" id="age-signup" name="age-signup" required [(ngModel)]="registerAge"/>
+
+               <!--Telephone--> <label for="telephone-signup">Telephone:</label>
+               <input type="text" id="telephone-signup" name="telephone-signup" required [(ngModel)]="registerTelephone"/>
+
+               <!--Mdp--> <label for="password-signup">Mot de passe:</label>
+               <input type="password" id="password-signup" name="password-signup" required [(ngModel)]="registerMDP"/>
+
+               <!--Boutton--> <button type="submit" (click)="envoieFormInscription()">Créer un compte</button>
+           </form>
+       </div>
+   </div>
+
+
+
+<body>
+    <router-outlet></router-outlet>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Marche et Deviens.</p>
+        </div>
+    </footer>
+</body>

@@ -1,0 +1,103 @@
+ <!-- Info Section -->
+ <section id="home" class="info-section">
+     <div class="info-content">
+         <h1>Marche et Deviens</h1>
+         <p>Vivez une retraite en forêt pour un retour à l'essentiel et une profonde introspection.</p>
+         <a class="btn-primary" (click)="allerOffres()">Découvrir nos séjours</a>
+         <a class="btn-primary" (click)="allerContact()">Devis personnalisé</a>
+     </div>
+ </section>
+
+
+ <!-- Section des offres des retraites-->
+ <section id="retreats">
+     <div class="container">
+         <h2>Nos Offres de Séjour en Forêt</h2>
+         <div class="retreat-offers">
+
+             <div class="offer-card" *ngFor="let sejour of inverserListSejour() | async | slice:0:3">
+                 <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando-1.jpg"
+                      alt="photo representative du sejour">
+                 <div class="offer-details">
+                     <h3>{{sejour.nomSejour}}</h3>
+                     <div class="progress_bar">
+                         <div class="progress_bar_fill_mask"
+                              [ngStyle]="{'width.%': pourcentageDeBarreRemplie(sejour.maxParticipantSejour, sejour.totalParticipantActuelSejour)}">
+                         </div>
+                         <p class="text_dans_la_progress_bar">
+                             {{sejour.totalParticipantActuelSejour}}({{sejour.minParticipantSejour}}
+                             min.) / {{sejour.maxParticipantSejour}} personne
+                         </p>
+                     </div>
+                     <p class="price">{{sejour.prixSejour}} €</p>
+                     <a class="btn-third">Réserver</a>
+                 </div>
+             </div>
+         </div>
+         <br>
+         <a class="btn-third" (click)="allerOffres()">Découvrir d'autres séjours</a>
+     </div>
+ </section>
+
+ <section id="about">
+     <div class="container">
+         <h2>À propos de nous</h2>
+         <p>
+             Marche et Deviens propose des retraites immersives en forêt. Nos séjours sont conçus pour vous offrir un
+             espace de calme, de réflexion, et une reconnexion profonde avec la nature.
+         </p>
+     </div>
+     <br>
+     <a class="btn-third">En savoir plus</a>
+ </section>
+
+ <br>
+
+ <div class="testimonial-carousel">
+     <div class="carousel-inner">
+         <div class="carousel-item active">
+             <p>"Un séjour incroyable qui m'a permis de me reconnecter à la nature."</p>
+             <div class="rating">
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9734;</span> <!-- Star not filled -->
+             </div>
+             <h4>- Alice</h4>
+         </div>
+         <div class="carousel-item">
+             <p>"Une expérience unique qui m'a profondément marqué."</p>
+             <div class="rating">
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+             </div>
+             <h4>- Bob</h4>
+         </div>
+         <div class="carousel-item">
+             <p>"Le cadre parfait pour une introspection et un retour à l'essentiel."</p>
+             <div class="rating">
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9733;</span>
+                 <span class="star">&#9734;</span>
+                 <span class="star">&#9734;</span>
+             </div>
+             <h4>- Chloé</h4>
+         </div>
+     </div>
+     <!-- Boutons de navigation -->
+     <button class="carousel-control prev" id="prev-btn">❮</button>
+     <button class="carousel-control next" id="next-btn">❯</button>
+ </div>
+
+ <section id="contact">
+     <div class="container">
+         <h2>Contactez-nous</h2>
+         <p>Pour toute question ou pour réserver un séjour, n'hésitez pas à nous contacter.</p>
+         <a href="mailto:ribeiro.dimitri@gmail.com" class="btn-secondary">Nous écrire</a>
+     </div>
+ </section>

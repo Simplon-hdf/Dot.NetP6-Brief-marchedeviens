@@ -1,14 +1,544 @@
-﻿:host {
-    max-width: 1280px;
-    padding: 2rem;
+﻿/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;;
+  }
+  
+  #app-root { /* ou le conteneur principal */
+    height: 100%;
+  }
+
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #442E08;
+    background-color: #FAF7F0;
+    height: 100%;
+    max-width: 100%;
+}
+
+/* Header Section */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 6.3vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    /* Adds a blur effect to the background */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Adds shadow for depth */
+    z-index: 1000;
+    /* Ensures header stays on top */
+}
+
+.main-header .logo img {
+    height: 40px;
+}
+
+header .login-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+header .login-btn img {
+    width: 40px;
+    height: 40px;
+}
+
+.main-header .login-btn a:hover {
+    background-color: #859A7B;
+}
+
+.logo {
+    max-width: 110px;
+    height: 37px;
+    float: left;
+}
+
+/* Info Section */
+.info-section {
+    background-image: url(https://marchedeviens.com/wp-content/uploads/2023/04/DSC8839-scaled.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #FAF7F0;
+    height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 0;
+    /* Remove any default margin */
+    position: relative;
+    /* Establishes stacking context */
+    z-index: 0;
+    /* Ensures info section is below the header */
+}
+
+.info-section .info-content {
+    max-width: 600px;
+    background-color: rgba(69, 46, 8, 0.5);
+    /* Semi-transparent overlay */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.info-section h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+    color: #E6D8B5;
+}
+
+.info-section p {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #E6D8B5;
+}
+
+.btn-primary {
+    background-color: #D59B37;
+    color: #FAF7F0;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 22px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #442E08;
+}
+
+/* About Section */
+#about {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #E6D8B5;
+    max-width: 100%;
+}
+
+#about .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #442E08;
+}
+
+#about p {
+    font-size: 18px;
+    color: #442E08;
+    margin-bottom: 20px;
+}
+
+/* Retreats Section with Offers */
+#retreats {
+    background-color: #FAF7F0;
+    padding: 80px 20px;
+}
+
+#retreats .container {
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
 }
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
+#retreats h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #442E08;
 }
 
-table {
+.retreat-offers {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.offer-card {
+    background-color: #E6D8B5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 300px;
+    transition: transform 0.3s;
+    text-align: left;
+}
+
+.offer-card:hover {
+    transform: scale(1.05);
+}
+
+.offer-card img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+.offer-details {
+    padding: 20px;
+}
+
+.offer-details h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #442E08;
+}
+
+.offer-details p {
+    font-size: 16px;
+    color: #442E08;
+    margin-bottom: 5px;
+}
+
+.offer-details .price {
+    font-weight: bold;
+    color: #D59B37;
+    font-size: 18px;
+}
+
+/* Contact Section */
+#contact {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #859A7B;
+    color: #FAF7F0;
+}
+
+#contact .container {
+    max-width: 800px;
     margin: 0 auto;
+}
+
+#contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn-secondary {
+    background-color: #D59B37;
+    color: #FAF7F0;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 22px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #442E08;
+}
+
+.btn-third {
+    background-color: #D59B37;
+    /* Couleur de fond */
+    color: #FAF7F0;
+    /* Couleur du texte */
+    padding: 12px 24px;
+    /* Espacement intérieur */
+    text-decoration: none;
+    /* Pas de soulignement */
+    border-radius: 5px;
+    /* Coins arrondis */
+    font-size: 22px;
+    /* Taille de la police */
+    border: none;
+    /* Pas de bordure */
+    transition: background-color 0.3s;
+    /* Transition douce pour le changement de couleur */
+    display: inline-block;
+    /* Permet l'utilisation de margin auto */
+    text-align: center;
+    /* Aligne le texte au centre */
+}
+
+.btn-third:hover {
+    background-color: #442E08;
+    /* Couleur de fond au survol */
+}
+
+/* Style pour le carrousel */
+.testimonial-carousel {
+    position: relative;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #FAF7F0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-inner {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    height: 180px; /* Augmenté pour tenir compte des étoiles */
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #442E08;
+    font-size: 18px;
+}
+
+.carousel-item.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-item h4 {
+    margin-top: 10px;
+    font-weight: normal;
+    color: #D59B37;
+}
+
+/* Style des étoiles */
+.rating {
+    margin-top: 10px;
+    color: #D59B37;
+}
+
+.rating .star {
+    font-size: 24px;
+    margin: 0 2px;
+}
+
+.rating .star:not(:first-child) {
+    margin-left: 4px;
+}
+
+/* Boutons de navigation */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #D59B37;
+    z-index: 10;
+}
+
+.carousel-control:hover {
+    color: #B58330;
+}
+
+.carousel-control.prev {
+    left: -40px;
+}
+
+.carousel-control.next {
+    right: -40px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .carousel-control.prev {
+        left: -20px;
+    }
+
+    .carousel-control.next {
+        right: -20px;
+    }
+
+    .testimonial-carousel {
+        padding: 15px;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #442E08;
+    color: #FAF7F0;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+#avis {
+    width: 150px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .retreat-offers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .offer-card {
+        width: 80%;
+    }
+
+    .info-section h1 {
+        font-size: 36px;
+    }
+
+    .info-section p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-section h1 {
+        font-size: 28px;
+    }
+
+    .info-section p {
+        font-size: 14px;
+    }
+}
+
+/* Bouton de connexion */
+.login-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 101;
+}
+
+/* Overlay pour l'arrière-plan ombragé */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Couleur noire semi-transparente */
+    backdrop-filter: blur(2px); /* Effet de flou sur l'arrière-plan */
+    z-index: 99; /* Derrière la pop-up mais devant le reste */
+}
+
+/* Pop-up de connexion/inscription */
+.login-popup {
+    display: none;
+    background-color: #FAF7F0;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 100; /* Devant l'overlay */
+    position: fixed; /* Centré par rapport à la fenêtre */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup-content {
+    padding: 20px;
+    position: relative;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.tab-switch {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background-color: #E6D8B5;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.tab.active {
+    background-color: #D59B37;
+    color: white;
+}
+
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+}
+
+.form label {
+    margin-top: 10px;
+    display: block;
+}
+
+.form input {
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.form button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #859A7B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 90%;
+    }
 }

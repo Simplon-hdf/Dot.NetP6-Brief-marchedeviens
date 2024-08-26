@@ -1,0 +1,10 @@
+<div class="admin_page_container">
+    <section class="conteneur_commande_admin">
+        <button (click)="selectionCommande('photo')">Photo</button>
+        <button (click)="selectionCommande('sejour')">Séjour</button>
+    </section>
+    <section class="boiteAffichage">
+        <app-photocommande-box *ngIf="this.commandeSelected == 'photo'"></app-photocommande-box>
+        <app-sejourcommande-box *ngIf="this.commandeSelected == 'sejour'"></app-sejourcommande-box>
+    </section>
+</div>

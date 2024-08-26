@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <br>
+    <div class="container">
+        <h2>Formulaire de demande de devis</h2>
+        <form action="/action_page.php">
+            <label for="fname">Nom & prénom</label>
+            <input type="text" id="fname" name="firstname" placeholder="Votre nom et prénom">
+
+            <label for="sujet">Sujet</label>
+            <input type="text" id="sujet" name="sujet" placeholder="L'objet de votre message">
+
+            <label for="emailAddress">Email</label>
+            <input id="emailAddress" type="email" name="email" placeholder="Votre email">
+
+            <label for="estPro">Je suis un professionel/association</label>
+            <br>
+            <input id="estPro" type="checkbox" name="isPro" />
+            <br>
+            <label for="subject">Message</label>
+            <textarea id="subject" name="subject" placeholder="Votre message" style="height:625px"></textarea>
+
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<h1>Les offres Marche & Deviens</h1>
+<main class="main_grid">
+    <!-- Section des offres des retraites-->
+    <div class="offer-card" *ngFor="let sejour of listSejour | async">
+        <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando-1.jpg"
+            alt="photo representative du sejour">
+        <div class="offer-details">
+            <h3>{{sejour.nomSejour}}</h3>
+            <div class="progress_bar">
+                <div class="progress_bar_fill_mask"
+                    [ngStyle]="{'width.%': pourcentageDeBarreRemplie(sejour.maxParticipantSejour, sejour.totalParticipantActuelSejour)}">
+                </div>
+                <p class="text_dans_la_progress_bar">
+                    {{sejour.totalParticipantActuelSejour}}({{sejour.minParticipantSejour}} min.) /
+                    {{sejour.maxParticipantSejour}} personne</p>
+            </div>
+            <p class="price">{{sejour.prixSejour}} €</p>
+        </div>
+        <a class="btn-third">Réserver</a>
+    </div>
+</main>

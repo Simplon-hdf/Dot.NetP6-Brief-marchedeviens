@@ -4,3 +4,8 @@ marcheetdevient.client/.vscode
 marcheetdevient.client/.editorconfig
 .vs/ProjectEvaluation
 .vs
+MarcheEtDevient.Server/obj/Debug/net8.0/MarcheEtDevient.Server.assets.cache
+marcheetdevient.client/obj/Debug
+MarcheEtDevient.Server/obj/Debug/net8.0
+MarcheEtDevient.Server/bin/Debug/net8.0
+MarcheEtDevient.Server/obj
