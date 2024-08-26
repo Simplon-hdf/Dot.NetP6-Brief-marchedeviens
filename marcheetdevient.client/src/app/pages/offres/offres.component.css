@@ -21,6 +21,7 @@
     width: 33vh;
     transition: transform 0.3s;
     text-align: left;
+    margin-bottom: 50px;
 }
 
 .offer-card:hover {
@@ -85,7 +86,7 @@
     color: #FAF7F0;
     /* Couleur du texte */
     padding: 12px 24px;
-    /* Espacement int�rieur */
+    /* Espacement interieur */
     text-decoration: none;
     /* Pas de soulignement */
     border-radius: 5px;
@@ -103,7 +104,7 @@
 }
 
 h1 {
-    margin-top: 80px;
+    margin-top: 70px;
     font-size: 56px;
     margin-bottom: 20px;
     color: #E6D8B5;
