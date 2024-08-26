@@ -522,20 +522,20 @@ footer p {
     height: 2.5vh;
     background-image: linear-gradient(90deg, rgba(133,179,113,1) 57%, rgba(188,214,1,1) 100%);
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    
 }
 .progress_bar_fill_mask{
     background-color: gainsboro;
     height: 100%;
     max-height: 2.5vh;
-    grid-area: 1 / 1 / 2 / 2;
-    z-index: 1;
+    grid-area: 1 / 1 / 2 / 3;
+    justify-self: end;
 }
 .text_dans_la_progress_bar{
-    grid-area: 1 / 1 / 2 / 2;
-    z-index: 2;
+    grid-area: 1 / 1 / 2 / 3;
+    text-align: start;
+    margin-top: 0;
 }
