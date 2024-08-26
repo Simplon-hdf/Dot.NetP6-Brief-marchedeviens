@@ -15,6 +15,8 @@ using System.Text;
 
 namespace MarcheEtDevient.Server.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class AuthentificationControlleur : ControllerBase
     {
         private readonly IAuthentificationRepository _authRepository;
