@@ -103,6 +103,7 @@ header .login-btn img {
     font-size: 22px;
     border: none;
     transition: background-color 0.3s;
+    margin-right: 5px;
 }
 
 .btn-primary:hover {
@@ -198,7 +199,7 @@ header .login-btn img {
 .offer-details .price {
     font-weight: bold;
     color: #D59B37;
-    font-size: 18px;
+    font-size: 35px;
 }
 
 /* Contact Section */

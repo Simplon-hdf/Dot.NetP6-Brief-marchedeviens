@@ -28,6 +28,10 @@ export class MarcheEtDeviensComponent {
     this.router.navigate(['apropos']);
   }
 
+  allerContact() : void {
+    this.router.navigate(['contact']);
+  }
+
   inverserListSejour(){
     let listRetournée = this.reverseObservale.transform(this.listSejour)
     return listRetournée
