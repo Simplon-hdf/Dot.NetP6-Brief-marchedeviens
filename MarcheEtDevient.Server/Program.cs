@@ -6,11 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalHost",
-builder =>
-{
-    builder.WithOrigins("https://127.0.0.1:4200", "https://localhost:4200")
-           .AllowAnyHeader()
-           .AllowAnyMethod();
+builder => {builder
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();
 });
 });
 
@@ -35,7 +34,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 
 app.UseHttpsRedirection();
 
