@@ -4,6 +4,7 @@
          <h1>Marche et Deviens</h1>
          <p>Vivez une retraite en forêt pour un retour à l'essentiel et une profonde introspection.</p>
          <a class="btn-primary" (click)="allerOffres()">Découvrir nos séjours</a>
+         <a class="btn-primary" (click)="allerContact()">Devis personnalisé</a>
      </div>
  </section>
 
@@ -14,24 +15,27 @@
          <h2>Nos Offres de Séjour en Forêt</h2>
          <div class="retreat-offers">
 
-            <div class="offer-card" *ngFor="let sejour of inverserListSejour() | async | slice:0:3">
-                <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando-1.jpg"
-                    alt="photo representative du sejour">
-                <div class="offer-details">
-                    <h3>{{sejour.nomSejour}}</h3>
-                    <div class="progress_bar">
-                        <div class="progress_bar_fill_mask"
-                            [ngStyle]="{'width.%': pourcentageDeBarreRemplie(sejour.maxParticipantSejour, sejour.totalParticipantActuelSejour)}">
-                        </div>
-                        <p class="text_dans_la_progress_bar">{{sejour.totalParticipantActuelSejour}}({{sejour.minParticipantSejour}}
-                            min.) / {{sejour.maxParticipantSejour}} personne</p>
-                    </div>
-                    <p class="price">{{sejour.prixSejour}} €</p>
-                </div>
-            </div>
-            
-            <a class="btn-third" (click)="allerOffres()">Découvrir d'autres séjours</a>
+             <div class="offer-card" *ngFor="let sejour of inverserListSejour() | async | slice:0:3">
+                 <img src="https://marchedeviens.com/wp-content/uploads/2023/05/Dim-Rando-1.jpg"
+                      alt="photo representative du sejour">
+                 <div class="offer-details">
+                     <h3>{{sejour.nomSejour}}</h3>
+                     <div class="progress_bar">
+                         <div class="progress_bar_fill_mask"
+                              [ngStyle]="{'width.%': pourcentageDeBarreRemplie(sejour.maxParticipantSejour, sejour.totalParticipantActuelSejour)}">
+                         </div>
+                         <p class="text_dans_la_progress_bar">
+                             {{sejour.totalParticipantActuelSejour}}({{sejour.minParticipantSejour}}
+                             min.) / {{sejour.maxParticipantSejour}} personne
+                         </p>
+                     </div>
+                     <p class="price">{{sejour.prixSejour}} €</p>
+                     <a class="btn-third">Réserver</a>
+                 </div>
+             </div>
          </div>
+         <br>
+         <a class="btn-third" (click)="allerOffres()">Découvrir d'autres séjours</a>
      </div>
  </section>
 
