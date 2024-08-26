@@ -78,3 +78,34 @@
 .text_dans_la_progress_bar{
     grid-area: 1 / 1 / 2 / 2;
 }
+
+.btn-third {
+    background-color: #D59B37;
+    /* Couleur de fond */
+    color: #FAF7F0;
+    /* Couleur du texte */
+    padding: 12px 24px;
+    /* Espacement int�rieur */
+    text-decoration: none;
+    /* Pas de soulignement */
+    border-radius: 5px;
+    /* Coins arrondis */
+    font-size: 22px;
+    /* Taille de la police */
+    border: none;
+    /* Pas de bordure */
+    transition: background-color 0.3s;
+    /* Transition douce pour le changement de couleur */
+    display: inline-block;
+    /* Permet l'utilisation de margin auto */
+    text-align: center;
+    /* Aligne le texte au centre */
+}
+
+h1 {
+    margin-top: 80px;
+    font-size: 56px;
+    margin-bottom: 20px;
+    color: #E6D8B5;
+    text-align: center;
+}
