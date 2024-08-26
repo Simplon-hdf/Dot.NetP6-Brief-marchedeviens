@@ -23,21 +23,28 @@ async connectionRequete(utilisateur : Login){
 }
 
 async inscriptionRequete(utilisateur : Register){
-  console.log(`le mail de l'utilisateur = ${utilisateur.email}`);
-  this.httpClient.post(`https://localhost:7260/api/AuthentificationControlleur/Inscription`, {
-    "mailUtilisateur": utilisateur.email,
-    "prenomUtilisateur": utilisateur.prenom,
-    "nomUtilisateur": utilisateur.nom,
-    "motDePasse": utilisateur.motDePasse,
-    "ageUtilisateur": utilisateur.age,
-    "nTelephoneUtilisateur": utilisateur.telephone,
-  }).subscribe((res: any) => {
-    if (res.message) {
-      console.log('Réponse reçue:', Response)
-      alert("Inscription Reussi");
-    } else {
-      alert(res.error)
-    }
-  })
-}
+  try{
+    this.httpClient.post(`https://localhost:7260/api/AuthentificationControlleur/Inscription`, {
+      "mailUtilisateur": utilisateur.email,
+      "prenomUtilisateur": utilisateur.prenom,
+      "nomUtilisateur": utilisateur.nom,
+      "motDePasse": utilisateur.motDePasse,
+      "ageUtilisateur": utilisateur.age,
+      "nTelephoneUtilisateur": utilisateur.telephone,
+    }).subscribe((res: any) => {
+      if (res = 'User registered successfully!') {
+        alert("Inscription Reussi");
+      } 
+      else if(res.ok == false){
+        alert("Inscription erreur")
+      }
+      else {
+        alert("Inscription erreur")
+      }
+    })
+  }
+  catch{
+    alert("Inscription erreur")
+  }
+  }
 }
